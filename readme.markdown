@@ -12,3 +12,5 @@ This is a simple test
     <td>2</td><td>Albert Einstein</td><td>Nearly as awesome</td>
   </tr>
 </table>
+
+Url test: http://www.number8wire.com
