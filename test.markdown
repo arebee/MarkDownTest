@@ -1,18 +1,24 @@
-﻿
-####Markdown Test
+﻿####Markdown Test
 ####Test Markup Document
 ----------
-
+    
 Some content here.
 
 # This Is A Heading1 #
 This is also a comment.
 
 **Procedure introduction**
-1. This is proc step 1
-2. Proc step 2
-  
-This is some code:
+
+1. This is proc step 1 OL
+2. Proc step 2 OL
+test
+      
+
++ This is proc step 1 UL
+
++ Proc step 2 UL
+test
+    This is some code:
 
         
           
@@ -41,7 +47,8 @@ This is a test of a line ending in a br>
 5. Open PowerShell and navigate to the project-files directory.
 6. Type “simple-build.ps1 -buildHxS”
 7. Type “get-help simple-build.ps1 -detailed” for information on switches.
-  
+test
+      
 First Column
 Second Column
 First content.
