@@ -1,5 +1,49 @@
 ﻿
-
+####Markdown Test
+####Test Markup Document
+----------
     
+Some content here.
 
-h1 markdownTest====Test para
+# This Is A Heading1 #
+This is also a comment.
+
+**Procedure introduction**
+1. This is proc step 1
+2. Proc step 2
+  
+This is some code:
+
+        
+          
+            
+              
+                C#
+                
+                  
+                    Copy Code
+                
+              
+              using System.Math
+            
+          
+        
+      
+### BR ###
+This is a test of a line ending in a br>  
+<there.
+
+# How To Build #
+1. Save this document with your changes.
+2. Edit MasterToc.xml to add your filename path. In the sample this document is in there.
+3. Edit the ppDocConfig.xml. Edit line 3, 39, 63, 66.
+4. Edit the helpConfig.xml. Edit lines 3 and 4.
+5. Open PowerShell and navigate to the project-files directory.
+6. Type “simple-build.ps1 -buildHxS”
+7. Type “get-help simple-build.ps1 -detailed” for information on switches.
+  
+First Column
+Second Column
+First content.
+Second content.
+  
