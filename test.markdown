@@ -50,3 +50,53 @@ Second Column
 First content.
 Second content.
   
+<table>
+<tr>
+<th>
+<p>First Column</p>
+</th>
+<th>
+<p>Second Column</p>
+</th>
+</tr>
+<tr>
+<td>
+<p>First content.</p>
+</td>
+<td>
+<p>Second content.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Hyperlink <hlink xlink:type="simple" xlink:show="new" xlink:actuate="onRequest" xlink:href="http://www.microsoft.com/">www.microsoft.com</hlink> </p>
+</td>
+<td>
+<br />
+</td>
+</tr>
+<tr>
+<td>
+<br />
+</td>
+<td>
+<br />
+</td>
+</tr>
+<tr>
+<td>
+<br />
+</td>
+<td>
+<br />
+</td>
+</tr>
+<tr>
+<td>
+<p>Empty rows above</p>
+</td>
+<td>
+<br />
+</td>
+</tr>
+</table>  
