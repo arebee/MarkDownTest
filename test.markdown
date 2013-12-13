@@ -24,14 +24,10 @@ test
           
             
               
-                C#
-                
-                  
-                    Copy Code
-                
-              
-              using System.Math
-            
+```C#
+    Copy Code
+    using System.Math
+```
           
         
       
