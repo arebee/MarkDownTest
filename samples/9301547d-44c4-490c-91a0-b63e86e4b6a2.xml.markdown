@@ -11,7 +11,7 @@ Order In ToC:
 
 Trace source categories associate log entries with their target listener(s). You can configure the following two category types:  
 + **Categories**  that specify the logging categories you want to use. When you create a log entry, you can assign it to one or more categories. Each category can filter the log entry based on its severity (such as **Critical** , **Error** , **Warning** , or **Information** ), and route it to one or more trace listeners (logging targets).
-+ **Special Categories ** that automatically receive all log entries, unprocessed log entries, or log entries where an error occurred during logging.  Each of these special categories can filter the log entry based on its severity (such as **Critical** , **Error** , **Warning** , or **Information** ), and route it to one or more trace listeners (logging targets).
++ **Special Categories** that automatically receive all log entries, unprocessed log entries, or log entries where an error occurred during logging.  Each of these special categories can filter the log entry based on its severity (such as **Critical** , **Error** , **Warning** , or **Information** ), and route it to one or more trace listeners (logging targets).
 # Configuring Trace Source Categories #
 The next procedure describes how to assign log entries to categories by using the configuration tool.   
 <a name="config_categorysources" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>**To configure Categories**
