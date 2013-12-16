@@ -5,8 +5,8 @@ Title:
 Order In ToC:
 ---
 
-####Markdown Test
-####Configuring Trace Source Categories
+#### Markdown Test ####
+# Configuring Trace Source Categories #
 ----------
   Trace source categories associate log entries with their target listener(s). You can configure the following two category types:
 + <b>Categories</b> that specify the logging categories you want to use. When you create a log entry, you can assign it to one or more categories. Each category can filter the log entry based on its severity (such as <b>Critical</b>, <b>Error</b>, <b>Warning</b>, or <b>Information</b>), and route it to one or more trace listeners (logging targets).
