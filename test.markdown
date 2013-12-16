@@ -1,6 +1,8 @@
 ---
-AssetID: ab9e6a18-47fa-49bf-8e3c-95206f2c260e
-Document Name: test doc.docx
+Source File Name:
+AssetID:
+Title:
+Order In ToC:
 ---
 
 ####Markdown Test
@@ -16,29 +18,32 @@ This is also a comment.
 
 1. This is proc step 1 OL
 2. Proc step 2 OL
-test
-      
 
-+ This is proc step 1 UL
+**sfdfdsfsfd**
 
-+ Proc step 2 UL
-test
-    This is some code:
++ UL list item 1
++ UL list item 2
+  
+This is some code:
 
-        
-          
-            
-              
-```C#
-    Copy Code
-    using System.Math
-```
-          
-        
+        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+          <span codeLanguage="CSharp">
+            <table width="100%" cellspacing="0" cellpadding="0">
+              <tr>
+                <th>C#</th>
+                <th>
+                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
+                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
+                </th>
+              </tr>
+              <tr><td colspan="2"><pre>using System.Math</pre></td></tr>
+            </table>
+          </span>
+        </div>
       
 ### BR ###
-This is a test of a line ending in a br>  
-<there.
+This is a test of a line ending in a br&gt;  
+&lt;there.
 
 # How To Build #
 1. Save this document with your changes.
@@ -48,64 +53,13 @@ This is a test of a line ending in a br>
 5. Open PowerShell and navigate to the project-files directory.
 6. Type “simple-build.ps1 -buildHxS”
 7. Type “get-help simple-build.ps1 -detailed” for information on switches.
-test
-      
-First Column
-Second Column
-First content.
-Second content.
   
-<table>
-<tr>
-<th>
-<p>First Column</p>
-</th>
-<th>
-<p>Second Column</p>
-</th>
-</tr>
-<tr>
-<td>
-<p>First content.</p>
-</td>
-<td>
-<p>Second content.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p>Hyperlink <hlink xlink:type="simple" xlink:show="new" xlink:actuate="onRequest" xlink:href="http://www.microsoft.com/">www.microsoft.com</hlink> </p>
-</td>
-<td>
-<br />
-</td>
-</tr>
-<tr>
-<td>
-<br />
-</td>
-<td>
-<br />
-</td>
-</tr>
-<tr>
-<td>
-<br />
-</td>
-<td>
-<br />
-</td>
-</tr>
-<tr>
-<td>
-<p>Empty rows above</p>
-</td>
-<td>
-<br />
-</td>
-</tr>
-</table>  
 
+## Table ##
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>First Column</p></th><th><p>Second Column</p></th></tr><tr><td><p>First content.</p></td><td><p>Second content.</p></td></tr><tr><td><p>Hyperlink <hlink xlink:type="simple" xlink:show="new" xlink:actuate="onRequest" xlink:href="http://www.microsoft.com/">www.microsoft.com</hlink> </p></td><td><br /></td></tr><tr><td><br /></td><td><br /></td></tr><tr><td><br /></td><td><br /></td></tr><tr><td><p>Empty rows above</p></td><td><br /></td></tr></table> table copy-of
+    
 
-> Personna Grigori says:
-> This is a quote.
+### Hyperlinks ###
+<a href="http://msdn.microsoft.com/" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">http://msdn.microsoft.com/</a> 
+A link to <a href="http://msdn.microsoft.com/" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">MSDN</a>
+  
