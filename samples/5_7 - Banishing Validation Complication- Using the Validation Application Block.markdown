@@ -6,7 +6,6 @@ Order In ToC: 5
 Output Filename: 5_7 - Banishing Validation Complication- Using the Validation Application Block.markdown
 ---
 
-
 #### Markdown Test ####
 # 7 - Banishing Validation Complication: Using the Validation Application Block #
 ----------
