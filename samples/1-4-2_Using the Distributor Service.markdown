@@ -16,7 +16,7 @@ If there are log entries on the queue, the distributor service uses an instance 
 The distributor service requires that all log entries be formatted using the **BinaryLogFormatter** class. If the service cannot interpret the entry, it will log an error to the Application Event Log and shut down.   
 The following schematic illustrates how multiple applications use the distributor service to send log entries to a central location.  
 
-<img src="images\7b1a09ca-3555-44b5-8b81-8900aca13c4d.png" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" />  
+![](images/24d6b29b-594c-445c-82a9-4f83b1f6b7a6.png)  
 
 Each instance of the Logging Application Block uses an instance of the message queuing trace listener (the **MsmqTraceListener** class) to send the log entries to a single destination queue. The distributor service polls the queue and uses another instance of the Logging Application Block to direct the log entries to the proper trace listeners. Note that the distributor service can run on a remote computer. The following sections describe installing and using the distributor service:  
 + <a href="#distrib_install" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Installing the Distributor Service</a>
@@ -47,24 +47,14 @@ To uninstall the distributor service, at the command line, type **installutil /u
 
 Alternatively, you can start the distributor service from the command line. To start the distributor service from the command line, type the following at a command prompt.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="other">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th></th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>net start "Enterprise Library Distributor Service"</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-<div class="alert" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left"><img class="note" src="../local/note.gif" />Note:</th></tr><tr><td>You must either use the **net start** command or the **Services** item in Control Panel to start the distributor service. If you try to run the MsmqDistributor.exe file from the command line, you will receive a Windows Service Start Failure error message.
+```
+net start "Enterprise Library Distributor Service"
+```
 
-The distributor service does not detect changes to configuration information. You must restart the distributor service if you change the application block configuration. </td></tr></table><p /></div>
+
+![](images/note.gif)Note:You must either use the **net start** command or the **Services** item in Control Panel to start the distributor service. If you try to run the MsmqDistributor.exe file from the command line, you will receive a Windows Service Start Failure error message.
+
+The distributor service does not detect changes to configuration information. You must restart the distributor service if you change the application block configuration. 
 # Understanding the serviceName Attribute #
 <a name="distrib_understand" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>The MsmqDistributor.exe.config file contains a **serviceName** attribute. Do not change this name after you install the distributor service. If you do, you will not be able to uninstall the service because the system will try to uninstall a service with the new **serviceName** value.  
 You also will be unable to restart the service after changing the **serviceName** attribute. When Windows restarts a service, it first initiates a service stop and then it initiates a service start. If you change the **serviceName** attribute, Windows will be unable to initiate the service stop because it will look for a service with the new name.  
@@ -76,4 +66,4 @@ You should use the **serviceName** attribute to run multiple instances of the di
 3. Run the Installutil tool for each copy. This will give each copy of the distributor service the same service name as the one in the corresponding configuration file. 
 The distributor service uses the service name as the trace source when it logs messages to the event log. This log is always the Application Event Log.   
 
-<div class="alert" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left"><img class="note" src="../local/note.gif" />Note:</th></tr><tr><td>Duplicating the name of the distributor service will result in an error message during the installation.</td></tr></table><p /></div>
+![](images/note.gif)Note:Duplicating the name of the distributor service will result in an error message during the installation.

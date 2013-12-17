@@ -28,115 +28,55 @@ The application block supports a small number of classes and methods that simpli
 + **Tracer**. This class writes tracing information, such as the start and stop times of activities, to configurable destinations.
 You use the method **Write** on the **LogWriter** class to log information. The **Write** method has multiple overloads to support the different amounts of information an application may log. In addition, these overloads accommodate different programming styles. The simplest method accepts a string that contains the information to be logged. This is shown in the following example.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>myLogWriter.Write("My log message");</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="VisualBasicUsage">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>Visual Basic</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>myLogWriter.Write("My log message")</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      There are other overloads that accept additional information. The following example shows passes the log message, the log message's category, its priority, and the event ID.  
+```C#
+myLogWriter.Write("My log message");
+```
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>myLogWriter.Write("My log message", "Debug", 2, 400);</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="VisualBasicUsage">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>Visual Basic</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>myLogWriter.Write("My log message", "Debug", 2, 400)</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      <a name="designc_encapsulate" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a><a name="_Toc253065092" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
+
+```Visual Basic
+myLogWriter.Write("My log message")
+```
+
+There are other overloads that accept additional information. The following example shows passes the log message, the log message's category, its priority, and the event ID.  
+
+```C#
+myLogWriter.Write("My log message", "Debug", 2, 400);
+```
+
+
+```Visual Basic
+myLogWriter.Write("My log message", "Debug", 2, 400)
+```
+
+<a name="designc_encapsulate" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a><a name="_Toc253065092" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 # Encapsulation of Common Information #
 The block includes the **LogEntry** class. This class encapsulates commonly required logging information into a **LogEntry** object. You can construct a **LogEntry** object and pass it to the appropriate overload of the **LogWriter** class's **Write** method. This is shown in the following example.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>LogEntry logEntry = new LogEntry();
+```C#
+LogEntry logEntry = new LogEntry();
 logEntry.EventId = 100;
 logEntry.Priority = 2;
 logEntry.Message = "Informational message";
 logEntry.Categories.Add("Trace");
 logEntry.Categories.Add("UI Events");
 
-myLogWriter.Write(logEntry);</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="VisualBasicUsage">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>Visual Basic</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>Dim logEntry As LogEntry = New LogEntry()
+myLogWriter.Write(logEntry);
+```
+
+
+```Visual Basic
+Dim logEntry As LogEntry = New LogEntry()
 logEntry.EventId = 100
 logEntry.Priority = 2
 logEntry.Message = "Informational message"
 logEntry.Categories.Add("Trace")
 logEntry.Categories.Add("UI Events")
 
-myLogWriter.Write(logEntry)</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      The code above creates a **LogEntry** object. The object includes the event ID, the **LogEntry** object's priority, and the logging message. It belongs to the Trace and UI Events categories. The code then calls the overload of the **Write** method that accepts a **LogEntry** object.  
+myLogWriter.Write(logEntry)
+```
+
+The code above creates a **LogEntry** object. The object includes the event ID, the **LogEntry** object's priority, and the logging message. It belongs to the Trace and UI Events categories. The code then calls the overload of the **Write** method that accepts a **LogEntry** object.  
 <a name="designc_convenient" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a><a name="_Toc253065093" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 # Convenient Handling of Additional Information #

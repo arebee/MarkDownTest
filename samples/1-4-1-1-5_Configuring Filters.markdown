@@ -16,68 +16,38 @@ It is useful to store the configuration values for these filters in a configurat
 # Priority Filters #
 You can use the **PriorityFilter** class to allow or deny log entries based on their priority. The following code sample shows a priority filter that only allows log entries with a priority between two and 99.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>PriorityFilter priorityFilter = new PriorityFilter("Priority Filter", 2, 99);
+```C#
+PriorityFilter priorityFilter = new PriorityFilter("Priority Filter", 2, 99);
  
 LoggingConfiguration config = new LoggingConfiguration();
-config.Filters.Add(priorityFilter);</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
+config.Filters.Add(priorityFilter);
+```
+
+
 # Category Filters #
 You can use the **CategoryFilter** class to allow or deny log entries based on their categories. The following code sample shows a category filter that denies log entries with the **BlockedByFilter** category.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>ICollection&lt;string&gt; categories = new List&lt;string&gt;();
+```C#
+ICollection&lt;string&gt; categories = new List&lt;string&gt;();
 categories.Add("BlockedByFilter");
  
 CategoryFilter categoryFilter = new CategoryFilter(
   "Category Filter", categories, CategoryFilterMode.AllowAllExceptDenied);
  
 LoggingConfiguration config = new LoggingConfiguration();
-config.Filters.Add(categoryFilter);</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
+config.Filters.Add(categoryFilter);
+```
+
+
 # Log Enabled Filter #
 You can use the **LogEnabledFilter** class to provide a global switch to turn logging on and off. The following code sample shows how to use this filter.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>LogEnabledFilter logEnabledFilter = 
+```C#
+LogEnabledFilter logEnabledFilter = 
   new LogEnabledFilter("LogEnabled Filter", true);
  
 LoggingConfiguration config = new LoggingConfiguration();
-config.Filters.Add(logEnabledFilter);</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
+config.Filters.Add(logEnabledFilter);
+```
+
+

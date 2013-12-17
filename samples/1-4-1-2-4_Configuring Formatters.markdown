@@ -18,8 +18,8 @@ The first procedure describes how to configure the formatters. The text formatte
 3. (Optional) Change the **Name** property. The default name is the name of the formatter.
 4. If you are adding a **text formatter** and want to change the template that contains the value placeholders, click the ellipsis button (**…**) for the **Template **property. Make the required changes in the **Template Editor** dialog. You can use the **Insert Token** button to add tokens with the appropriate syntax. After you finish making the changes, click **OK**. 
 5. If you are adding a **Custom Formatter** and want to add or edit the settings, change the list of keys and values in the **Attributes** property section.
-6. Repeat the procedure for each formatter you want to use.<div class="alert" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left"><img class="note" src="../local/note.gif" />Note:</th></tr><tr><td>The only property you can change for the binary formatter is the name.
-</td></tr></table><p /></div>
+6. Repeat the procedure for each formatter you want to use.![](images/note.gif)Note:The only property you can change for the binary formatter is the name.
+
 
 # Text Formatter Template Tokens #
 The Template Editor dialog allows you to insert tokens into the template that the text formatter uses to format the text of a log entry. There are tokens for a wide range of values, including all of the values included by default in a log entry such as the message, priority, timestamp, severity, and category.  

@@ -37,106 +37,46 @@ The Logging Application Block includes the following classes that derive from **
 # Populating a Dictionary with Context Information #
 The following code shows how to use the **ManagedSecurityContextInformationProvider** class to populate a dictionary with security-related information.   
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>Dictionary&lt;string, object&gt; dictionary = new Dictionary&lt;string, object&gt;();
+```C#
+Dictionary&lt;string, object&gt; dictionary = new Dictionary&lt;string, object&gt;();
 ManagedSecurityContextInformationProvider informationHelper 
   = new ManagedSecurityContextInformationProvider();    
-informationHelper.PopulateDictionary(dictionary);</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="VisualBasicUsage">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>Visual Basic</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>Dim dictionary As New Dictionary(Of String, Object)()
-Dim informationHelper As New ManagedSecurityContextInformationProvider()
-informationHelper.PopulateDictionary(dictionary)</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      You can also add custom properties to the dictionary. The following code shows how to add the current screen resolution to the collection of properties declared in the previous example.   
+informationHelper.PopulateDictionary(dictionary);
+```
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>int width = Screen.PrimaryScreen.Bounds.Width;
+
+```Visual Basic
+Dim dictionary As New Dictionary(Of String, Object)()
+Dim informationHelper As New ManagedSecurityContextInformationProvider()
+informationHelper.PopulateDictionary(dictionary)
+```
+
+You can also add custom properties to the dictionary. The following code shows how to add the current screen resolution to the collection of properties declared in the previous example.   
+
+```C#
+int width = Screen.PrimaryScreen.Bounds.Width;
 int height = Screen.PrimaryScreen.Bounds.Height;
 string resolution = String.Format("{0}x{1}", width, height);
-dictionary.Add("Screen resolution", resolution);</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="VisualBasicUsage">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>Visual Basic</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>Dim width As Integer = Screen.PrimaryScreen.Bounds.Width
+dictionary.Add("Screen resolution", resolution);
+```
+
+
+```Visual Basic
+Dim width As Integer = Screen.PrimaryScreen.Bounds.Width
 Dim height As Integer = Screen.PrimaryScreen.Bounds.Height
 Dim resolution As String = String.Format("{0}x{1}", width, height)
-dictionary.Add("Screen resolution", resolution)</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      The following code shows how to add the collection of properties to a **LogEntry** object stored in the variable named **myLogEntry**.   
+dictionary.Add("Screen resolution", resolution)
+```
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>myLogEntry.ExtendedProperties = dictionary;</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="VisualBasicUsage">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>Visual Basic</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>myLogEntry.ExtendedProperties = dictionary</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
+The following code shows how to add the collection of properties to a **LogEntry** object stored in the variable named **myLogEntry**.   
+
+```C#
+myLogEntry.ExtendedProperties = dictionary;
+```
+
+
+```Visual Basic
+myLogEntry.ExtendedProperties = dictionary
+```
+
+

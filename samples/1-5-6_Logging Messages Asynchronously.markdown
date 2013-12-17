@@ -18,22 +18,12 @@ Typically, the logging block writes messages synchronously to the destinations i
 # Solution #
 Configure the application to use the Logging Application Block. Wrap an existing trace listener using the **AsynchronousTraceListenerWrapper** class. The following code sample shows this.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>var asyncDatabaseTraceListener =
-  new AsynchronousTraceListenerWrapper(databaseTraceListener);</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      You can use the asynchronous trace listener in the same way that you would use the wrapped listener in your code.  
+```C#
+var asyncDatabaseTraceListener =
+  new AsynchronousTraceListenerWrapper(databaseTraceListener);
+```
+
+You can use the asynchronous trace listener in the same way that you would use the wrapped listener in your code.  
 The **AsynchronousTraceListenerWrapper** constructor has three optional parameters in addition to the wrapped listener.   
 + **ownsWrappedListener**. Indicates whether the wrapper should dispose the wrapped trace listener.
 + **bufferSize**. Size of the buffer for asynchronous requests.

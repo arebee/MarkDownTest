@@ -21,17 +21,8 @@ This formatter has no configuration options.
 The **Template** property enables you to define a custom format for your log entries: it uses special tokens to represent specific values that you want to include in your formatted message. There are tokens for a wide range of values, including all of the values included by default in a log entry such as the message, priority, timestamp, severity, and category.  
 The following code sample illustrates the use of the **TextFormatter** class:  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>TextFormatter formatter = new TextFormatter(
+```C#
+TextFormatter formatter = new TextFormatter(
 "Timestamp: {timestamp(local)}{newline}
 Message: {message}{newline}
 Category: {category}{newline}
@@ -39,11 +30,10 @@ Priority: {priority}{newline}
 EventId: {eventid}{newline}
 ActivityId: {property(ActivityId)}{newline}
 Severity: {severity}{newline}
-Title:{title}{newline}");</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      There are also three special tokens named **property()**, **dictionary()**, and **keyvalue() **that you can use to access additional information included in the log entry, and tokens for a TAB character and a new line character combination. The default template created by the configuration tools shows examples of how you can use these function tokens. Note that property names are case-sensitive. For example, to include the Activity ID of a log entry in the message (it is not included in the default template), you must use the token **{property(ActivityId)}**.   
+Title:{title}{newline}");
+```
+
+There are also three special tokens named **property()**, **dictionary()**, and **keyvalue() **that you can use to access additional information included in the log entry, and tokens for a TAB character and a new line character combination. The default template created by the configuration tools shows examples of how you can use these function tokens. Note that property names are case-sensitive. For example, to include the Activity ID of a log entry in the message (it is not included in the default template), you must use the token **{property(ActivityId)}**.   
 Timestamp tokens can include the **local: **prefix, which indicates that the timestamp should be displayed using the local time. Some examples of local timestamp format codes include **{timestamp(local)}**, which uses the default format string** **and **{timestamp(local:F)}**, which uses the **F **format string that represents the full date/time pattern. For more information about date/time formatting, see <a href="http://msdn2.microsoft.com/en-us/library/az4se3k1.aspx" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Standard DateTime Format Strings</a> on MSDN.  
 Extracting some values from the environment, and formatting commonly used values such as the date and time, can have an effect on performance. To mitigate this, you can use specific tokens parameters that are directly mapped to high-speed formatting implementations. There are three date/time parameters that you can use with the **timestamp **token to maximize performance, and you can also use the **local:** prefix with these if required. The three high-speed implementations are:  
 + **timestamp(FixedFormatISOInternationalDate)**, which generates a date in the format <i>yyyy-MM-dd</i>. For a local date/time, use **timestamp(local:FixedFormatISOInternationalDate)**.

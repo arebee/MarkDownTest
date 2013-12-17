@@ -26,77 +26,37 @@ The following procedure describes the general approach to extend the Logging App
 # Creating a Custom Log Entry Formatter #
 You can create a new log entry formatter by implementing the interface **ILogFormatter**. Your custom class must carry the attribute **ConfigurationElementType** with the type **CustomFormatterData** as the attribute parameter.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>[ConfigurationElementType(typeof(CustomFormatterData))]
-public class MyFormatter : ILogFormatter</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="VisualBasicUsage">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>Visual Basic</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>&lt;ConfigurationElementType(GetType(CustomFormatterData))&gt; _
+```C#
+[ConfigurationElementType(typeof(CustomFormatterData))]
+public class MyFormatter : ILogFormatter
+```
+
+
+```Visual Basic
+&lt;ConfigurationElementType(GetType(CustomFormatterData))&gt; _
 Public Class MyFormatter
-  Implements ILogFormatter</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      Your class must implement the **Format** method that accepts a **LogEntry** instance and returns the formatted data as a string.   
+  Implements ILogFormatter
+```
+
+Your class must implement the **Format** method that accepts a **LogEntry** instance and returns the formatted data as a string.   
 
 # Creating a Custom Trace Listener #
 In some cases, the trace listeners provided with the Logging Application Block will not satisfy your application's requirements, and you will need to create your own trace listeners.  
 You can create a new trace listener by extending the **CustomTraceListener** class. Your custom class must carry the attribute **ConfigurationElementType** with the type **CustomFormatterData** as the attribute parameter.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>[ConfigurationElementType(typeof(CustomTraceListenerData))]
-public class MyTraceListener : CustomTraceListener</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="VisualBasicUsage">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>Visual Basic</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>&lt;ConfigurationElementType(GetType(CustomTraceListenerData))&gt; _
+```C#
+[ConfigurationElementType(typeof(CustomTraceListenerData))]
+public class MyTraceListener : CustomTraceListener
+```
+
+
+```Visual Basic
+&lt;ConfigurationElementType(GetType(CustomTraceListenerData))&gt; _
 Public Class MyTraceListener
-  Inherits CustomTraceListener</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      Your class must override the **TraceData** method to** **format the **LogEntry** object and write the information to the output destination.    
+  Inherits CustomTraceListener
+```
+
+Your class must override the **TraceData** method to** **format the **LogEntry** object and write the information to the output destination.    
 The Logging Application Block trace listeners derive from the **TraceListener** class in the **System.Diagnostic** namespace. This means that applications that do not use the application block can still use the application block trace listeners. To allow your custom trace listener to execute correctly when it is used outside the Logging Application Block, you should do the following:  
 + In the **TraceData** method, test to see if the data parameter is of type **LogEntry**. If it is not of type **LogEntry**, use the **ToString** method to format the object.
 + Override the **Write** and **WriteLine** methods.
@@ -105,4 +65,4 @@ The Logging Application Block trace listeners derive from the **TraceListener** 
 You can implement a custom Log Filter by implementing the **ILogFilter** interface or by extending the **LogFilter** base class. However, you must be aware of an issue that can prevent application code from resolving the configured name of the provider - although this is only an issue where you wish to query the collection of filters when checking if a log entry will be specifically blocked by this filter.   
 The **ILogFilter** interface defines a **Name** property that should return the name of the instance of the custom log filter from the configuration. However, there currently is no way to retrieve that name from within your custom log filter. Instead, you can pass a key\value pair in the **NameValueCollection** received by the constructor, and use this to set the **Name** property of the filter. When configuring your custom log filter, you will have to duplicate the name: once for the actual name of that instance of the custom log filter, and again in the named property collection that is passed to the constructor.  
 
-<div class="alert" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><table width="100%" cellspacing="0" cellpadding="0"><tr><th align="left"><img class="note" src="../local/note.gif" />Note:</th></tr><tr><td>If you intend to modify or extend the **LogEntry** class, you may want to use the **ReflectedPropertyToken** class. This formatting token allows you to log custom properties on custom classes that either derive from the **LogEntry** class or modify it.** **This token has the syntax {property(<i>CustomPropertyName</i>)}, and it uses reflection to obtain the value of the specified property and log it** **to the chosen trace listener. For example, you might have a property named **FileName** that is the name of the log file. Using this token allows you to insert this name into a log entry.</td></tr></table><p /></div>
+![](images/note.gif)Note:If you intend to modify or extend the **LogEntry** class, you may want to use the **ReflectedPropertyToken** class. This formatting token allows you to log custom properties on custom classes that either derive from the **LogEntry** class or modify it.** **This token has the syntax {property(<i>CustomPropertyName</i>)}, and it uses reflection to obtain the value of the specified property and log it** **to the chosen trace listener. For example, you might have a property named **FileName** that is the name of the log file. Using this token allows you to insert this name into a log entry.

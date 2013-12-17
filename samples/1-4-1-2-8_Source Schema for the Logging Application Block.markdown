@@ -12,25 +12,15 @@ Output Filename: 1-4-1-2-8_Source Schema for the Logging Application Block.markd
 
 This topic lists the elements and attributes used to configure the Logging Application Block. The configuration file has the following section-handler declaration.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="other">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>XML</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>&lt;configSections&gt;
+```XML
+&lt;configSections&gt;
 &lt;section name="loggingConfiguration"
          type="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings, 
                Microsoft.Practices.EnterpriseLibrary.Logging" /&gt;
-&lt;/configSections&gt;</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      The section-handler declaration contains the name of the configuration settings section and the name of the section-handler class that processes configuration data in that section. The name of the configuration settings section is **loggingConfiguration**. The name of the section-handler class is **Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings**.  
+&lt;/configSections&gt;
+```
+
+The section-handler declaration contains the name of the configuration settings section and the name of the section-handler class that processes configuration data in that section. The name of the configuration settings section is **loggingConfiguration**. The name of the section-handler class is **Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings**.  
 
 # loggingConfiguration Element #
 This element specifies the configuration of a Logging Application Block. This element is required.   

@@ -12,7 +12,11 @@ Output Filename: 1-1_What Does the Logging Block Do-.markdown
 
 Although the process of creating and writing log entries is relatively simple, the number of options available (such as the many logging targets and the ability to filter entries) means that the underlying structure of the block and the options available for using it can seem complex. The following schematic shows how the main types of object in the block work together to provide flexibility when creating and writing log entries.  
 
+<<<<<<< HEAD
 ![](images/fc5b4b63-76c0-4b6a-a61d-0c41c447d126.png)  
+=======
+![](images/98374b51-a306-400b-a543-c34233c80cec.png)  
+>>>>>>> Updated transform testing
 
 The five main types of objects are:  
 + **Log Writer**. The log writer is the main entry point for creating log entries and writing them to your chosen logging targets. It creates an instance of a log entry containing the information to be logged, and interacts with the other objects that filter the log entry, assign it to one or more categories, format it, and dispatch it to the appropriate targets. 
@@ -35,17 +39,8 @@ For an overview of the process of setting up logging for different types of sink
 # Example Application Code #
 <a name="intro_examplecode" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>The following code shows how to populate and raise an event in your application that writes the log entry to the target or targets you configure for the block**.** The **LogEntry** object has a priority of 2 and belongs to both the **Trace** and **UI Events** categories. This example assumes that you have created an instance of the **LogWriter** class in your application.  
 
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="CSharp">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>C#</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>public void ExampleScenario(LogWriter myLogWriter)
+```C#
+public void ExampleScenario(LogWriter myLogWriter)
 {
   LogEntry logEntry = new LogEntry();
 
@@ -56,22 +51,12 @@ For an overview of the process of setting up logging for different types of sink
   logEntry.Categories.Add("UI Events");
 
   myLogWriter.Write(logEntry);
-}</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      
-        <div class="code" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-          <span codeLanguage="VisualBasicUsage">
-            <table width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <th>Visual Basic</th>
-                <th>
-                  <span class="copyCode" onclick="CopyCode(this)" onkeypress="CopyCode_CheckKey(this)" onmouseover="ChangeCopyCodeIcon(this)" onfocusin="ChangeCopyCodeIcon(this)" onmouseout="ChangeCopyCodeIcon(this)" onfocusout="ChangeCopyCodeIcon(this)" tabindex="0">
-                    <img class="copyCodeImage" name="ccImage" align="absmiddle" src="../local/copycode.gif" />Copy Code</span>
-                </th>
-              </tr>
-              <tr><td colspan="2"><pre>Public Sub ExampleScenario(ByVal myLogWriter As LogWriter)
+}
+```
+
+
+```Visual Basic
+Public Sub ExampleScenario(ByVal myLogWriter As LogWriter)
   Dim logEntry As New LogEntry()
 
   logEntry.EventId = 100
@@ -82,9 +67,8 @@ For an overview of the process of setting up logging for different types of sink
 
   myLogWriter.Write(logEntry)
 
-End Sub</pre></td></tr>
-            </table>
-          </span>
-        </div>
-      For information about resolving Enterprise Library objects in your applications, see <a href="test-markdown_bfd186b8-9a32-477a-bee7-14742ba1ca42.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Creating and Referencing Enterprise Library Objects</a>.  
+End Sub
+```
+
+For information about resolving Enterprise Library objects in your applications, see <a href="test-markdown_bfd186b8-9a32-477a-bee7-14742ba1ca42.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Creating and Referencing Enterprise Library Objects</a>.  
 
