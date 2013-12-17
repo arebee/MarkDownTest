@@ -13,13 +13,13 @@ Output Filename: 1-4-3-1_Creating LogWriter and TraceManager Instances.markdown
 Before you can use the features of the Logging Application Block in your application you must create an instance of the **LogWriter** class in your code and optionally an instance of the **TraceManager** class. The **LogWriter** class contains the overloaded implementations of the **Write** method that you will use to write log messages.  
 When you create an instance of the **LogWriter** class you must populate it with details of your logging configuration; this configuration is typically defined in your application configuration file. The following code sample shows how to load the configuration settings from the configuration file and create a **LogWriter** instance.  
 
-```C#
+```csharp
 LogWriterFactory logWriterFactory = new LogWriterFactory();
 LogWriter defaultWriter = logWriterFactory.Create();
 ```
 
 
-```Visual Basic
+```visualbasic
 Dim logWriterFactory As New LogWriterFactory()
 Dim defaultWriter As LogWriter = logWriterFactory.Create()
 ```

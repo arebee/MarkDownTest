@@ -12,11 +12,7 @@ Output Filename: 1-1_What Does the Logging Block Do-.markdown
 
 Although the process of creating and writing log entries is relatively simple, the number of options available (such as the many logging targets and the ability to filter entries) means that the underlying structure of the block and the options available for using it can seem complex. The following schematic shows how the main types of object in the block work together to provide flexibility when creating and writing log entries.  
 
-<<<<<<< HEAD
-![](images/fc5b4b63-76c0-4b6a-a61d-0c41c447d126.png)  
-=======
-![](images/98374b51-a306-400b-a543-c34233c80cec.png)  
->>>>>>> Updated transform testing
+![](images/35b1de0f-696a-46eb-8d11-7791841a648c.png)  
 
 The five main types of objects are:  
 + **Log Writer**. The log writer is the main entry point for creating log entries and writing them to your chosen logging targets. It creates an instance of a log entry containing the information to be logged, and interacts with the other objects that filter the log entry, assign it to one or more categories, format it, and dispatch it to the appropriate targets. 
@@ -39,7 +35,7 @@ For an overview of the process of setting up logging for different types of sink
 # Example Application Code #
 <a name="intro_examplecode" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>The following code shows how to populate and raise an event in your application that writes the log entry to the target or targets you configure for the block**.** The **LogEntry** object has a priority of 2 and belongs to both the **Trace** and **UI Events** categories. This example assumes that you have created an instance of the **LogWriter** class in your application.  
 
-```C#
+```csharp
 public void ExampleScenario(LogWriter myLogWriter)
 {
   LogEntry logEntry = new LogEntry();
@@ -55,7 +51,7 @@ public void ExampleScenario(LogWriter myLogWriter)
 ```
 
 
-```Visual Basic
+```visualbasic
 Public Sub ExampleScenario(ByVal myLogWriter As LogWriter)
   Dim logEntry As New LogEntry()
 

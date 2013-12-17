@@ -19,7 +19,7 @@ In this scenario, you want to avoid collecting context information for a log mes
 Create a **LogEntry** object that contains the information that will be submitted to the Logging Application Block. Call the **ShouldLog** method of the **LogWriter** class, passing to it the **LogEntry** object.   
 The following code shows how to create a **LogEntry** object and use the **ShouldLog **method. It assumes you have created an instance of the **LogWriter** class and saved it in a variable named **myLogWriter**.  
 
-```C#
+```csharp
 LogEntry logEntry = new LogEntry();
 logEntry.Priority = 2;
 logEntry.Categories.Add("Trace");
@@ -39,7 +39,7 @@ else
 ```
 
 
-```Visual Basic
+```visualbasic
 Dim logEntry As New LogEntry()
 logEntry.Priority = 2
 logEntry.Categories.Add("Trace")
@@ -61,7 +61,7 @@ For information about how to create a **LogWriter** instance, see <a href="test-
 You can query a specific filter type to determine whether a log message should be logged according to the configuration settings for that filter type.  
 The following code shows how to query the **CategoryFilter.**   
 
-```C#
+```csharp
 ICollection&lt;string&gt; categories = new List&lt;string&gt;(0);
 categories.Add("Trace");
 categories.Add("UI Events");
@@ -73,7 +73,7 @@ if (myLogWriter.GetFilter&lt;CategoryFilter&gt;().ShouldLog(categories))
 ```
 
 
-```Visual Basic
+```visualbasic
 Dim categories As ICollection(Of String) = New List(Of String)(0)
 categories.Add("Trace")
 categories.Add("UI Events")

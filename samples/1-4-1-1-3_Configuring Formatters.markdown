@@ -21,7 +21,7 @@ This formatter has no configuration options.
 The **Template** property enables you to define a custom format for your log entries: it uses special tokens to represent specific values that you want to include in your formatted message. There are tokens for a wide range of values, including all of the values included by default in a log entry such as the message, priority, timestamp, severity, and category.  
 The following code sample illustrates the use of the **TextFormatter** class:  
 
-```C#
+```csharp
 TextFormatter formatter = new TextFormatter(
 "Timestamp: {timestamp(local)}{newline}
 Message: {message}{newline}

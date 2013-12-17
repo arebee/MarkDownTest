@@ -28,23 +28,23 @@ The application block supports a small number of classes and methods that simpli
 + **Tracer**. This class writes tracing information, such as the start and stop times of activities, to configurable destinations.
 You use the method **Write** on the **LogWriter** class to log information. The **Write** method has multiple overloads to support the different amounts of information an application may log. In addition, these overloads accommodate different programming styles. The simplest method accepts a string that contains the information to be logged. This is shown in the following example.  
 
-```C#
+```csharp
 myLogWriter.Write("My log message");
 ```
 
 
-```Visual Basic
+```visualbasic
 myLogWriter.Write("My log message")
 ```
 
 There are other overloads that accept additional information. The following example shows passes the log message, the log message's category, its priority, and the event ID.  
 
-```C#
+```csharp
 myLogWriter.Write("My log message", "Debug", 2, 400);
 ```
 
 
-```Visual Basic
+```visualbasic
 myLogWriter.Write("My log message", "Debug", 2, 400)
 ```
 
@@ -53,7 +53,7 @@ myLogWriter.Write("My log message", "Debug", 2, 400)
 # Encapsulation of Common Information #
 The block includes the **LogEntry** class. This class encapsulates commonly required logging information into a **LogEntry** object. You can construct a **LogEntry** object and pass it to the appropriate overload of the **LogWriter** class's **Write** method. This is shown in the following example.  
 
-```C#
+```csharp
 LogEntry logEntry = new LogEntry();
 logEntry.EventId = 100;
 logEntry.Priority = 2;
@@ -65,7 +65,7 @@ myLogWriter.Write(logEntry);
 ```
 
 
-```Visual Basic
+```visualbasic
 Dim logEntry As LogEntry = New LogEntry()
 logEntry.EventId = 100
 logEntry.Priority = 2

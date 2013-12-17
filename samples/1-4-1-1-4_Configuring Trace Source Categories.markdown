@@ -17,7 +17,7 @@ When you write a log message from your application code, you specify a category 
 # Configuring Trace Source Categories #
 To configure a trace source category programmatically, you first need to instantiate a **LoggingConfiguration** object. Then invoke the **AddLogSource** method to define a trace source category. The following code sample shows two trace source categories being configured, one named “Database” with a single trace listener, and one named “DiskFiles” with two trace listeners.  
 
-```C#
+```csharp
 LoggingConfiguration config = new LoggingConfiguration();
 
 config.AddLogSource("Database", SourceLevels.All,
@@ -33,7 +33,7 @@ The **autoFlush** parameter is a Boolean value that specifies whether the listen
 # Configuring Special Trace Source Categories #
 To configure the special trace source categories, you use the **SpecialSources.Unprocessed**, **SpecialSources.LoggingErrorsAndWarnings**, and **SpecialSources.AllEvents** properties of the **LoggingConfiguration** class. Each of these has an **AddListener** method for the listeners you want to use, a **Level** property to specify a severity filter, and an **AutoFlush** property to control flushing behavior. The following code sample shows how to add an event listener to the **Logging Errors &amp; Warnings** special category:  
 
-```C#
+```csharp
 LoggingConfiguration config = new LoggingConfiguration();
 
 config.SpecialSources.LoggingErrorsAndWarnings.AddListener

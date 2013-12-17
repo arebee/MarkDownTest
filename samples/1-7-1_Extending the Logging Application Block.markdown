@@ -26,13 +26,13 @@ The following procedure describes the general approach to extend the Logging App
 # Creating a Custom Log Entry Formatter #
 You can create a new log entry formatter by implementing the interface **ILogFormatter**. Your custom class must carry the attribute **ConfigurationElementType** with the type **CustomFormatterData** as the attribute parameter.  
 
-```C#
+```csharp
 [ConfigurationElementType(typeof(CustomFormatterData))]
 public class MyFormatter : ILogFormatter
 ```
 
 
-```Visual Basic
+```visualbasic
 &lt;ConfigurationElementType(GetType(CustomFormatterData))&gt; _
 Public Class MyFormatter
   Implements ILogFormatter
@@ -44,13 +44,13 @@ Your class must implement the **Format** method that accepts a **LogEntry** inst
 In some cases, the trace listeners provided with the Logging Application Block will not satisfy your application's requirements, and you will need to create your own trace listeners.  
 You can create a new trace listener by extending the **CustomTraceListener** class. Your custom class must carry the attribute **ConfigurationElementType** with the type **CustomFormatterData** as the attribute parameter.  
 
-```C#
+```csharp
 [ConfigurationElementType(typeof(CustomTraceListenerData))]
 public class MyTraceListener : CustomTraceListener
 ```
 
 
-```Visual Basic
+```visualbasic
 &lt;ConfigurationElementType(GetType(CustomTraceListenerData))&gt; _
 Public Class MyTraceListener
   Inherits CustomTraceListener

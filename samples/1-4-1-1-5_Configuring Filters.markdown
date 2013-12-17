@@ -16,7 +16,7 @@ It is useful to store the configuration values for these filters in a configurat
 # Priority Filters #
 You can use the **PriorityFilter** class to allow or deny log entries based on their priority. The following code sample shows a priority filter that only allows log entries with a priority between two and 99.  
 
-```C#
+```csharp
 PriorityFilter priorityFilter = new PriorityFilter("Priority Filter", 2, 99);
  
 LoggingConfiguration config = new LoggingConfiguration();
@@ -27,7 +27,7 @@ config.Filters.Add(priorityFilter);
 # Category Filters #
 You can use the **CategoryFilter** class to allow or deny log entries based on their categories. The following code sample shows a category filter that denies log entries with the **BlockedByFilter** category.  
 
-```C#
+```csharp
 ICollection&lt;string&gt; categories = new List&lt;string&gt;();
 categories.Add("BlockedByFilter");
  
@@ -42,7 +42,7 @@ config.Filters.Add(categoryFilter);
 # Log Enabled Filter #
 You can use the **LogEnabledFilter** class to provide a global switch to turn logging on and off. The following code sample shows how to use this filter.  
 
-```C#
+```csharp
 LogEnabledFilter logEnabledFilter = 
   new LogEnabledFilter("LogEnabled Filter", true);
  

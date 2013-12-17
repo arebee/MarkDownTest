@@ -16,7 +16,7 @@ If there are log entries on the queue, the distributor service uses an instance 
 The distributor service requires that all log entries be formatted using the **BinaryLogFormatter** class. If the service cannot interpret the entry, it will log an error to the Application Event Log and shut down.   
 The following schematic illustrates how multiple applications use the distributor service to send log entries to a central location.  
 
-![](images/24d6b29b-594c-445c-82a9-4f83b1f6b7a6.png)  
+![](images/7cf86c33-a2bc-47bf-b9eb-a512dc00f09f.png)  
 
 Each instance of the Logging Application Block uses an instance of the message queuing trace listener (the **MsmqTraceListener** class) to send the log entries to a single destination queue. The distributor service polls the queue and uses another instance of the Logging Application Block to direct the log entries to the proper trace listeners. Note that the distributor service can run on a remote computer. The following sections describe installing and using the distributor service:  
 + <a href="#distrib_install" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Installing the Distributor Service</a>
@@ -47,7 +47,7 @@ To uninstall the distributor service, at the command line, type **installutil /u
 
 Alternatively, you can start the distributor service from the command line. To start the distributor service from the command line, type the following at a command prompt.  
 
-```
+```other
 net start "Enterprise Library Distributor Service"
 ```
 

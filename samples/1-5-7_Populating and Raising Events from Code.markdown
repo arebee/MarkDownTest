@@ -25,7 +25,7 @@ The default class for writing a **LogEntry** in earlier versions of Enterprise L
 # Creating and Writing a LogEntry #
 The following code shows how to create a **LogEntry** object and use the **Write **method of the **LogWriter** class**.** The **LogEntry** object has a priority of 2 and belongs to both the **Trace** and **UI Events** categories.  It assumes you have created an instance of the **LogWriter** class and saved it in a variable named **myLogWriter**.  
 
-```C#
+```csharp
 LogEntry logEntry = new LogEntry();
 
 logEntry.EventId = 100;
@@ -38,7 +38,7 @@ myLogWriter.Write(logEntry);
 ```
 
 
-```Visual Basic
+```visualbasic
 Dim logEntry As New LogEntry()
 
 logEntry.EventId = 100

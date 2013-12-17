@@ -12,7 +12,7 @@ Output Filename: 1-4-1-2-8_Source Schema for the Logging Application Block.markd
 
 This topic lists the elements and attributes used to configure the Logging Application Block. The configuration file has the following section-handler declaration.  
 
-```XML
+```other
 &lt;configSections&gt;
 &lt;section name="loggingConfiguration"
          type="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings, 

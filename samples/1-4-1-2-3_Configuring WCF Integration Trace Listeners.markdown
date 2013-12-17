@@ -13,7 +13,7 @@ Output Filename: 1-4-1-2-3_Configuring WCF Integration Trace Listeners.markdown
 Windows Communication Foundation (WCF) is able to log directly only to **System.Diagnostics** trace sources, so it is necessary to configure a special trace listener named the **EntLibLoggingProxyTraceListener** in the &lt;**system.diagnostics**&gt; configuration section to enable the Logging Application Block to process WCF log messages. This trace listener receives messages from the trace source, wraps them in a **LogEntry** object, and forwards them to the Logging Application Block, where they can be processed according to the Logging Application Block’s configuration. If the original message is in XML format (as is the case when messages are generated from WCF), the **EntLibLoggingProxyTraceListener **creates an **XmlLogEntry **object instead of a **LogEntry**. The **XmlLogEntry** class is derived from the standard **LogEntry** class and adds support for an XML payload.  
 The **EntLibLoggingProxyTraceListener **will add the name of its containing trace source as a category to each **XmlLogEntry **it creates. In addition, it is possible to configure the **EntLibLoggingProxyTraceListener **to extract information from the XML data for use as additional categories. This can be specified using XPath queries in the definition of the trace listener in the configuration file. The **categoriesXPathQueries **attribute can be set to a semicolon-delimited list of XPath queries, and the **namespaces** attribute can be set to a space-delimited list of XML namespaces used in the XPath queries, as shown in the following example.    
 
-```XML
+```other
 &lt;add name="entlibproxywithmultiplexpaths"
      type="Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.EntLibLoggingProxyTraceListener, 
            Microsoft.Practices.EnterpriseLibrary.Logging"
@@ -38,7 +38,7 @@ The following procedure describes how to integrate the Logging Application Block
 9. Define the EntLib Proxy trace listener in the **&lt;system.diagnostics&gt;** section and use **System.ServiceModel** as the source. (See the sample configuration file.)
 10. Modify the WCF configuration to specify the desired level of logging, as shown in the following sample configuration file.
 
-```XML
+```other
 &lt;?xml version="1.0" encoding="utf-8" ?&gt;
 &lt;configuration&gt;
   &lt;configSections&gt;

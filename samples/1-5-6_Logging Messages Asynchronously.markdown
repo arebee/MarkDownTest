@@ -18,7 +18,7 @@ Typically, the logging block writes messages synchronously to the destinations i
 # Solution #
 Configure the application to use the Logging Application Block. Wrap an existing trace listener using the **AsynchronousTraceListenerWrapper** class. The following code sample shows this.  
 
-```C#
+```csharp
 var asyncDatabaseTraceListener =
   new AsynchronousTraceListenerWrapper(databaseTraceListener);
 ```

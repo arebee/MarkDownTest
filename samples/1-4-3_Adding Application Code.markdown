@@ -23,14 +23,14 @@ First, prepare your application to use the Logging Application Block. The follow
 7. (Optional) If you plan to log to a database, use NuGet to install the **Enterprise Library 6.0 – Logging Application Block Database Provider** package (search for **EnterpriseLibrary.Logging.Database** in the NuGet package manager).
 8. (Optional) If you plan to use remote logging, use NuGet to install the **Enterprise Library 6.0 – Remote Logging Service** package (search for **EnterpriseLibrary.Logging.Service** in the NuGet package manager).
 9. (Optional) To use elements from the Logging Application Block without fully qualifying the element reference, you can add the following **using** statements (C#) or **Imports** statements (Visual Basic) to the top of your source code file.
-```C#
+```csharp
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using Microsoft.Practices.EnterpriseLibrary.Logging.ExtraInformation;
 using Microsoft.Practices.EnterpriseLibrary.Logging.Filters;
 ```
 
 
-```Visual Basic
+```visualbasic
 Imports Microsoft.Practices.EnterpriseLibrary.Logging
 Imports Microsoft.Practices.EnterpriseLibrary.Logging.ExtraInformation
 Imports Microsoft.Practices.EnterpriseLibrary.Logging.Filters

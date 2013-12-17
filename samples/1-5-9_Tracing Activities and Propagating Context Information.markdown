@@ -18,7 +18,7 @@ In this scenario, the goal is to log the beginning and end of an activity to a c
 # Solution #
 Configure the application to use the Logging Application Block, specifying the category to be used when tracing activity start and end times. Use the **StartTrace** method of the **TraceManager** class (which creates an instance of the **Tracer **class) where you want the timed event to begin, specifying a configured category. When the **Tracer** instance is created, the activity start time will be logged using the specified category. The following code assumes you have retrieved a reference to an instance of the **TraceManager** class and stored it in a variable named **traceMgr**.  
 
-```C#
+```csharp
 using (traceMgr.StartTrace("Log Category"))
 {
   // Perform processing to be timed here
@@ -26,7 +26,7 @@ using (traceMgr.StartTrace("Log Category"))
 ```
 
 
-```Visual Basic
+```visualbasic
 Using traceMgr.StartTrace("Log Category")
   ' Perform processing to be timed here
 End Using
@@ -40,7 +40,7 @@ The end time of the activity is logged using the same category when the **Tracer
 # Specifying and Displaying the Activity ID #
 By default, the **StartTrace** method will generate a unique identifier for the activity as a Guid. You can use this activity identifier to correlate all log entries for particular execution of an activity.  
 
-```C#
+```csharp
 using (traceMgr.StartTrace("General"))
 {
   ...
@@ -48,7 +48,7 @@ using (traceMgr.StartTrace("General"))
 ```
 
 
-```Visual Basic
+```visualbasic
 Using traceMgr.StartTrace("General")
   ...
 End Using
@@ -56,7 +56,7 @@ End Using
 
 Alternatively, you can specify the activity identifier in the call to the **StartTrace** method, as shown here. However, this prevents the block from generating a different activity identifier for each executing instance of the code. You will generally only use this approach if you want to apply some particular application-specific activity identifier.  
 
-```C#
+```csharp
 using (traceMgr.StartTrace("General", new Guid("{12345678-1234-1234-1234-123456789ABC}")))
 {
   ...
@@ -64,7 +64,7 @@ using (traceMgr.StartTrace("General", new Guid("{12345678-1234-1234-1234-1234567
 ```
 
 
-```Visual Basic
+```visualbasic
 Using traceMgr.StartTrace("General", New Guid("{12345678-1234-1234-1234-123456789ABC}"))
   ...
 End Using
@@ -76,7 +76,7 @@ The application block uses the .NET Framework **CorrelationManager** class to ma
 # Propagation of Context Information #
 Categories determine the destinations for the log entries and are used for filtering. The categories associated with a **Tracer** object remain in effect as long as that **Tracer** object remains in scope. This means that the categories specified in the **StartTrace** method call are included in the list of categories for any call to the **LogWriter.Write** method while that **Tracer** object is in scope. In the following code, the message written in the call to the **LogWriter.Write** method belongs to both the UI Events category and the Debug category. The example assumes you have created an instance of the **LogWriter** class and saved it in a variable named **myLogWriter** and created an instance of the **TraceManager** class and stored it in a variable named **traceMgr**.   
 
-```C#
+```csharp
 using (traceMgr.StartTrace("UI Events"))
 {
   // The following message will be associated with the 
@@ -86,7 +86,7 @@ using (traceMgr.StartTrace("UI Events"))
 ```
 
 
-```Visual Basic
+```visualbasic
 Using traceMgr.StartTrace("UI Events")
   ' The following message will be associated with the  
   ' "UI Events" and "Debug" categories.
@@ -96,7 +96,7 @@ End Using
 
 By using the Logging Application Block, developers can trace the progress of an activity through a series of method calls. You can create log entries that have a common activity identifier by instantiating nested **Tracer** objects that do not specify an activity identifier. The nested **Tracer** objects will create log entries with the same activity identifier of the parent **Tracer** object currently in scope, as shown in the following code.  
 
-```C#
+```csharp
 using (traceMgr.StartTrace("A"))
 {
   // Log entries created here will belong to category "A".
@@ -110,7 +110,7 @@ using (traceMgr.StartTrace("A"))
 ```
 
 
-```Visual Basic
+```visualbasic
 Using traceMgr.StartTrace("A")
   ' Log entries created here will belong to category "A".
   ...
@@ -123,7 +123,7 @@ End Using
 
 **LogEntry** instances created within the scope of a nested **Tracer** object belong to the category specified for the nested **Tracer** object as well as to all categories for parent **Tracer** objects. All log entries for this activity have the same activity identifier. In the following example, the **LogEntry** object is associated with the categories UI Events, Data Access Events, and Troubleshooting. The example assumes you have created an instance of the **LogWriter** class and saved it in a variable named **myLogWriter** and created an instance of the **TraceManager** class and stored it in a variable named **traceMgr**.  
 
-```C#
+```csharp
 using (traceMgr.StartTrace("UI Events"))
 {
   using (traceMgr.StartTrace("Data Access Events"))
@@ -136,7 +136,7 @@ using (traceMgr.StartTrace("UI Events"))
 ```
 
 
-```Visual Basic
+```visualbasic
 Using traceMgr.StartTrace("UI Events")
   Using traceMgr.StartTrace("Data Access Events")
     Dim logEntry As New LogEntry()
@@ -153,7 +153,7 @@ For information about how to create **LogWriter** and **TraceManager** instances
 The **TraceManager.StartTrace** method creates and returns a reference to a **Tracer** instance that performs the trace function. Multiple **Tracer** objects may exist at one time. However, they must be disposed in the reverse order in which they were created. The recommended approach is to use a **using** statement (**Using** in Visual Basic). This causes your **Tracer** objects to be disposed in the correct order.  
 If you explicitly dispose your **Tracer** objects, dispose them in reverse order than they were created. The following scenario is **not** supported.  
 
-```C#
+```csharp
 Tracer tracer1 = traceMgr.StartTrace("Category1");
 Tracer tracer2 = traceMgr.StartTrace("Category2");
 
@@ -163,7 +163,7 @@ tracer2.Dispose();
 ```
 
 
-```Visual Basic
+```visualbasic
 Dim tracer1 As Tracer = traceMgr.StartTrace("Category1")
 Dim tracer2 As Tracer = traceMgr.StartTrace("Category2")
 
