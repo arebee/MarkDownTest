@@ -12,7 +12,7 @@ Output Filename: 1-1_What Does the Logging Block Do-.markdown
 
 Although the process of creating and writing log entries is relatively simple, the number of options available (such as the many logging targets and the ability to filter entries) means that the underlying structure of the block and the options available for using it can seem complex. The following schematic shows how the main types of object in the block work together to provide flexibility when creating and writing log entries.  
 
-![](images/617f2eb7-f82c-4e20-b755-5cd081c2a692.png)  
+![](images/1a65c0e7-1ce1-48ec-b1cd-eccbe9c1e74b.png)  
 
 The five main types of objects are:  
 + **Log Writer**. The log writer is the main entry point for creating log entries and writing them to your chosen logging targets. It creates an instance of a log entry containing the information to be logged, and interacts with the other objects that filter the log entry, assign it to one or more categories, format it, and dispatch it to the appropriate targets. 
@@ -51,7 +51,7 @@ public void ExampleScenario(LogWriter myLogWriter)
 ```
 
 
-```Visual Basic
+```vb
 Public Sub ExampleScenario(ByVal myLogWriter As LogWriter)
   Dim logEntry As New LogEntry()
 
