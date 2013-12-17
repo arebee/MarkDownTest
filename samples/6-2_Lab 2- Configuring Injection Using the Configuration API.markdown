@@ -4,7 +4,7 @@ AssetID: 1aae6b9d-d436-4685-b2d9-576c59017ee8
 Title: Lab 2: Configuring Injection Using the Configuration API
 Order In ToC: 6-2
 Output Filename: 6-2_Lab 2- Configuring Injection Using the Configuration API.markdown
----
+--- 
 
 #### Markdown Test ####
 # Lab 2: Configuring Injection Using the Configuration API #
