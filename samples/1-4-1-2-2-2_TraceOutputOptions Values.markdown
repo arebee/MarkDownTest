@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: e0902ea8-47a8-465f-a7d4-6809f35f6bc8
 Title: TraceOutputOptions Values
 Order In ToC: 1-4-1-2-2-2

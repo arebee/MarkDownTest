@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: fdbd8e16-7753-4e92-9113-36f56f47ac79
 Title: Configuring Trace Listeners
 Order In ToC: 1-4-1-1-2

@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: d0234cae-d49b-44b0-9f0c-bb79089022af
 Title: Logging to a Disk File
 Order In ToC: 1-5-3

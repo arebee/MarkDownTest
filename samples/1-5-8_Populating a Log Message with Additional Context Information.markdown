@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 62843eda-e525-4531-8d26-4efddd75ccef
 Title: Populating a Log Message with Additional Context Information
 Order In ToC: 1-5-8

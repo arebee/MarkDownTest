@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: cb1f81e5-c18e-4844-ba6e-3be859c2f947
 Title: Logging Messages Asynchronously
 Order In ToC: 1-5-6

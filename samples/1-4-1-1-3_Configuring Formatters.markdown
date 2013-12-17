@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 6a496a7c-4637-4d3d-aa46-cb8ec1af8fca
 Title: Configuring Formatters
 Order In ToC: 1-4-1-1-3

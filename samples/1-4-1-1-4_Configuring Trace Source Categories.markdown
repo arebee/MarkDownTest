@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 81fb2f5e-419c-4189-a821-76982644eb8f
 Title: Configuring Trace Source Categories
 Order In ToC: 1-4-1-1-4

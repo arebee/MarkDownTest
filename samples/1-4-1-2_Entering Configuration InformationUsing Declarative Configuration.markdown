@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 0d425989-6830-4e25-9fcf-e4dc2db4501a
 Title: Entering Configuration InformationUsing Declarative Configuration
 Order In ToC: 1-4-1-2

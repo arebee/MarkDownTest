@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 730d69d7-7e0f-4b21-8ab8-725bcec1bfd3
 Title: Adding Application Code
 Order In ToC: 1-4-3

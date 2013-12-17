@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 96dff44d-fb3e-4c3d-b6e4-948d0f8ac4f1
 Title: When Should I Use the Logging Block?
 Order In ToC: 1-2

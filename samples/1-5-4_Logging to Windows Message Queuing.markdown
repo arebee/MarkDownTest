@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 7dd3bd7e-c463-4dbd-92f8-472e0eab8d53
 Title: Logging to Windows Message Queuing
 Order In ToC: 1-5-4

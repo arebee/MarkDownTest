@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 45e42198-6a44-4d0b-bb55-691b7c5ed2bf
 Title: Logging to Windows Event Log
 Order In ToC: 1-5-2

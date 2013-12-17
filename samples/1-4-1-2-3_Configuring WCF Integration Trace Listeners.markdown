@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 4b216b82-b77d-41c3-bb14-cc1bf5d29db2
 Title: Configuring WCF Integration Trace Listeners
 Order In ToC: 1-4-1-2-3

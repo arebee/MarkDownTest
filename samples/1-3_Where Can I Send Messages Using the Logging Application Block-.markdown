@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 1f1ae097-7f2a-49ac-bc2a-22516d558dda
 Title: Where Can I Send Messages Using the Logging Application Block?
 Order In ToC: 1-3

@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 3712145d-7fa5-4fd7-b9a7-ea2d018b5fc7
 Title: Populating and Raising Events from Code
 Order In ToC: 1-5-7

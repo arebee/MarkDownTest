@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: c28f7cd6-7933-47ba-8d30-ac4ecaa96a52
 Title: Logging as E-mail Messages
 Order In ToC: 1-5-5

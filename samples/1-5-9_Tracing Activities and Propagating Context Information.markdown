@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 76ae5d88-2ad5-4d53-a727-c8f80807d6d1
 Title: Tracing Activities and Propagating Context Information
 Order In ToC: 1-5-9

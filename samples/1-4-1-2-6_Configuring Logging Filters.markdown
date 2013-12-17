@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: ac913544-cc72-4de9-b916-f9d85d473685
 Title: Configuring Logging Filters
 Order In ToC: 1-4-1-2-6

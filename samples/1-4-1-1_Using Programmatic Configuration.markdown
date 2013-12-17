@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 14086c0b-21bc-4307-b89e-890355f9aa8a
 Title: Using Programmatic Configuration
 Order In ToC: 1-4-1-1

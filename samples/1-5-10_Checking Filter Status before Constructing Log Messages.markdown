@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 37d65dcf-7447-46f6-97ec-6208b9a317b6
 Title: Checking Filter Status before Constructing Log Messages
 Order In ToC: 1-5-10

@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 11aa70e5-da29-457d-8600-a7507ff538dd
 Title: Deployment and Operations
 Order In ToC: 1-8

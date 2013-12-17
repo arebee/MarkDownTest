@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 33d9998d-fa92-40b4-be49-7e28a72bd22c
 Title: Key Scenarios
 Order In ToC: 1-5

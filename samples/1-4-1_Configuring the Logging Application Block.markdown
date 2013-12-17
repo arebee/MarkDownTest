@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 8f4b85fc-1789-488a-ab1e-e8b67459d95d
 Title: Configuring the Logging Application Block
 Order In ToC: 1-4-1

@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 875469ce-1185-4690-9d1c-36d452bf6a4a
 Title: Creating LogWriter and TraceManager Instances
 Order In ToC: 1-4-3-1

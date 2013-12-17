@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: b010d39c-5196-439a-8d7c-92d6cbe1d892
 Title: Logging to a Database
 Order In ToC: 1-5-1

@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: 1ee4fccf-170c-4650-8282-c46e86902a17
 Title: Designing for Simple and Consistent Logging Functionality
 Order In ToC: 1-6-1

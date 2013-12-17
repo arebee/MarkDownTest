@@ -1,5 +1,5 @@
 ---
-Source File Name: C:\code\pandp\git\markdown\sampleDocx\40-Logging.docx
+Source File Name: 40-Logging.docx
 AssetID: ef65d516-04b0-44c2-a750-4e15aab636fd
 Title: Using the Distributor Service
 Order In ToC: 1-4-2
@@ -16,7 +16,7 @@ If there are log entries on the queue, the distributor service uses an instance 
 The distributor service requires that all log entries be formatted using the **BinaryLogFormatter** class. If the service cannot interpret the entry, it will log an error to the Application Event Log and shut down.   
 The following schematic illustrates how multiple applications use the distributor service to send log entries to a central location.  
 
-<img src="images\ff83721e-b97d-45a0-92be-13b49278af83.png" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" />  
+<img src="images\7b1a09ca-3555-44b5-8b81-8900aca13c4d.png" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" />  
 
 Each instance of the Logging Application Block uses an instance of the message queuing trace listener (the **MsmqTraceListener** class) to send the log entries to a single destination queue. The distributor service polls the queue and uses another instance of the Logging Application Block to direct the log entries to the proper trace listeners. Note that the distributor service can run on a remote computer. The following sections describe installing and using the distributor service:  
 + <a href="#distrib_install" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Installing the Distributor Service</a>
