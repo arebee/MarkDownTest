@@ -5,11 +5,6 @@ Title: Lab 2: Configuring Injection Using the Configuration API
 Order In ToC: 6-2
 Output Filename: 6-2_Lab 2- Configuring Injection Using the Configuration API.markdown
 ---
-
-
-
-
-
 #### Markdown Test ####
 # Lab 2: Configuring Injection Using the Configuration API #
 ----------
