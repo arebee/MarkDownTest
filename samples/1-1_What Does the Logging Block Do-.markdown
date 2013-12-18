@@ -14,7 +14,7 @@ Richard's Edit
 
 Although the process of creating and writing log entries is relatively simple, the number of options available (such as the many logging targets and the ability to filter entries) means that the underlying structure of the block and the options available for using it can seem complex. The following schematic shows how the main types of object in the block work together to provide flexibility when creating and writing log entries.  
 
-![](images/df01cb0d-a5e9-4fe7-b706-cc265323039c.png)  
+![](images/c5174b63-36d4-4b1c-bf31-e99c081fc2b0.png)  
 
 The five main types of objects are:  
 + **Log Writer**. The log writer is the main entry point for creating log entries and writing them to your chosen logging targets. It creates an instance of a log entry containing the information to be logged, and interacts with the other objects that filter the log entry, assign it to one or more categories, format it, and dispatch it to the appropriate targets. 
