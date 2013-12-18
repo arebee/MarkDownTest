@@ -39,7 +39,7 @@ else
 ```
 
 
-```visualbasic
+```vb
 Dim logEntry As New LogEntry()
 logEntry.Priority = 2
 logEntry.Categories.Add("Trace")
@@ -54,7 +54,7 @@ Else
 End If
 ```
 
-For information about how to create a **LogWriter** instance, see <a href="test-markdown_875469ce-1185-4690-9d1c-36d452bf6a4a.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Creating LogWriter and TraceManager Instances</a>.  
+For information about how to create a **LogWriter** instance, see [Creating LogWriter and TraceManager Instances]({$finalDocSet}).  
 
 
 # Usage Notes #
@@ -73,7 +73,7 @@ if (myLogWriter.GetFilter&lt;CategoryFilter&gt;().ShouldLog(categories))
 ```
 
 
-```visualbasic
+```vb
 Dim categories As ICollection(Of String) = New List(Of String)(0)
 categories.Add("Trace")
 categories.Add("UI Events")

@@ -10,7 +10,7 @@ Output Filename: 1-4-3_Adding Application Code.markdown
 # Adding Application Code #
 ----------
 
-The Logging Application Block is designed to support the most common scenarios for logging information. When adding your application code, refer to the scenarios in the <a href="test-markdown_33d9998d-fa92-40b4-be49-7e28a72bd22c.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Key Scenarios</a> sections and select the ones that best suit your situation. Use the code that accompanies the scenario either as it is or adapt it as necessary.   
+The Logging Application Block is designed to support the most common scenarios for logging information. When adding your application code, refer to the scenarios in the [Key Scenarios]({$finalDocSet}) sections and select the ones that best suit your situation. Use the code that accompanies the scenario either as it is or adapt it as necessary.   
 First, prepare your application to use the Logging Application Block. The following procedure describes how to include the necessary Enterprise Library assemblies and elements in your code.  
 **To prepare your application**
 
@@ -30,17 +30,17 @@ using Microsoft.Practices.EnterpriseLibrary.Logging.Filters;
 ```
 
 
-```visualbasic
+```vb
 Imports Microsoft.Practices.EnterpriseLibrary.Logging
 Imports Microsoft.Practices.EnterpriseLibrary.Logging.ExtraInformation
 Imports Microsoft.Practices.EnterpriseLibrary.Logging.Filters
 ```
 
-![](images/note.gif)Note:For Visual Basic projects, you can also use the **References** page of the Project Designer to manage references and imported namespaces. To access the **References** page, select a project node in Solution Explorer, and then click **Properties** on the **Project** menu. When the Project Designer appears, click the **References** tab.The **ExtraInformation** providers gather context information that is useful but not always necessary because it is expensive to collect. Examples are stack trace information and COM+ information. The **ExtraInformation** providers add the information to a dictionary. You can choose which providers to use (if any) and add the resulting dictionary to the **LogEntry.ExtendedProperties** property.  
+![](images/note.gif)Note:&gt; For Visual Basic projects, you can also use the **References** page of the Project Designer to manage references and imported namespaces. To access the **References** page, select a project node in Solution Explorer, and then click **Properties** on the **Project** menu. When the Project Designer appears, click the **References** tab.The **ExtraInformation** providers gather context information that is useful but not always necessary because it is expensive to collect. Examples are stack trace information and COM+ information. The **ExtraInformation** providers add the information to a dictionary. You can choose which providers to use (if any) and add the resulting dictionary to the **LogEntry.ExtendedProperties** property.  
 Filters are optional. You only need to import the **Microsoft.Practices.EnterpriseLibrary.Logging.Filters** namespace if you are going to refer to specific filters in your application code.  
 
-10. If you are using the **DatabaseTraceListener** class, you must also do the following:+ Configure the application to use the Data Access Application Block. For more information, see <a href="test-markdown_68577648-b6f9-478f-ad6a-953836e97c53.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">The Data Access Application Block</a>.
+10. If you are using the **DatabaseTraceListener** class, you must also do the following:+ Configure the application to use the Data Access Application Block. For more information, see [The Data Access Application Block]({$finalDocSet}).
 + Execute the script named **CreateLoggingDb.cmd** (located in the [Solution Folder]\Packages\EnterpriseLibrary.Logging.Database.[Version]\Scripts folder) to create the **Logging** database. 
 
-11. Create a **LogWriter** instance. For more information see <a href="test-markdown_875469ce-1185-4690-9d1c-36d452bf6a4a.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Creating LogWriter and TraceManager Instances</a>.
+11. Create a **LogWriter** instance. For more information see [Creating LogWriter and TraceManager Instances]({$finalDocSet}).
 12. Add the application code. 

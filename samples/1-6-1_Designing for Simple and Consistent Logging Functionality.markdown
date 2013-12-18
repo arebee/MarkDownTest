@@ -33,7 +33,7 @@ myLogWriter.Write("My log message");
 ```
 
 
-```visualbasic
+```vb
 myLogWriter.Write("My log message")
 ```
 
@@ -44,7 +44,7 @@ myLogWriter.Write("My log message", "Debug", 2, 400);
 ```
 
 
-```visualbasic
+```vb
 myLogWriter.Write("My log message", "Debug", 2, 400)
 ```
 
@@ -65,7 +65,7 @@ myLogWriter.Write(logEntry);
 ```
 
 
-```visualbasic
+```vb
 Dim logEntry As LogEntry = New LogEntry()
 logEntry.EventId = 100
 logEntry.Priority = 2
@@ -80,5 +80,5 @@ The code above creates a **LogEntry** object. The object includes the event ID, 
 <a name="designc_convenient" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a><a name="_Toc253065093" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 # Convenient Handling of Additional Information #
-The **LogEntry** class defines properties that hold commonly required types. However, developers often need to add additional context information to log entries. The same type of context information can be required for multiple log entries in the same application or in multiple applications. Because context information can be expensive to gather, certain types of information are not automatically collected. The **ExtraInformation** providers gather context information that is useful but not always necessary to collect. Examples are stack track information and COM+ information. For information about the **ExtraInformation** providers, see <a href="test-markdown_62843eda-e525-4531-8d26-4efddd75ccef.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Populating a Log Message with Additional Context Information</a>.  
+The **LogEntry** class defines properties that hold commonly required types. However, developers often need to add additional context information to log entries. The same type of context information can be required for multiple log entries in the same application or in multiple applications. Because context information can be expensive to gather, certain types of information are not automatically collected. The **ExtraInformation** providers gather context information that is useful but not always necessary to collect. Examples are stack track information and COM+ information. For information about the **ExtraInformation** providers, see [Populating a Log Message with Additional Context Information]({$finalDocSet}).  
 

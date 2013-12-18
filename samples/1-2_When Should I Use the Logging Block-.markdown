@@ -21,7 +21,7 @@ The scenarios are the following:
 + Populating a log message with additional context information 
 + Tracing activities and propagating context information 
 + Checking filter status before constructing log messages.
-For details about each scenario, see <a href="test-markdown_33d9998d-fa92-40b4-be49-7e28a72bd22c.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Key Scenarios</a>.  
+For details about each scenario, see [Key Scenarios]({$finalDocSet}).  
 
 # Benefits of the Logging Application Block #
 The Logging Application Block simplifies application development by providing a small set of easy-to-use classes and methods that encapsulate many of the most common logging scenarios. These scenarios include the following:  
@@ -37,4 +37,4 @@ The Logging Application Block helps with application development in a number of 
 + It is extensible, supporting custom implementations of components that format and write event information. 
 
 # Limitations of the Logging Application Block #
-The Logging Application Block formatters do not encrypt logging information, and trace listener destinations receive logging information as clear text. This means that attackers that can access a trace listener destination can read the information. You may wish to explore options for preventing unauthorized access to sensitive information. One approach is to use access control lists (ACLs) to restrict access to flat files. You can also create a custom formatter that encrypts log information. For information about how to create a custom formatter, see <a href="test-markdown_bca61231-bddd-4531-b797-449dfc0639e8.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Extending the Logging Application Block</a>.  
+The Logging Application Block formatters do not encrypt logging information, and trace listener destinations receive logging information as clear text. This means that attackers that can access a trace listener destination can read the information. You may wish to explore options for preventing unauthorized access to sensitive information. One approach is to use access control lists (ACLs) to restrict access to flat files. You can also create a custom formatter that encrypts log information. For information about how to create a custom formatter, see [Extending the Logging Application Block]({$finalDocSet}).  

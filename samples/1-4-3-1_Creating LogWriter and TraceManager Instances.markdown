@@ -19,11 +19,11 @@ LogWriter defaultWriter = logWriterFactory.Create();
 ```
 
 
-```visualbasic
+```vb
 Dim logWriterFactory As New LogWriterFactory()
 Dim defaultWriter As LogWriter = logWriterFactory.Create()
 ```
 
 You can use the **LogWriter** instance to configure a **TraceManager** instance. The **TraceManager** class includes a constructor that takes a **LogWriter** instance as a parameter.   
-For more information about creating Enterprise Library application block instances, see <a href="test-markdown_6453869a-c2bb-4494-9095-ea97d328ee94.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Creating Application Block Objects</a>.  
+For more information about creating Enterprise Library application block instances, see [Creating Application Block Objects]({$finalDocSet}).  
 

@@ -12,7 +12,7 @@ Output Filename: 1-1_What Does the Logging Block Do-.markdown
 
 Although the process of creating and writing log entries is relatively simple, the number of options available (such as the many logging targets and the ability to filter entries) means that the underlying structure of the block and the options available for using it can seem complex. The following schematic shows how the main types of object in the block work together to provide flexibility when creating and writing log entries.  
 
-![](images/1a65c0e7-1ce1-48ec-b1cd-eccbe9c1e74b.png)  
+![](images/ada820f0-30d8-4b7a-a2f4-0536278d59ec.png)  
 
 The five main types of objects are:  
 + **Log Writer**. The log writer is the main entry point for creating log entries and writing them to your chosen logging targets. It creates an instance of a log entry containing the information to be logged, and interacts with the other objects that filter the log entry, assign it to one or more categories, format it, and dispatch it to the appropriate targets. 
@@ -30,7 +30,7 @@ Although the logging process should be clear to you now from the description of 
 3. If the log filters do not block the log entry, the log writer retrieves the appropriate trace sources. The trace sources you can use consist of a set of category sources that you create and configure, and three special sources that you can use to ensure that the  block will record all log entries (for example, if there is an error within the logging system or if the log entry does not match any configured category). 
 4. You can configure one or more trace listeners for each of the trace sources. In other words, you can configure a specific set of trace listeners for each category that the message might contain, and for each of the three special sources that might handle the message. The log writer will pass the log entry to the matching trace listeners you specify. 
 5. The trace listener then uses a log formatter to transform the information in the log entry into an appropriate format, such as formatted text or binary, and writes the result to the output specific to the type of trace listener. Depending on the trace listener type, the output can go to a file, a database, Message Queuing (also known as MSMQ), or as an e-mail message.
-For an overview of the process of setting up logging for different types of sink (or logging target), see <a href="test-markdown_33d9998d-fa92-40b4-be49-7e28a72bd22c.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Key Scenarios</a>.  
+For an overview of the process of setting up logging for different types of sink (or logging target), see [Key Scenarios]({$finalDocSet}).  
 
 # Example Application Code #
 <a name="intro_examplecode" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>The following code shows how to populate and raise an event in your application that writes the log entry to the target or targets you configure for the block**.** The **LogEntry** object has a priority of 2 and belongs to both the **Trace** and **UI Events** categories. This example assumes that you have created an instance of the **LogWriter** class in your application.  
@@ -66,5 +66,5 @@ Public Sub ExampleScenario(ByVal myLogWriter As LogWriter)
 End Sub
 ```
 
-For information about resolving Enterprise Library objects in your applications, see <a href="test-markdown_bfd186b8-9a32-477a-bee7-14742ba1ca42.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Creating and Referencing Enterprise Library Objects</a>.  
+For information about resolving Enterprise Library objects in your applications, see [Creating and Referencing Enterprise Library Objects]({$finalDocSet}).  
 

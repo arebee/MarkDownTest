@@ -16,7 +16,7 @@ If there are log entries on the queue, the distributor service uses an instance 
 The distributor service requires that all log entries be formatted using the **BinaryLogFormatter** class. If the service cannot interpret the entry, it will log an error to the Application Event Log and shut down.   
 The following schematic illustrates how multiple applications use the distributor service to send log entries to a central location.  
 
-![](images/7cf86c33-a2bc-47bf-b9eb-a512dc00f09f.png)  
+![](images/9edc1759-83fb-4f40-b9a5-b87a4e535e28.png)  
 
 Each instance of the Logging Application Block uses an instance of the message queuing trace listener (the **MsmqTraceListener** class) to send the log entries to a single destination queue. The distributor service polls the queue and uses another instance of the Logging Application Block to direct the log entries to the proper trace listeners. Note that the distributor service can run on a remote computer. The following sections describe installing and using the distributor service:  
 + <a href="#distrib_install" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Installing the Distributor Service</a>
@@ -28,12 +28,12 @@ Each instance of the Logging Application Block uses an instance of the message q
 The following procedure installs the distributor service.  
 **To install the distributor service**
 
-1. Deploy the Logging Application Block, the Enterprise Library Core, the MSMQDistributor.exe file, and the MsmqDistributor.exe.config file to the computer that will read log entries from the message queue. That computer must have Message Queuing installed. The computer can be the same as the one that will run your application, but it can also be another computer. For information about installing Message Queuing, see <a href="http://technet.microsoft.com/en-us/library/cc780048(WS.10).aspx" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Planning, Installing, and Upgrading Message Queuing</a> on MSDN.
+1. Deploy the Logging Application Block, the Enterprise Library Core, the MSMQDistributor.exe file, and the MsmqDistributor.exe.config file to the computer that will read log entries from the message queue. That computer must have Message Queuing installed. The computer can be the same as the one that will run your application, but it can also be another computer. For information about installing Message Queuing, see [Planning, Installing, and Upgrading Message Queuing]({$xref}) on MSDN.
 2. Deploy any components required by the trace listeners. For example, if you configure the distributor service to write log entries to the database trace listener, you must also deploy the Data Access Application Block to the computer that runs the distributor service. 
 3. Create the message queue using the Message Queuing tools. Remember the name you assign to the message queue.
 4. Edit the MsmqDistributor.exe.config file. You cannot use the configuration console to do this. Use a text editor to edit the file and change the **msmqPath** attribute to match the name you assigned in Step 3. The default name is ".\Private$\entlib".
 5. Install the distributor service. From the command line, type **installutil -i msmqdistributor.exe**. (The installer tool, Installutil.exe, is located in the Framework directory. An example is C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727.)
-6. When you run the installer tool, you will be prompted to enter a user name and a password for the account that the Message Queuing service runs under. For information about selecting an account with the correct service permissions, see the <a href="http://technet.microsoft.com/en-us/library/cc758845(WS.10).aspx" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Managing the Message Queuing service account</a> on MSDN. For general information on Message Queuing, see <a href="http://technet.microsoft.com/en-us/library/cc738910(WS.10).aspx" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Message Queuing Concepts</a>.
+6. When you run the installer tool, you will be prompted to enter a user name and a password for the account that the Message Queuing service runs under. For information about selecting an account with the correct service permissions, see the [Managing the Message Queuing service account]({$xref}) on MSDN. For general information on Message Queuing, see [Message Queuing Concepts]({$xref}).
 After you install the distributor service, use the configuration console to configure the Logging Application Block that will use the service.  
 To uninstall the distributor service, at the command line, type **installutil /u msmqdistributor.exe**.   
 
@@ -52,7 +52,7 @@ net start "Enterprise Library Distributor Service"
 ```
 
 
-![](images/note.gif)Note:You must either use the **net start** command or the **Services** item in Control Panel to start the distributor service. If you try to run the MsmqDistributor.exe file from the command line, you will receive a Windows Service Start Failure error message.
+![](images/note.gif)Note:&gt; You must either use the **net start** command or the **Services** item in Control Panel to start the distributor service. If you try to run the MsmqDistributor.exe file from the command line, you will receive a Windows Service Start Failure error message.
 
 The distributor service does not detect changes to configuration information. You must restart the distributor service if you change the application block configuration. 
 # Understanding the serviceName Attribute #
@@ -66,4 +66,4 @@ You should use the **serviceName** attribute to run multiple instances of the di
 3. Run the Installutil tool for each copy. This will give each copy of the distributor service the same service name as the one in the corresponding configuration file. 
 The distributor service uses the service name as the trace source when it logs messages to the event log. This log is always the Application Event Log.   
 
-![](images/note.gif)Note:Duplicating the name of the distributor service will result in an error message during the installation.
+![](images/note.gif)Note:&gt; Duplicating the name of the distributor service will result in an error message during the installation.

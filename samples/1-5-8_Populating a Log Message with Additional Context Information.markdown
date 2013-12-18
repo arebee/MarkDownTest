@@ -45,7 +45,7 @@ informationHelper.PopulateDictionary(dictionary);
 ```
 
 
-```visualbasic
+```vb
 Dim dictionary As New Dictionary(Of String, Object)()
 Dim informationHelper As New ManagedSecurityContextInformationProvider()
 informationHelper.PopulateDictionary(dictionary)
@@ -61,7 +61,7 @@ dictionary.Add("Screen resolution", resolution);
 ```
 
 
-```visualbasic
+```vb
 Dim width As Integer = Screen.PrimaryScreen.Bounds.Width
 Dim height As Integer = Screen.PrimaryScreen.Bounds.Height
 Dim resolution As String = String.Format("{0}x{1}", width, height)
@@ -75,7 +75,7 @@ myLogEntry.ExtendedProperties = dictionary;
 ```
 
 
-```visualbasic
+```vb
 myLogEntry.ExtendedProperties = dictionary
 ```
 

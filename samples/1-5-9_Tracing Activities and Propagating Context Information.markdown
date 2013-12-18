@@ -26,7 +26,7 @@ using (traceMgr.StartTrace("Log Category"))
 ```
 
 
-```visualbasic
+```vb
 Using traceMgr.StartTrace("Log Category")
   ' Perform processing to be timed here
 End Using
@@ -34,7 +34,7 @@ End Using
 
 The end time of the activity is logged using the same category when the **Tracer** object returned from the **StartTrace** method is disposed. The automatic disposal behavior of the **using** statement causes the end time to be logged when the scope of the **using** statement ends.   
 
-![](images/note.gif)Note:The non-static facade named **TraceManager** replaces the direct instantiation of the static **Tracer** class approach that was the default in earlier versions of Enterprise Library. For information about the previous approach, see the online documentation for Enterprise Library 4.1, available on the <a href="http://msdn.microsoft.com/en-gb/library/dd203099.aspx" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">MSDN Web Site</a>.
+![](images/note.gif)Note:&gt; The non-static facade named **TraceManager** replaces the direct instantiation of the static **Tracer** class approach that was the default in earlier versions of Enterprise Library. For information about the previous approach, see the online documentation for Enterprise Library 4.1, available on the [MSDN Web Site]({$xref}).
 <a name="_Toc253065066" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 # Specifying and Displaying the Activity ID #
@@ -48,7 +48,7 @@ using (traceMgr.StartTrace("General"))
 ```
 
 
-```visualbasic
+```vb
 Using traceMgr.StartTrace("General")
   ...
 End Using
@@ -64,7 +64,7 @@ using (traceMgr.StartTrace("General", new Guid("{12345678-1234-1234-1234-1234567
 ```
 
 
-```visualbasic
+```vb
 Using traceMgr.StartTrace("General", New Guid("{12345678-1234-1234-1234-123456789ABC}"))
   ...
 End Using
@@ -86,7 +86,7 @@ using (traceMgr.StartTrace("UI Events"))
 ```
 
 
-```visualbasic
+```vb
 Using traceMgr.StartTrace("UI Events")
   ' The following message will be associated with the  
   ' "UI Events" and "Debug" categories.
@@ -110,7 +110,7 @@ using (traceMgr.StartTrace("A"))
 ```
 
 
-```visualbasic
+```vb
 Using traceMgr.StartTrace("A")
   ' Log entries created here will belong to category "A".
   ...
@@ -136,7 +136,7 @@ using (traceMgr.StartTrace("UI Events"))
 ```
 
 
-```visualbasic
+```vb
 Using traceMgr.StartTrace("UI Events")
   Using traceMgr.StartTrace("Data Access Events")
     Dim logEntry As New LogEntry()
@@ -146,7 +146,7 @@ Using traceMgr.StartTrace("UI Events")
 End Using
 ```
 
-For information about how to create **LogWriter** and **TraceManager** instances, see <a href="test-markdown_875469ce-1185-4690-9d1c-36d452bf6a4a.html" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Creating LogWriter and TraceManager Instances</a>.  
+For information about how to create **LogWriter** and **TraceManager** instances, see [Creating LogWriter and TraceManager Instances]({$finalDocSet}).  
 
 
 # Usage Notes #
@@ -163,7 +163,7 @@ tracer2.Dispose();
 ```
 
 
-```visualbasic
+```vb
 Dim tracer1 As Tracer = traceMgr.StartTrace("Category1")
 Dim tracer2 As Tracer = traceMgr.StartTrace("Category2")
 

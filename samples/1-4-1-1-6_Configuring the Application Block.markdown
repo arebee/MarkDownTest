@@ -16,4 +16,4 @@ The **LoggingConfiguration** class has a number of properties that enable you to
 # Remarks #
 Performance testing has demonstrated a 5% performance overhead when reverting impersonation when logging using the rolling flat file trace listener.  
 
-![](images/note.gif)Note:For an ASP.NET site that uses the Logging Application Block, when **Revert Impersonation** is set to **True**, the credentials used to send an e-mail will be those of the ASP.NET worker process.
+![](images/note.gif)Note:&gt; For an ASP.NET site that uses the Logging Application Block, when **Revert Impersonation** is set to **True**, the credentials used to send an e-mail will be those of the ASP.NET worker process.
