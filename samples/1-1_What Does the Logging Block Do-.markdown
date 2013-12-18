@@ -10,6 +10,8 @@ Output Filename: 1-1_What Does the Logging Block Do-.markdown
 # What Does the Logging Block Do? #
 ----------
 
+Richard's Edit
+
 Although the process of creating and writing log entries is relatively simple, the number of options available (such as the many logging targets and the ability to filter entries) means that the underlying structure of the block and the options available for using it can seem complex. The following schematic shows how the main types of object in the block work together to provide flexibility when creating and writing log entries.  
 
 ![](images/df01cb0d-a5e9-4fe7-b706-cc265323039c.png)  
