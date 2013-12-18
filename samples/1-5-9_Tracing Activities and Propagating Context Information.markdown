@@ -34,7 +34,7 @@ End Using
 
 The end time of the activity is logged using the same category when the **Tracer** object returned from the **StartTrace** method is disposed. The automatic disposal behavior of the **using** statement causes the end time to be logged when the scope of the **using** statement ends.   
 
-![](images/note.gif)Note:&gt; The non-static facade named **TraceManager** replaces the direct instantiation of the static **Tracer** class approach that was the default in earlier versions of Enterprise Library. For information about the previous approach, see the online documentation for Enterprise Library 4.1, available on the [MSDN Web Site]({$xref}).
+![](images/note.gif)Note:&gt; The non-static facade named **TraceManager** replaces the direct instantiation of the static **Tracer** class approach that was the default in earlier versions of Enterprise Library. For information about the previous approach, see the online documentation for Enterprise Library 4.1, available on the [MSDN Web Site](http://msdn.microsoft.com/en-gb/library/dd203099.aspx).
 <a name="_Toc253065066" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 # Specifying and Displaying the Activity ID #
@@ -146,7 +146,7 @@ Using traceMgr.StartTrace("UI Events")
 End Using
 ```
 
-For information about how to create **LogWriter** and **TraceManager** instances, see [Creating LogWriter and TraceManager Instances]({$finalDocSet}).  
+For information about how to create **LogWriter** and **TraceManager** instances, see [Creating LogWriter and TraceManager Instances](test-markdown_875469ce-1185-4690-9d1c-36d452bf6a4a.html).  
 
 
 # Usage Notes #

@@ -10,4 +10,4 @@ Output Filename: 1-8_Deployment and Operations.markdown
 # Deployment and Operations #
 ----------
 
-Two of an administrator's main tasks will be to see that the initial deployment of the Logging Application Block is planned and managed and that subsequent updates are deployed with minimal impact to existing applications that use the application block. For details of deploying and updating Enterprise Library and the application blocks, see [Deploying Enterprise Library]({$finalDocSet}).  
+Two of an administrator's main tasks will be to see that the initial deployment of the Logging Application Block is planned and managed and that subsequent updates are deployed with minimal impact to existing applications that use the application block. For details of deploying and updating Enterprise Library and the application blocks, see [Deploying Enterprise Library](test-markdown_10966b86-db1f-40de-95ff-b84e2cdfff20.html).  

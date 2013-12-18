@@ -13,7 +13,7 @@ Output Filename: 1-4-1-2-6_Configuring Logging Filters.markdown
 You can filter log entries based on their categories and their priorities. You can also entirely enable or disable logging or add a custom logging filter. The following procedure describes how to configure the logging filters.  
 <a name="config_filters" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>**To configure logging filters **
 
-1. Select **Add Logging Filters** as described in [Configuration Overview]({$finalDocSet}). 
+1. Select **Add Logging Filters** as described in [Configuration Overview](test-markdown_3a6ba613-78b1-4b24-b226-55e368e41554.html). 
 2. If the filter's property pane is not displayed, click the property expander arrow or right-click the filters** **node you wish to configure.
 3. The **Category Filter** allows or denies log entries based on their categories:+ If you want to use a Category Filter, you can select the specific category filter by editing the **Categories** property. Click the plus sign icon to add a category filter. 
 + Type or select the category name for the category that will be filtered. You can either select a name from the drop-down list or type a category name. All Category Filters that have been added to the **Category Filters** section are available for selection in the drop-down list. The selected category name appears in the lower pane. 

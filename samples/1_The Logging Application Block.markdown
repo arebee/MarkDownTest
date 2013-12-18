@@ -19,17 +19,17 @@ The Enterprise Library Logging Application Block simplifies the implementation o
 + A text file 
 + Custom locations using application block extension points
 This section includes the following topics that will help you to understand and use the Logging Application Block:  
-+ [What Does the Logging Block Do?]({$finalDocSet}) This topic provides a brief overview that will help you to understand what the block can do, and explains some of the concepts and features it incorporates. It also provides a simple example of how to write code to use the block.
-+ [When Should I Use the Logging Block?]({$finalDocSet}) This topic will help you to decide if the block is suitable for your requirements. It explains the benefits of using the block, and any alternative techniques you may consider. It also provides details of any limitations of the block that may affect your decision to use it.
-+ [Developing Applications Using the Logging Application Block]({$finalDocSet}). This topic explains how to use the Logging Application Block in your applications. It shows how to configure the application block to perform common tasks and how to add application code to the application block where required. 
-+ [Key Scenarios]({$finalDocSet}). This topic demonstrates how to use the application block to perform the most common logging operations. 
-+ [Design of the Logging Application Block]({$finalDocSet}). This topic explains the decisions that went into designing the application block and the rationale behind those decisions. 
-+ [Extending and Modifying the Logging Application Block]({$finalDocSet}). This topic explains how to extend the application block by creating your own custom trace listeners, log formatters, and log filters; and explains how to modify the source code. 
-+ [Deployment and Operations]({$finalDocSet}). This topic explains how to deploy and update the application block's assemblies. 
++ [What Does the Logging Block Do?](test-markdown_75d79ffd-f3cf-48e7-bcbe-03acedf87ac0.html) This topic provides a brief overview that will help you to understand what the block can do, and explains some of the concepts and features it incorporates. It also provides a simple example of how to write code to use the block.
++ [When Should I Use the Logging Block?](test-markdown_96dff44d-fb3e-4c3d-b6e4-948d0f8ac4f1.html) This topic will help you to decide if the block is suitable for your requirements. It explains the benefits of using the block, and any alternative techniques you may consider. It also provides details of any limitations of the block that may affect your decision to use it.
++ [Developing Applications Using the Logging Application Block](test-markdown_af68990c-87d7-4af5-bdb8-ad1f3d611075.html). This topic explains how to use the Logging Application Block in your applications. It shows how to configure the application block to perform common tasks and how to add application code to the application block where required. 
++ [Key Scenarios](test-markdown_33d9998d-fa92-40b4-be49-7e28a72bd22c.html). This topic demonstrates how to use the application block to perform the most common logging operations. 
++ [Design of the Logging Application Block](test-markdown_47589a17-a0d7-4651-93e1-41b9bc975eb6.html). This topic explains the decisions that went into designing the application block and the rationale behind those decisions. 
++ [Extending and Modifying the Logging Application Block](test-markdown_5d44c59c-4981-431a-aa38-5f466d4586c7.html). This topic explains how to extend the application block by creating your own custom trace listeners, log formatters, and log filters; and explains how to modify the source code. 
++ [Deployment and Operations](test-markdown_11aa70e5-da29-457d-8600-a7507ff538dd.html). This topic explains how to deploy and update the application block's assemblies. 
 <a name="_Toc253064939" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 # More Information #
 For more information about logging and managing other crosscutting concerns, see the following patterns &amp; practices guides:  
-+ [Microsoft Application Architecture Guide, 2nd Edition]({$xref})
-+ [Design Guidelines for Exceptions]({$xref}) 
++ [Microsoft Application Architecture Guide, 2nd Edition](http://msdn.microsoft.com/en-us/library/dd673617.aspx)
++ [Design Guidelines for Exceptions](http://msdn.microsoft.com/en-us/library/ms229014(VS.80).aspx) 
 

@@ -54,7 +54,7 @@ Else
 End If
 ```
 
-For information about how to create a **LogWriter** instance, see [Creating LogWriter and TraceManager Instances]({$finalDocSet}).  
+For information about how to create a **LogWriter** instance, see [Creating LogWriter and TraceManager Instances](test-markdown_875469ce-1185-4690-9d1c-36d452bf6a4a.html).  
 
 
 # Usage Notes #

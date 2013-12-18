@@ -20,7 +20,7 @@ Configure the application to use the Logging Application Block. Use the Enterpri
 
 ![](images/note.gif)Note:&gt; The **LogWriter** class includes overloads that allow you to pass event information without constructing a **LogEntry** object. This scenario only demonstrates one overload provided by the **LogWriter** class. For information about the other overloads, see the Logging Application Block API reference documentation.
 
-The default class for writing a **LogEntry** in earlier versions of Enterprise Library was the static **Logger** class. Code that uses the **Logger** class will continue to work in this release. For information about resolving Enterprise Library objects in your applications, see [Creating and Referencing Enterprise Library Objects]({$finalDocSet}). For information about the **Logger** class, see the online documentation for Enterprise Library 4.1, available on the [MSDN Web Site]({$xref}).<a name="_Toc253065056" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
+The default class for writing a **LogEntry** in earlier versions of Enterprise Library was the static **Logger** class. Code that uses the **Logger** class will continue to work in this release. For information about resolving Enterprise Library objects in your applications, see [Creating and Referencing Enterprise Library Objects](test-markdown_bfd186b8-9a32-477a-bee7-14742ba1ca42.html). For information about the **Logger** class, see the online documentation for Enterprise Library 4.1, available on the [MSDN Web Site](http://msdn.microsoft.com/en-gb/library/dd203099.aspx).<a name="_Toc253065056" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 # Creating and Writing a LogEntry #
 The following code shows how to create a **LogEntry** object and use the **Write **method of the **LogWriter** class**.** The **LogEntry** object has a priority of 2 and belongs to both the **Trace** and **UI Events** categories.  It assumes you have created an instance of the **LogWriter** class and saved it in a variable named **myLogWriter**.  
@@ -50,7 +50,7 @@ logEntry.Categories.Add("UI Events")
 myLogWriter.Write(logEntry)
 ```
 
-For information about how to create a **LogWriter** instance, see [Creating LogWriter and TraceManager Instances]({$finalDocSet}).  
+For information about how to create a **LogWriter** instance, see [Creating LogWriter and TraceManager Instances](test-markdown_875469ce-1185-4690-9d1c-36d452bf6a4a.html).  
 <a name="_Toc253065057" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 # Usage Notes #
