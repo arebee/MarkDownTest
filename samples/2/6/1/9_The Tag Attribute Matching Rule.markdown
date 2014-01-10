@@ -11,7 +11,7 @@ Output Filename: 2\6\1\9_The Tag Attribute Matching Rule.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 The tag attribute matching rule allows you to select target classes based on an attribute of type Tag applied to a class or to members within a class. 
 The tag attribute matching rule allows developers, operators, and administrators to select target classes based on the name of an attribute of type **Tag** that is applied to a class, or to members (methods or properties) within a class. For example, the following code shows a class with two tagged members.  

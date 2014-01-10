@@ -11,7 +11,7 @@ Output Filename: 2\3_Configuring a Container for Interception.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 If you choose to use the Unity DI container, you can configure the container by using a configuration file or at run time by using the API.
 You can use interception with or without a dependency injection (DI) container such as Unity. Using a DI container relieves you of the need to manually create all the dependencies and pass them into the correct objects. If you choose to use the Unity DI container, you can configure the container by using a configuration file or at run time by using the API.   
@@ -64,7 +64,7 @@ When you add the **sectionExtension** element for the interception configuration
 ```
 
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; For all custom extensions, you must use the full name for the extension when adding it with the &lt;**extension**&gt; element, unless you specify an alias in the **sectionExtension** context object.
 
 # Configuring Interception of a Type #
@@ -84,7 +84,7 @@ For information on configuring interception at design time see [Configuration Fi
 # Unity 2.0 Approach #
 The Unity 2.0 approach explicitly configures the interceptor, behaviors, and additional interfaces. You can configure the interceptor, behaviors, and additional interfaces using the same mechanism and elements you use to configure injection through constructors and properties.  
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; When performing interception using the Unity 2.0 **RegisterType** API you can target a specific key or instance and you can target all keys or instances of a type. 
 At run time, target a specific key or instance by using the **Interceptor** injection member. Use the **DefaultInterceptor** injection member to target all keys or instances of a type.
 At design time, set the **DefaultForType** attribute in the **&lt;interceptor&gt;** element to target all keys or instances of a type. 
@@ -131,7 +131,7 @@ The following example configures the container **Interception** extension by add
 # Legacy Approach #
 The pre-Unity 2.0 approach to configuring the container at run time called the **Configure** and the **SetInterceptorFor** (or **SetDefaultInterceptorFor**) methods on the interception extension. For details on legacy API see "Registering Interceptors Using SetInterceptorFor" in the [Registering Interception](test-markdown_53570dcb-4520-4e42-b64d-84c9222841c0.html) topic.  
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; The pre-Unity 2.0 approach automatically adds the policy injection. The behavior is implicitly set up in the underlying code. 
 
 # More Information #

@@ -11,7 +11,7 @@ Output Filename: 2\6\1_Policy Injection Matching Rules.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 Unity includes matching rule implementations that provide capabilities for selecting objects and their members to which it adds a handler pipeline.
 Unity includes matching rule implementations that provide a wide range of capabilities for selecting the objects and their members to which Unity will add a handler pipeline. Interception policies use the matching rules to define which methods will be intercepted.   

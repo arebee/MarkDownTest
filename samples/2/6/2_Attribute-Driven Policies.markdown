@@ -11,7 +11,7 @@ Output Filename: 2\6\2_Attribute-Driven Policies.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 Developers specify handlers for classes and their members (methods and properties) using call handler attributes.
 A common scenario when using any policy injection framework is the requirement to specify policies for classes and their members using attributes directly applied to the appropriate classes and members. Unity interception supports this technique—it actively discovers classes and members with attributes that define call handlers and applies the appropriate policies.  

@@ -11,7 +11,7 @@ Output Filename: 2\5\3_Interception with a Container.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; <a name="interception_container" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 The Unity container extension enables you to configure a container for interception.
 The Unity container extension enables you to configure a container for interception. You can use the container configuration to determine whether an object should be intercepted, which mechanism should be used to perform the interception, and what to do when the object is intercepted. It also provides a convenient set of methods for configuring injection for **Microsoft.Practices.Unity.InterceptionExtension.RuleDrivenPolicy** instances.  

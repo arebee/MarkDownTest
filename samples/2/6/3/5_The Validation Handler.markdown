@@ -11,14 +11,14 @@ Output Filename: 2\6\3\5_The Validation Handler.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 This handler uses the Validation Application Block, taking advantage of the wide range of capabilities that it offers.
 The validation handler provides the capability to test whether the value provided for the selected property, or the values specified for the parameters of the selected method, are valid against specific rules. This handler uses the Validation Application Block, taking advantage of the wide range of capabilities that it offers.   
 The validation handler applies the validation befor**e **invoking the method or setting the property of the target object. If validation fails, the validation handler aborts execution of the preprocessing handler pipeline, does not invoke the method or set the property, and raises an **ArgumentValidationException**.  
 
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; This call handler is implemented in Microsoft.Practices.EnterpriseLibrary.Validation.PolicyInjection namespace of the Validation Application Block, in the assembly Microsoft.Practices.EnterpriseLibrary.Validation.dll.
 
 # Behavior of the Validation Handler #
@@ -50,7 +50,7 @@ End Sub
 + If validation fails, it creates an exception, wraps it in a message, and returns it to the previous handler, which may act on it. The exception ultimately returns to the caller.
 <a name="_Toc253065329" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; The validation handler will always initialize the Validation Application Block using the default configuration source, even if you instantiate the handler yourself in code and specify an alternative configuration source. 
 
 # Creating Instances of the Validation Handler #

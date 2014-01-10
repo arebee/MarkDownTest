@@ -11,7 +11,7 @@ Output Filename: 2\6\1\1_The Assembly Matching Rule.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 The assembly matching rule allows you to select target classes based on the assembly name or by specifying a reference to an assembly.
 The assembly matching rule allows developers, operators, and administrators to select target classes based on the assembly name or by specifying a reference to an assembly.  

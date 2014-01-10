@@ -11,7 +11,7 @@ Output Filename: 1_5 - Interception using Unity.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 This chapter introduces the concepts around interception with Unity, explains its benefits and drawbacks, discusses some alternatives, and when you should use it.
 
@@ -19,14 +19,14 @@ This chapter introduces the concepts around interception with Unity, explains it
 # Introduction #
 Chapter 4 describes interception as a technique that you can use to dynamically insert code that provides support for crosscutting concerns into your application without explicitly using the decorator pattern in your code. In this chapter, you'll learn how you can use Unity to implement interception, and the various types of interception that Unity supports. The chapter starts by describing a common scenario for using interception and illustrates how you can implement it using Unity interception. The chapter then explores a number of alternative approaches that you could adopt, including the use of policy injection and attributes.  
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; You cannot use Unity Interception in Windows Store Applications. For more information, see [Appendix A – Unity and Windows Store apps](test-markdown_9e9684e7-1116-4a72-9a61-963d9803440c.html).
 
 
 # Crosscutting Concerns and Enterprise Library  #
 This chapter begins by describing how you can use Unity interception to implement your own custom code to add support for crosscutting concerns into your application. However, the blocks in Enterprise Library provide rich support for crosscutting concerns, and therefore it’s not surprising that instead of your own custom code you can use the Enterprise Library blocks with Unity interception; the chapter also describes this approach.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Jana)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Jana)!#:
 &gt; 
 You can use policy injection and call handlers to integrate the functionality provided by the Enterprise Library blocks with Unity interception.
 
@@ -34,7 +34,7 @@ You can use policy injection and call handlers to integrate the functionality pr
 # Interceptors in Unity #
 This section describes the basic steps that you’ll need to complete in order to use interception in your application. To illustrate some of the advantages of the interception approach, this chapter uses the same example crosscutting concerns, logging and caching, that the discussion of the decorator pattern in Chapter 4 uses. You may find it useful to refer back to Chapter 4, "[Interception](test-markdown_19429ab2-0050-486e-81ed-2db92281aca8.html)," for some of the details that relate to the logging and caching functionality.   
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; This section uses logging as an example of a crosscutting concern and shows how you can implement it using interception. Later in this chapter, you’ll see how you can use the Enterprise Library logging block in place of your own implementation.
 
 
@@ -51,7 +51,7 @@ container.AddNewExtension&lt;Interception&gt;();
 ```
 
 
-&gt; ![](images/note.gif)#!SPOKENBY(Jana)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Jana)!#:
 &gt; 
 If you don’t need to use Unity interception, you don’t need to install the libraries through NuGet: interception is an extension to the core Unity installation.
 For more information about how to add the interception extension to a Unity container instance and about how you can use a configuration file instead of code, see the topic [Configuring a Container for Interception](http://go.microsoft.com/fwlink/p/?LinkID=304182).  
@@ -115,7 +115,7 @@ class LoggingInterceptionBehavior : IInterceptionBehavior
 The **IInterceptionBehavior** interface defines three methods: **WillExecute**, **GetRequiredInterfaces**, and **Invoke**. In many scenarios, you can use the default implementations of the **WillExecute** and **GetRequiredInterfaces** methods shown in this example. The **WillExecute** method enables you to optimize your chain of behaviors by specifying whether this behavior should execute; in this example the method always returns **true** so the behavior always executes. The **GetRequiredInterfaces** method enables you to specify the interface types that you want to associate with the behavior. In this example, the interceptor registration will specify the interface type, and therefore the **GetRequiredInterfaces** method returns **Type.EmptyTypes**. For more information about how to use these two methods, see the topic [Behaviors for Interception](http://go.microsoft.com/fwlink/p/?LinkID=304183).  
 The **Invoke** method takes two parameters: **input** contains information about the call from the client that includes the method name and parameter values, **getNext** is a delegate that enables you to call the next behavior in the pipeline, or the target object if this is the last behavior in the pipeline. In this example, you can see how the behavior captures the name of the method invoked by the client and records details of the method invocation in the log before it invokes the next behavior in the pipeline, or target object itself. This behavior then examines the result of the call to the next behavior in the pipeline and writes a log message if an exception was thrown in the call, or details of the result if the call succeeded. Finally, it returns the result of the call back to the previous behavior in the pipeline (or the client object if this behavior was first in the pipeline).  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Markus)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Markus)!#:
 &gt; 
 In the **Invoke** method, you can apply pre and post processing to the call to the target object by placing your code before and after the call to the **getNext** delegate.
 The following code example shows a slightly more complex behavior that provides support for caching.  
@@ -172,12 +172,12 @@ class CachingInterceptionBehavior : IInterceptionBehavior
 
 This behavior filters for calls to a method called **GetTenant** and then attempts to retrieve the named tenant from the cache. If it finds the tenant in the cache, it does not need to invoke the target object to get the tenant, and instead uses the **CreateMethodReturn** to return the tenant from the cache to the previous behavior in the pipeline.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Carlos)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Carlos)!#:
 &gt; 
 Behaviors do not always have to pass on a call to the next behavior in the pipeline. They can generate the return value themselves or throw an exception.
 The behavior also filters for a method called **SaveTenant** after it has invoked the method on the next behavior in the pipeline (or the target object) and adds to the cache a copy of the tenant object saved by the target object.  
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; This example embeds a filter that determines when the interception behavior should be applied. Later in this chapter, you’ll see how you replace this with a policy that you can define in a configuration file or with attributes in your code.
 
 
@@ -198,11 +198,11 @@ container.RegisterType&lt;ITenantStore, TenantStore&gt;(
 
 The first parameter to the **RegisterType** method, an **Interceptor&lt;InterfaceInterceptor&gt;** object, specifies the type of interception to use. In this example, the next two parameters register the two interception behaviors with the **TenantStore** type.  
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; The **InterfaceInterceptor** type defines interception based on a proxy object. You can also use the **TransparentProxyInterceptor** and **VirtualMethodInterceptor** types that are described later in this chapter.
 The order of the interception behavior parameters determines the order of these behaviors in the pipeline. In this example, the order is important because the caching interception behavior does not pass on the request from the client to the next behavior if it finds the item in the cache. If you reversed the order of these two interception behaviors, you wouldn’t get any log messages if the requested item was found in the cache.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Jana)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Jana)!#:
 &gt; 
 Placing all your registration code in one place means that you can manage all the interception behaviors in your application from one location.
 
@@ -217,7 +217,7 @@ tenantStore.SaveTenant(tenant);
 
 The type of the **tenantStore** variable is not **TenantStore**, it is a new dynamically created proxy type that implements the **ITenantStore** interface. This proxy type includes the methods, properties, and events defined in the **ITenantStore** interface.  
 Figure 1 illustrates the scenario implemented by the two behaviors and type registration you’ve seen in the previous code samples.  
-![](images/7708FE4F651AB54391D028161B98FD03.png)  
+![](/images/images\7708FE4F651AB54391D028161B98FD03.png)  
 <p class="label" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><div class="caption">Figure 1 - The behavior pipeline</div></p>The numbers in the following list correspond to the numbers in Figure 1.  
 1. The client object calls the **Resolve** method on the Unity container to obtain an object that implements the **ITenantStore** interface. The container uses the **ITenantStore** registration information to instantiate a **TenantStore** object, create a pipeline with the interception behaviors, and dynamically generate a proxy **TenantStore** object. 
 2. The client invokes the **GetTenant** method on the **TenantStore** proxy object, passing a single string parameter identifying the tenant to fetch from the store.
@@ -229,7 +229,7 @@ Figure 1 illustrates the scenario implemented by the two behaviors and type regi
 8. The logging interception behavior logs details of the result of the call that it made to the next behavior in the pipeline and returns the result back to the **TenantStore** proxy object.
 9. The **TenantStore** proxy object returns the tenant object to the client object.
 
-&gt; ![](images/note.gif)#!SPOKENBY(Carlos)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Carlos)!#:
 &gt; 
 The interceptors get access to the parameters passed to the original call, the value returned from the original call, and any exceptions thrown by the original call.
 
@@ -251,7 +251,7 @@ container.RegisterType&lt;ITenantStore, TenantStore&gt;(
 In this example, the **Interceptor&lt;InterfaceInterceptor&gt;** parameter specifies you are using a type of instance interception known as interface interception, and the **InterceptionBehavior** parameters define the two behaviors to insert into the behavior pipeline.  
 Unity interception includes two other interceptor types: **TransparentProxyInterceptor** and **VirtualMethodInterceptor**.  
 The following table summarizes the available interceptor types:  
-![](images/3E1DEE59E65E54684DF57B5C2FF41A53.png)  
+![](/images/images\3E1DEE59E65E54684DF57B5C2FF41A53.png)  
 For more information about the different interceptor types, see the topic [Unity Interception Techniques](http://go.microsoft.com/fwlink/p/?LinkID=304181).  
 
 
@@ -275,7 +275,7 @@ tenantStore.SaveTenant(tenant);
 
 The drawback to using the **TransparentProxyInterceptor** type in place of the **InterfaceInterceptor** type is that it is significantly slower at run time. You can also use this approach if the **TenantStore** class doesn’t implement any interfaces but does extend the **MarshalByRef** abstract base class.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Carlos)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Carlos)!#:
 &gt; 
 Although the **TransparentProxyInterceptor** type appears to be more flexible than the **InterfaceInterceptor** type, it is not nearly as performant.
 
@@ -296,15 +296,15 @@ tenantStore.SaveTenant(tenant);
 ```
 
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; If you use virtual method interception, the container generates a new type that directly extends the type of the target object. The container inserts the behavior pipeline by overriding the virtual methods in the base type.
 Another advantage of virtual method interception is that you can intercept internal calls in the class that happen when one method in a class invokes another method in the same class. This is not possible with instance interception.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Jana)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Jana)!#:
 &gt; 
 Calls made with the **VirtualMethodInterceptor** are much faster than those made with the **TransparentProxyInterceptor**. 
 Figure 2 shows the objects that are involved with interception behaviors in this example.  
-![](images/D3C12313037D0B7076CFCC38E993A8CE.png)  
+![](/images/images\D3C12313037D0B7076CFCC38E993A8CE.png)  
 <p class="label" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><div class="caption">Figure 2 - Interception using the virtual method interceptor</div></p>The numbers in the following list correspond to the numbers in Figure 2.  
 1. The client object calls the **Resolve** method on the Unity container to obtain an object that implements the **ITenantStore** interface. The container uses the **ITenantStore** registration information to instantiate an object from a class derived from the **TenantStore** type that includes a pipeline with the interception behaviors. 
 2. The client invokes the **GetTenant** method on the **TenantStore** derived object, passing a single string parameter identifying the tenant to fetch from the store.
@@ -429,7 +429,7 @@ ITenantStore proxyTenantStore = Intercept.ThroughProxy&lt;ITenantStore&gt;(
 
 You can use the **ThroughProxy** methods of the **Intercept** class to set up instance interception that uses a proxy object , and the **NewInstance** methods to set up type interception that uses a derived object. You can only attach an interception pipeline to an existing object if you use the **ThroughProxy** methods; the **NewInstance** methods always create a new instance of the target object.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Carlos)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Carlos)!#:
 &gt; 
 You don’t need to use a Unity container if you want to use interception in your application.
 For more information, see [Stand-alone Unity Interception](http://go.microsoft.com/fwlink/p/?LinkID=304185).  
@@ -492,7 +492,7 @@ tenantStore.UploadLogo("tenant", logo);
 ```
 
 
-&gt; ![](images/note.gif)#!SPOKENBY(Poe)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Poe)!#:
 &gt; 
 Defining the interception behaviors in the configuration file makes it possible to change their configuration without recompiling the code.
 
@@ -509,7 +509,7 @@ container.RegisterType&lt;ITenantStore, TenantStore&gt;(
 
 One of the drawbacks of this approach to implementing support for crosscutting concerns is that you must configure the interceptors for every class that needs them. In practice, you may have additional store classes in your application that all require caching support, and many more that require logging behavior.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Jana)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Jana)!#:
 &gt; 
 You may be able to use registration by convention to configure interceptors for multiple registered types.
 The following code sample shows an alternative approach based on policies for adding interception behaviors to objects in your application. Note that definitions of the **LoggingCallHandler** and **CachingCallHandler** classes are given later in this section.  
@@ -551,7 +551,7 @@ container.Configure&lt;Interception&gt;()
 
 This example registers two store types with the container using a **PolicyInjectionBehavior** behavior type. This behavior makes use of policy definitions to insert handlers into a pipeline when a client calls an object instantiated by the container. The example shows two policy definitions: one for the **LoggingCallHandler** interception handler and one for the **CachingCallHandler **interception handler. Each policy has a name to identify it and one or more matching rules to determine when to apply it.   
 
-&gt; ![](images/note.gif)#!SPOKENBY(Markus)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Markus)!#:
 &gt; 
 You must remember to configure policy injection behavior for each type that you want to use it on as well as defining the policies.
 The Policy Injection Application Block has built-in matching rules based on the following:  
@@ -566,18 +566,18 @@ The Policy Injection Application Block has built-in matching rules based on the 
 + Property
 + Return type
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; For more information about these matching rules and how to use them, see the topic [Policy Injection Matching Rules](http://go.microsoft.com/fwlink/p/?LinkID=304186). 
 You can also define your own, custom matching rule types. For more information, see the topic [Creating Policy Injection Matching Rules](http://go.microsoft.com/fwlink/p/?LinkID=304187).
 The policy for logging has a single matching rule based on the name of the assembly that contains the class definition of the target object: in this example, if the **TenantStore** and **SurveyStore** classes are located in the **Tailspin.Web.Survey.Shared** assembly, then the handler will log all method calls to those objects.  
 The policy for caching uses two matching rules that are ANDed together: in this example, the caching handler handles all calls to methods that start either with **Get** or **Save** (the **true** parameter makes it a case sensitive test), and that are in the **Tailspin.Web.Survey.Shared.Stores** namespace.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Carlos)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Carlos)!#:
 &gt; 
 You can use the policy injection matching rules to avoid the need embed filters in an injection behavior class.
 The **first** and **second** parameters control the order that the container invokes the handlers if the matching rules match multiple handlers to a single instance. In this example, you want to be sure that the container invokes the logging handler before the caching handler in order to ensure that all calls are logged.  
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; Remember, in the example used in this chapter, the caching handler does not pass on the call if it locates the item in the cache.
 Both policies use the **ContainerControlledLifetimeManager** type to ensure that the handlers are singleton objects in the container.  
 The handler classes are very similar to the behavior interception classes you saw earlier in this chapter. The following code samples shows the logging handler and the cache handler used in the examples shown in this section.  
@@ -680,7 +680,7 @@ public class CachingCallHandler :ICallHandler
 In many cases, policy injection handler classes may be simpler than interception behavior classes that address the same crosscutting concerns. This is because you can use the policy matching rules to control when the container invokes the handler classes whereas very often with interception behavior classes, such as the **CachingInterceptionBehavior** class shown earlier in the chapter, you need to implement a filter within **Invoke** method to determine whether the behavior should execute in a particular circumstance.  
 The **Order** property, which is set when you configure the policy, controls the order in which the container executes the handlers when a policy rule matches more than one handler.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Carlos)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Carlos)!#:
 &gt; 
 You may need to consider the order of the call handlers carefully, especially if some of them don’t always pass the call on to the next handler. 
 
@@ -689,7 +689,7 @@ You may need to consider the order of the call handlers carefully, especially if
 Using policies with matching rules such as those shown in the previous example means that you can apply and manage the policies when you configure your container. You can define the policies either in code, as shown in the example, or in a configuration file in a similar way to that described in the section “<a href="#_Design_Time_Configuration" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Design Time Configuration</a>” earlier in this chapter.  
 However, an alternative approach is to use attributes in your business classes to indicate whether the container should invoke a particular call handler. In this case, the person writing the business class is responsible for making sure that all the crosscutting concerns are addressed.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Jana)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Jana)!#:
 &gt; 
 Typically, if you define policies for your call handlers, they are all defined in a single class or configuration file where they are easy to manage. Using attributes means that information about which crosscutting concerns are associated with particular classes and methods is stored in those classes which is a less maintainable approach.
 In this scenario, you can register the types that the container should inject with policies as shown in the following code sample.  
@@ -774,7 +774,7 @@ In this example, the **LoggingCallHandler** call handler logs all the method cal
 ## Policy Injection and the Enterprise Library Blocks ##
 In the previous examples, you implemented the caching and logging behaviors in your own call handler classes: **CachingCallHandler** and **LoggingCallHandler**. The blocks in the Enterprise Library, such as the Logging Application Block and the Validation Application Block, provide some pre-written call handlers that you can use in your own applications. This enables you to use the Enterprise Library blocks to address crosscutting concerns in your application using policy injection.  
 
-&gt; ![](images/note.gif)#!SPOKENBY(Jana)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Jana)!#:
 &gt; 
 Using the Enterprise Library blocks to address your cross-cutting concerns is often easier than implementing the behaviors yourself.
 For example, you could replace your **LoggingCallHandler** with **LogCallHandler** from the Enterprise Library Policy Injection Application Block as shown in the following code sample. However, Enterprise Library 6 does not include a caching handler.  
@@ -813,7 +813,7 @@ container.Configure&lt;Interception&gt;()
 
 The **LogCallHandler** class from the Logging Application Block is a call handler to use with the policy injection framework.   
 
-&gt; ![](images/note.gif)#!SPOKENBY(Jana)!#:
+&gt; ![](/images/note.gif)#!SPOKENBY(Jana)!#:
 &gt; 
 It’s important that you configure the Logging Application Block before you configure the policy injection. The sample code in the PIABSamples solution that accompanies this guide includes a method **ConfigureLogger** to do this.
 The **LogCallHandler** constructor parameters enable you to configure the logging behavior and specify the order of the handler in relation to other call handlers. In this example, the container will invoke the **LogCallHandler** call handler before the user defined **CachingCallHandler** call handler.  

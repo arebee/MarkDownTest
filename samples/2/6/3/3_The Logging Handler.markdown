@@ -11,20 +11,20 @@ Output Filename: 2\6\3\3_The Logging Handler.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 This handler uses the Logging Application Block, taking advantage of the wide range of log types, formatting, and tracing features that it provides. 
 The logging handler provides the capability to write log messages and trace messages as the client code invokes the selected method or accesses the selected property of the target object. This handler uses the Logging Application Block, taking advantage of the wide range of log types, formatting, and tracing features that it provides.   
 The logging handler applies both before and after the invocation of the selected method or accessing the selected property of the target object, depending on settings in the application configuration.  
 
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; This call handler is implemented in Microsoft.Practices.EnterpriseLibrary.Logging.PolicyInjection namespace of the Logging Application Block in the assembly Microsoft.Practices.EnterpriseLibrary.Logging.dll.
 
 The logging handler will initialize the Logging Application Block using the same configuration source as used to create the logging handler. By default, this will be the default configuration source. It is possible to specify an alternative configuration source if you instantiate the logging handler yourself using code. If you do this, you should create the configuration source once and use the same instance each time you create a logging handler to prevent performance issues and memory leaks.  
 
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; The Enterprise Library 5.0 Configuration tool does not support **Environmental Overrides **for the logging handler **Categories**. This means you will not be able to use the configuration tools at design time to customize the run-time settings of your logging handler **Categories** configuration to suit a particular environment such as a test or instrumentation environment.
 
 # Behavior of the Logging Handler #
@@ -37,7 +37,7 @@ The logging handler does the following:
 + **Exception **
 + **CallTime **
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; The values of parameters passed to the target member are available through the **ExtendedProperties** property of the **LogEntry** base class, which returns a populated **Dictionary** instance. You can optimize performance by configuring the properties the handler will collect information for and populate. Be aware that, because the properties in the preceding list are not available in the standard **LogEntry** class in the Logging Application Block, the default formatter templates will not display their values. You can use the **{property}** formatter token in the Log Formatter template to display these values—for example, **{property(TypeName)}**. 
 
 + It sends the **TraceLogEntry** to the Logging Application Block before, after, or both before and after the method call, depending on the configuration settings. 

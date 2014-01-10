@@ -11,7 +11,7 @@ Output Filename: 2\2_Behaviors for Interception.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 Interception is based on a behavior or series of behaviors in the behaviors pipeline that describe what to do when an object is intercepted.
 Interception is based on a behavior or series of behaviors in the behaviors pipeline that describe what to do when an object is intercepted. Unity provides a built-in default policy injection behavior to facilitate the implementation of policy injection. The policy injection behavior attaches or injects some functionality to specific methods by using call handlers and matching rules on a per-method basis. For more information on policy injection see [Using Interception and Policy Injection](test-markdown_7a2c7fa6-28c2-479e-8df9-b4651824eb94.html).  
@@ -28,7 +28,7 @@ The following topics explain or demonstrate interception behaviors in more detai
 <a name="interception_behavior_custom" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>Custom interception behaviors are implementations of the **IInterceptionBehavior** interface. You must provide an implementation of the two **IInterceptionBehavior** interface methods, **Invoke** and **GetRequiredInterfaces,** and set the **WillExecute** property. The **Invoke** method is required to actually execute the behavior logic. For more information on injection attributes, see [Annotating Objects for Constructor Injection](test-markdown_fdc0d23e-7821-4510-90a8-a6a64bf51854.html). The **GetRequiredInterfaces **method returns the interfaces required by the behavior for the intercepted objects.  
 The **WillExecute** property is simply used to optimize proxy creation. It simply returns a flag indicating if the behavior will actually do anything when invoked, and if not, enables the interception mechanism to skip the behavior. In the case of policy injection, when no policies match, **WillExecute** is false. If **WillExecute** is false for all the behaviors in the behaviors pipeline, then nothing is intercepted and proxy or intercepting class generation is simply not performed, thus optimizing performance.  
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; If behaviors always return true and there is no action to perform, the only result is that you have the unnecessary overhead of the proxy or intercepting class generation.
 
 # Implement INotifyPropertyChanged Example #

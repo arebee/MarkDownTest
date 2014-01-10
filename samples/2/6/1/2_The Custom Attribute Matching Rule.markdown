@@ -11,7 +11,7 @@ Output Filename: 2\6\1\2_The Custom Attribute Matching Rule.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 The custom attribute matching rule allows you to select target classes based on a custom attribute type that is applied to class members. 
 The custom attribute matching rule allows developers, operators, and administrators to select target classes based on a custom attribute type that is applied to class members.  

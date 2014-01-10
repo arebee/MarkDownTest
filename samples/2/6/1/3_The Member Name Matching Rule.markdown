@@ -11,7 +11,7 @@ Output Filename: 2\6\1\3_The Member Name Matching Rule.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 The member name matching rule allows you to select target classes based on the name of the class members (methods or properties).
 The member name matching rule allows developers, operators, and administrators to select target classes based on the name of the class members (methods or properties), and allows you to use wildcard characters for the member name.  

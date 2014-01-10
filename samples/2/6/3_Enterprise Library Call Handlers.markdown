@@ -11,7 +11,7 @@ Output Filename: 2\6\3_Enterprise Library Call Handlers.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 This section discusses some of the common scenarios for using the Policy Injection Application Block call handlers.
 The [patterns &amp; practices Enterprise Library](http://msdn.microsoft.com/entlib/) includes a set of call handlers and the equivalent call handler attributes designed for use with the Unity **PolicyInjectionBehavior**. This section discusses some of the common scenarios for using the Policy Injection Application Block call handlers. It examines the following common scenarios where the block can simplify and accelerate application development:  

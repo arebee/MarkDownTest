@@ -11,7 +11,7 @@ Output Filename: 2\5\2_Interception Behavior Pipeline.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; <a name="interception_pipeline" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 The pipeline maintains a list of interception behaviors and manages them, calling them in the proper order with the correct inputs.
 You must add behaviors to the behavior pipeline to use them. The pipeline maintains a list of interception behaviors and manages them, calling them in the proper order with the correct inputs.  

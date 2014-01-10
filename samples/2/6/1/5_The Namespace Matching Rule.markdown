@@ -11,7 +11,7 @@ Output Filename: 2\6\1\5_The Namespace Matching Rule.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 The namespace matching rule allows you to select target classes based on their namespace, using wildcard characters for the child namespaces.
 The namespace matching rule allows developers, operators, and administrators to select target classes based on their namespace, using wildcard characters for the child namespace names but not for the root namespace name.  

@@ -11,7 +11,7 @@ Output Filename: 2\6\1\4_The Method Signature Matching Rule.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 The method signature matching rule allows you to select target classes based on the name and signature (the list of parameter types) of its members.
 The method signature matching rule allows developers, operators, and administrators to select target classes based on the name and signature (the list of parameter types) of its members. This rule allows the use of wildcard characters for the member names.  

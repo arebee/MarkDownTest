@@ -11,7 +11,7 @@ Output Filename: 2\6\1\7_The Property Matching Rule.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 The property matching rule allows you to select individual properties of the target classes based on name and combination of accessors they implement.
 The property matching rule allows developers, operators, and administrators to select individual properties of the target classes based on their name, including using wildcard characters, and the combination of accessors they implement.  

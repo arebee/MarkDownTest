@@ -11,7 +11,7 @@ Output Filename: 2\6\1\8_The Return Type Matching Rule.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 The return type matching rule allows you to select target classes based on the type or type name of the return value, using wildcards characters as needed.
 The return type matching rule allows developers, operators, and administrators to select target classes based on the type or the type name of the return value, using wildcard characters if required.  

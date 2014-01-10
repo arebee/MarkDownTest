@@ -11,14 +11,14 @@ Output Filename: 2\6\3\4_The Performance Counter Handler.markdown
 ----------
 
 
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
+&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
 &gt; 
 This handler uses the instrumentation features that are part of the Enterprise Library Core. 
 The performance counter handler increments a specific counter each time it executes in response to invocation of the selected method or setting of the selected property. This handler uses the instrumentation features that are part of the Enterprise Library Core.   
 The performance counter handler applies both before and after invocation of the selected method or access to the selected property of the target object. The handler can increment different types of counters and increment more than one counter each time (such as a single instance and a total counter).   
 
 
-&gt; ![](images/note.gif)Note:
+&gt; ![](/images/note.gif)Note:
 &gt; This call handler is implemented in the Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers namespace of the Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll assembly.
 
 # Installing and Removing Performance Counters #
