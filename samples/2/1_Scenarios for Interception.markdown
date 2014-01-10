@@ -14,6 +14,7 @@ Output Filename: 2\1_Scenarios for Interception.markdown
 > ![](/images/note.gif)#!155CharTopicSummary!#:
 > <a name="intro_highlights" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 Unity addresses a number of interception scenarios.
+
 Unity interception addresses the following scenarios:  
 + Adding responsibilities to individual objects and not the entire class and avoiding a static solution, much as in a decorator pattern. In a manner similar to the way a decorator forwards requests to the object and enables you to perform additional actions before or after forwarding the request, interception intercepts the call to the target object and dynamically adds behaviors to individual objects without affecting any other objects. This can be useful in managing crosscutting concerns that access common features such as logging or validation.
 + To augment or modify the behavior from existing classes that you cannot modify, provided that they are interceptable by the available interception mechanisms.
