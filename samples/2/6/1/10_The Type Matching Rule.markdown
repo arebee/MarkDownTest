@@ -1,4 +1,4 @@
----
+﻿---
 Source File Name: 75-Interception.docx
 AssetID: f745650b-dd5f-4703-be36-7b3ece55cb19
 Title: The Type Matching Rule
@@ -11,9 +11,10 @@ Output Filename: 2\6\1\10_The Type Matching Rule.markdown
 ----------
 
 
-&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
-&gt; 
+> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> 
 The type matching rule allows you to specify the target class using the namespace and class name of the target type.
+
 The type matching rule allows developers, operators, and administrators to specify the target class using the namespace and class name of the target type.  
 
 # Behavior of the Type Matching Rule #
@@ -34,7 +35,7 @@ TypeMatchingRule(string typeName)
 
 TypeMatchingRule(string typeName, bool ignoreCase)
 
-TypeMatchingRule(IEnumerable&lt;MatchingInfo&gt; matches)
+TypeMatchingRule(IEnumerable<MatchingInfo> matches)
 ```
 
 
@@ -49,15 +50,15 @@ TypeMatchingRule(matches As IEnumerable(Of MatchingInfo))
 ```
 
 The following table describes the parameters shown above.  
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>type</b></p></td><td><p><b>Type</b>. The type to match.</p></td></tr><tr><td><p><b>typeName</b></p></td><td><p><b>String</b>. Type name to match. This is the full namespace and class name of the target object such as MyNamespace.BusinessObjects.Orders, or just the class name such as MyOrderObject.</p></td></tr><tr><td><p><b>matches</b></p></td><td><p><b>MatchingInfo </b>collection. A list of one or more type names, using the same rules as for the <b>typeName </b>parameter. <b>MatchingInfo</b> is a class used for storing information about a single name and case sensitivity value pair.</p></td></tr><tr><td><p><b>ignoreCase</b></p></td><td><p><b>Boolean</b>. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr></table>
+ParameterDescriptiontypeType. The type to match.typeNameString. Type name to match. This is the full namespace and class name of the target object such as MyNamespace.BusinessObjects.Orders, or just the class name such as MyOrderObject.matchesMatchingInfo collection. A list of one or more type names, using the same rules as for the typeName parameter. MatchingInfo is a class used for storing information about a single name and case sensitivity value pair.ignoreCaseBoolean. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.
 The following code extract shows how you can add a type matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure&lt;Interception&gt;()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;TypeMatchingRule&gt;
+           .AddMatchingRule<TypeMatchingRule>
                 (new InjectionConstructor("My.Order.Object", true))
-           .AddCallHandler&lt;MyCallHandler&gt;
+           .AddCallHandler<MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```
@@ -73,4 +74,5 @@ myContainer.Configure(Of Interception)() _
 ```
 
 The code does not show how to create the container, add the Unity interception container extension, specify an interceptor, or resolve the intercepted target object. For more information about using matching rules with interception at run time, see [Registering Policy Injection Components](test-markdown_2090aa6d-38c7-4527-a211-aa4fa966e855.html).  
+
 

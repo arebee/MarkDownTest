@@ -1,4 +1,4 @@
----
+﻿---
 Source File Name: 75-Interception.docx
 AssetID: 78c97c0f-62c4-4008-81c2-858b34e954cc
 Title: The Member Name Matching Rule
@@ -11,9 +11,10 @@ Output Filename: 2\6\1\3_The Member Name Matching Rule.markdown
 ----------
 
 
-&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
-&gt; 
+> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> 
 The member name matching rule allows you to select target classes based on the name of the class members (methods or properties).
+
 The member name matching rule allows developers, operators, and administrators to select target classes based on the name of the class members (methods or properties), and allows you to use wildcard characters for the member name.  
 
 # Behavior of the Member Name Matching Rule #
@@ -32,11 +33,11 @@ MemberNameMatchingRule(string nameToMatch)
 
 MemberNameMatchingRule(string nameToMatch, bool ignoreCase)
 
-MemberNameMatchingRule(IEnumerable&lt;string&gt; namesToMatch)
+MemberNameMatchingRule(IEnumerable<string> namesToMatch)
 
-MemberNameMatchingRule(IEnumerable&lt;string&gt; namesToMatch, bool ignoreCase)
+MemberNameMatchingRule(IEnumerable<string> namesToMatch, bool ignoreCase)
 
-MemberNameMatchingRule(IEnumerable&lt;MatchingInfo&gt; matches)
+MemberNameMatchingRule(IEnumerable<MatchingInfo> matches)
 ```
 
 
@@ -53,15 +54,15 @@ MemberNameMatchingRule(matches As IEnumerable(Of MatchingInfo))
 ```
 
 The following table describes the parameters shown above.  
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>nameToMatch</b></p></td><td><p>This is the name of a method or parameter of the target object, such as GetOrderDetails. It can consist of or include the * or ? wildcard characters for selecting multiple types. You can also use square brackets [ ] to specify a range of characters. The following are some examples:</p><p>GetOrder*</p><p>*OrderFunctions</p><p>OrderProcess??Node</p><p>Transacted[order]Node</p><p>*</p></td></tr><tr><td><p><b>namesToMatch</b></p></td><td><p><b>String </b>collection. A list of more than one method or parameter name, using the same rules as for the <b>nameToMatch</b> parameter.</p></td></tr><tr><td><p><b>matches</b></p></td><td><p><b>MatchingInfo </b>collection. A list of one or more method or parameter names, using the same rules as for the <b>nameToMatch</b> parameter. <b>MatchingInfo</b> is a class used for storing information about a single name and case-sensitivity value pair.</p></td></tr><tr><td><p><b>ignoreCase</b></p></td><td><p><b>Boolean</b>. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr></table>
+ParameterDescriptionnameToMatchThis is the name of a method or parameter of the target object, such as GetOrderDetails. It can consist of or include the * or ? wildcard characters for selecting multiple types. You can also use square brackets [ ] to specify a range of characters. The following are some examples:GetOrder**OrderFunctionsOrderProcess??NodeTransacted[order]Node*namesToMatchString collection. A list of more than one method or parameter name, using the same rules as for the nameToMatch parameter.matchesMatchingInfo collection. A list of one or more method or parameter names, using the same rules as for the nameToMatch parameter. MatchingInfo is a class used for storing information about a single name and case-sensitivity value pair.ignoreCaseBoolean. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.
 The following code excerpt shows how you can add a member name matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure&lt;Interception&gt;()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;MemberNameMatchingRule&gt;
+           .AddMatchingRule<MemberNameMatchingRule>
                 (new InjectionConstructor("MyMemberName", true))
-           .AddCallHandler&lt;MyCallHandler&gt;
+           .AddCallHandler<MyCallHandler>
                ("MyValidator", 
                new ContainerControlledLifetimeManager());
 ```
@@ -78,4 +79,5 @@ myContainer.Configure(Of Interception)() _
 ```
 
 The code does not show how to create the container, add the Unity interception container extension, specify an interceptor, or resolve the intercepted target object. For more information about using matching rules with interception at run time, see [Registering Policy Injection Components](test-markdown_2090aa6d-38c7-4527-a211-aa4fa966e855.html).  
+
 

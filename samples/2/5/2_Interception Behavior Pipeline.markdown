@@ -1,4 +1,4 @@
----
+﻿---
 Source File Name: 75-Interception.docx
 AssetID: 7f7a1362-150a-417c-8b15-ba4f7d08cd5a
 Title: Interception Behavior Pipeline
@@ -11,9 +11,10 @@ Output Filename: 2\5\2_Interception Behavior Pipeline.markdown
 ----------
 
 
-&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
-&gt; <a name="interception_pipeline" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
+> ![(../../images/note.gif)#!155CharTopicSummary!#:
+> 
 The pipeline maintains a list of interception behaviors and manages them, calling them in the proper order with the correct inputs.
+
 You must add behaviors to the behavior pipeline to use them. The pipeline maintains a list of interception behaviors and manages them, calling them in the proper order with the correct inputs.  
 The following example adds a behavior and interceptor to a new interception behaviors pipeline.  
 First create an interception behaviors pipeline.  
@@ -37,5 +38,6 @@ pipeline.Add(interceptor);
 ```vb
 pipeline.Add(interceptor)
 ```
+
 
 

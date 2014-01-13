@@ -1,4 +1,4 @@
----
+﻿---
 Source File Name: 75-Interception.docx
 AssetID: ad452cb9-20c7-4db2-9801-73417714f46c
 Title: The Validation Handler
@@ -11,20 +11,22 @@ Output Filename: 2\6\3\5_The Validation Handler.markdown
 ----------
 
 
-&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
-&gt; 
+> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> 
 This handler uses the Validation Application Block, taking advantage of the wide range of capabilities that it offers.
+
 The validation handler provides the capability to test whether the value provided for the selected property, or the values specified for the parameters of the selected method, are valid against specific rules. This handler uses the Validation Application Block, taking advantage of the wide range of capabilities that it offers.   
 The validation handler applies the validation befor**e **invoking the method or setting the property of the target object. If validation fails, the validation handler aborts execution of the preprocessing handler pipeline, does not invoke the method or set the property, and raises an **ArgumentValidationException**.  
 
 
-&gt; ![](/images/note.gif)Note:
-&gt; This call handler is implemented in Microsoft.Practices.EnterpriseLibrary.Validation.PolicyInjection namespace of the Validation Application Block, in the assembly Microsoft.Practices.EnterpriseLibrary.Validation.dll.
+> ![(../../../images/note.gif)Note:
+> This call handler is implemented in Microsoft.Practices.EnterpriseLibrary.Validation.PolicyInjection namespace of the Validation Application Block, in the assembly Microsoft.Practices.EnterpriseLibrary.Validation.dll.
+
 
 # Behavior of the Validation Handler #
 The validation handler does the following:  
 + It uses a custom rule set if provided, and the specification source (the rule location). 
-+ It looks for validation attributes explicitly specified on parameters, such as in the following example. 
++ It looks for validation attributes explicitly specifiedÂ on parameters, such as in the following example. 
 ```csharp
 public void Deposit([RangeValidator(typeof(Decimal), "0.0",
                      RangeBoundaryType.Exclusive, "0.0", 
@@ -36,9 +38,9 @@ public void Deposit([RangeValidator(typeof(Decimal), "0.0",
 
 
 ```vb
-Public Sub Deposit(&lt;RangeValidator((GetType([Decimal]), "0.0", _
+Public Sub Deposit(<RangeValidator((GetType([Decimal]), "0.0", _
                      RangeBoundaryType.Exclusive, "0.0", _
-                     RangeBoundaryType.Ignore)&gt; depositAmount As Decimal)
+                     RangeBoundaryType.Ignore)> depositAmount As Decimal)
   balance += depositAmount
 End Sub
 ```
@@ -48,10 +50,11 @@ End Sub
 + It validates the parameters according to the discovered validators. 
 + If validation succeeds, it allows the next handler to execute.
 + If validation fails, it creates an exception, wraps it in a message, and returns it to the previous handler, which may act on it. The exception ultimately returns to the caller.
-<a name="_Toc253065329" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
-&gt; ![](/images/note.gif)Note:
-&gt; The validation handler will always initialize the Validation Application Block using the default configuration source, even if you instantiate the handler yourself in code and specify an alternative configuration source. 
+
+> ![(../../../images/note.gif)Note:
+> The validation handler will always initialize the Validation Application Block using the default configuration source, even if you instantiate the handler yourself in code and specify an alternative configuration source. 
+
 
 # Creating Instances of the Validation Handler #
 When you use this call handler with the Unity interception mechanism, you must provide values for any mandatory parameters of its constructors, and optionally provide values for other parameters. These values are used to set the properties of the handler at run time. The constructors you can use are shown in the following code.  
@@ -77,16 +80,16 @@ ValidationCallHandler(ruleSet As String, factory As ValidatorFactory, handlerOrd
 ```
 
 The following table describes the values for the parameters shown above.  
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Property</p></th><th><p>Description</p></th></tr><tr><td><p><b>ruleSet</b></p></td><td><p><b>String</b>. The name of the rule set to use for all target object types. An empty string causes the handler to use the default rule set.</p></td></tr><tr><td><p><b>specificationSource</b></p></td><td><p>A value from the <b>SpecificationSource</b> enumeration that defines the locations where the handler will look for validation rules. Valid values are <b>Attributes</b>, <b>Configuration</b>, <b>ParameterAttributesOnly</b>, and <b>Both</b>.</p></td></tr><tr><td><p><b>order</b></p></td><td><p><b>Integer</b>. The position of the handler within the policy handler chain, starting from <b>1</b>. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.</p></td></tr></table>
+PropertyDescriptionruleSetString. The name of the rule set to use for all target object types. An empty string causes the handler to use the default rule set.specificationSourceA value from the SpecificationSource enumeration that defines the locations where the handler will look for validation rules. Valid values are Attributes, Configuration, ParameterAttributesOnly, and Both.orderInteger. The position of the handler within the policy handler chain, starting from 1. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.
 The validation handler exposes only the **Order** property.   
 The following code extract shows how you can add a validation handler to a policy using the Unity interception mechanism.   
 
 ```csharp
-myContainer.Configure&lt;Interception&gt;()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-               .AddMatchingRule&lt;TypeMatchingRule&gt;
+               .AddMatchingRule<TypeMatchingRule>
                     (new InjectionConstructor("My.Order.Object", true))
-               .AddCallHandler&lt;ValidationCallHandler&gt;
+               .AddCallHandler<ValidationCallHandler>
                    ("MyValidator", new ContainerControlledLifetimeManager());
 ```
 
@@ -119,19 +122,19 @@ public void Withdraw(decimal withdrawAmount)
 
 
 ```vb
-&lt;ValidationCallHandler("ruleset-name")&gt; _
+<ValidationCallHandler("ruleset-name")> _
 Public Sub Deposit(depositAmount As Decimal)
 balance += depositAmount
 End Sub
 
-&lt;ValidationCallHandler&gt; _
+<ValidationCallHandler> _
 Public Sub Withdraw(withdrawAmount As Decimal)
 balance -= withdrawAmount
 End Sub
 ```
 
 The following table describes the properties of the **ValidationCallHandlerAttribute **class.   
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Property</p></th><th><p>Description</p></th></tr><tr><td><p><b>SpecificationSource</b></p></td><td><p>A value from the <b>SpecificationSource</b> enumeration that defines the locations where the handler will look for validation rules. Valid values are <b>Attributes</b>, <b>Configuration</b>, <b>ParameterAttributesOnly</b>, and <b>Both</b>.</p></td></tr><tr><td><p><b>Order</b></p></td><td><p><b>Integer</b>. The position of the handler within the policy handler chain, starting from <b>1</b>. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.</p></td></tr></table>
+PropertyDescriptionSpecificationSourceA value from the SpecificationSource enumeration that defines the locations where the handler will look for validation rules. Valid values are Attributes, Configuration, ParameterAttributesOnly, and Both.OrderInteger. The position of the handler within the policy handler chain, starting from 1. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.
 To set these properties using an attribute, add them as parameters to the attribute declaration, as shown in the following code.  
 
 ```csharp
@@ -140,10 +143,10 @@ To set these properties using an attribute, add them as parameters to the attrib
 
 
 ```vb
-&lt;ValidationCallHandler("ruleset-name", SpecificationSource:=SpecificationSource.Both)&gt;
+<ValidationCallHandler("ruleset-name", SpecificationSource:=SpecificationSource.Both)>
 ```
 
-<a name="_Toc253065331" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
+
 
 # Validating Parameters with Attribute-based Targeting #
 When you use the **Validation Call Handler**, you can specify the name of a rule set when using an **Object Validator **to validate individual parameters of a method, as shown in the following code.   
@@ -160,13 +163,14 @@ public void SomeMethod(
 
 
 ```vb
-&lt;ValidationCallHandler&gt; _
+<ValidationCallHandler> _
 Public Sub SomeMethod( _
-           &lt;RegexValidator("...")&gt; x As String, _
-           &lt;ObjectValidator("RulesetName")&gt; y As String) 
+           <RegexValidator("...")> x As String, _
+           <ObjectValidator("RulesetName")> y As String) 
 End Sub
 ```
 
 For more information about using call handler attributes and attribute-driven policies, see [Attribute-Driven Policies](test-markdown_456aac54-4ba3-4904-adae-36fb5227fabc.html).  
+
 
 

@@ -1,4 +1,4 @@
----
+﻿---
 Source File Name: 75-Interception.docx
 AssetID: 4c47f30e-455d-4056-b773-69e6618c96fd
 Title: The Assembly Matching Rule
@@ -11,9 +11,10 @@ Output Filename: 2\6\1\1_The Assembly Matching Rule.markdown
 ----------
 
 
-&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
-&gt; 
+> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> 
 The assembly matching rule allows you to select target classes based on the assembly name or by specifying a reference to an assembly.
+
 The assembly matching rule allows developers, operators, and administrators to select target classes based on the assembly name or by specifying a reference to an assembly.  
 
 # Behavior of the Assembly Matching Rule #
@@ -40,15 +41,15 @@ AssemblyMatchingRule(assemblyName As String)
 ```
 
 The following table describes the parameters shown above.  
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>assembly</b></p></td><td><p><b>Assembly</b>. This is a reference to the assembly object to match.</p></td></tr><tr><td><p><b>assemblyName</b></p></td><td><p><b>String</b>. This is the name of the assembly to match. It can be the name and version; the name, version and culture; or the full assembly name of the assembly excluding the .dll file name extension. It cannot include wildcard characters. The following are some examples:</p><p>"Contoso.BusinessObjects.Sales"</p><p>"Contoso.BusinessObjects.Sales, Contoso.BusinessObjects"</p><p>"Contoso.BusinessObjects.Sales, Contoso.BusinessObjects,  Version=1.0.0.0"</p><p>"Contoso.BusinessObjects.Sales, Contoso.BusinessObjects,  Version=1.0.0.0, Culture=neutral"</p><p>"Contoso.BusinessObjects.Sales, Contoso.BusinessObjects,  Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"</p></td></tr></table>
+ParameterDescriptionassemblyAssembly. This is a reference to the assembly object to match.assemblyNameString. This is the name of the assembly to match. It can be the name and version; the name, version and culture; or the full assembly name of the assembly excluding the .dll file name extension. It cannot include wildcard characters. The following are some examples:"Contoso.BusinessObjects.Sales""Contoso.BusinessObjects.Sales, Contoso.BusinessObjects""Contoso.BusinessObjects.Sales, Contoso.BusinessObjects,  Version=1.0.0.0""Contoso.BusinessObjects.Sales, Contoso.BusinessObjects,  Version=1.0.0.0, Culture=neutral""Contoso.BusinessObjects.Sales, Contoso.BusinessObjects,  Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
 The following code extract shows how you can add an assembly matching rule to a policy using the Unity interception mechanism.  
 
 ```other
-myContainer.Configure&lt;Interception&gt;()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;AssemblyMatchingRule&gt;
+           .AddMatchingRule<AssemblyMatchingRule>
                 (new InjectionConstructor("my.assembly.name"))
-           .AddCallHandler&lt;MyCallHandler&gt;
+           .AddCallHandler<MyCallHandler>
                 ("NamespaceMatchHandler", 
                 new ContainerControlledLifetimeManager());
 ```
@@ -64,4 +65,5 @@ myContainer.Configure(Of Interception)() _
 ```
 
 The code does not show how to create the container, add the Unity interception container extension, specify an interceptor, or resolve the intercepted target object. For more information about using matching rules with interception at run time, see [Registering Policy Injection Components](test-markdown_2090aa6d-38c7-4527-a211-aa4fa966e855.html).  
+
 

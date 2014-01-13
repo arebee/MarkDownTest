@@ -1,4 +1,4 @@
----
+﻿---
 Source File Name: 75-Interception.docx
 AssetID: ebe602cf-d251-4bec-ad5c-d41bbef7550b
 Title: The Method Signature Matching Rule
@@ -11,9 +11,10 @@ Output Filename: 2\6\1\4_The Method Signature Matching Rule.markdown
 ----------
 
 
-&gt; ![](/images/note.gif)#!155CharTopicSummary!#:
-&gt; 
+> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> 
 The method signature matching rule allows you to select target classes based on the name and signature (the list of parameter types) of its members.
+
 The method signature matching rule allows developers, operators, and administrators to select target classes based on the name and signature (the list of parameter types) of its members. This rule allows the use of wildcard characters for the member names.  
 
 # Behavior of the Method Signature Matching Rule #
@@ -29,14 +30,14 @@ The matching rules for a policy can be defined in configuration or created and a
 The following constructor overloads can be used when creating an instance of the **MethodSignatureMatchingRule** class.  
 
 ```csharp
-MethodSignatureMatchingRule(IEnumerable&lt;string&gt; parameterTypeNames)
+MethodSignatureMatchingRule(IEnumerable<string> parameterTypeNames)
  
-MethodSignatureMatchingRule(IEnumerable&lt;string&gt; parameterTypeNames, bool ignoreCase)
+MethodSignatureMatchingRule(IEnumerable<string> parameterTypeNames, bool ignoreCase)
  
-MethodSignatureMatchingRule(string methodName, IEnumerable&lt;string&gt; parameterTypeNames)
+MethodSignatureMatchingRule(string methodName, IEnumerable<string> parameterTypeNames)
 
 MethodSignatureMatchingRule(string methodName,
-                            IEnumerable&lt;string&gt; parameterTypeNames, bool ignoreCase)
+                            IEnumerable<string> parameterTypeNames, bool ignoreCase)
 ```
 
 
@@ -52,16 +53,16 @@ MethodSignatureMatchingRule(string methodName, _
 ```
 
 The following table describes the parameters shown above.  
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>methodName</b></p></td><td><p><b>String</b>. This is the name of the target member method. It can consist of or include the * or ? wildcard characters for selecting multiple methods. You can also use square brackets [ ] to specify a range of characters. If omitted, the rule will match all methods.</p></td></tr><tr><td><p><b>parameterTypeNames</b></p></td><td><p><b>String</b> collection. This is a collection of the type names of the parameter types to match.</p></td></tr><tr><td><p><b>ignoreCase</b></p></td><td><p><b>Boolean</b>. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr></table>
+ParameterDescriptionmethodNameString. This is the name of the target member method. It can consist of or include the * or ? wildcard characters for selecting multiple methods. You can also use square brackets [ ] to specify a range of characters. If omitted, the rule will match all methods.parameterTypeNamesString collection. This is a collection of the type names of the parameter types to match.ignoreCaseBoolean. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.
 The following code extract shows how you can add a method signature matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-IEnumerable&lt;string&gt; paramTypes = new List&lt;string&gt; {"System.String", "System.Int32"};
-myContainer.Configure&lt;Interception&gt;()
+IEnumerable<string> paramTypes = new List<string> {"System.String", "System.Int32"};
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;MethodSignatureMatchingRule&gt;
+           .AddMatchingRule<MethodSignatureMatchingRule>
                 (new InjectionConstructor("MyMethodName", paramTypes, true))
-           .AddCallHandler&lt;MyCallHandler&gt;
+           .AddCallHandler<MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 
@@ -79,4 +80,5 @@ myContainer.Configure(Of Interception)() _
 ```
 
 The code does not show how to create the container, add the Unity interception container extension, specify an interceptor, or resolve the intercepted target object. For more information about using matching rules with interception at run time, see [Registering Policy Injection Components](test-markdown_2090aa6d-38c7-4527-a211-aa4fa966e855.html).  
+
 
