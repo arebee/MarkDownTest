@@ -11,7 +11,7 @@ Output Filename: 2\6\3\3_The Logging Handler.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 This handler uses the Logging Application Block, taking advantage of the wide range of log types, formatting, and tracing features that it provides. 
 
@@ -19,14 +19,14 @@ The logging handler provides the capability to write log messages and trace mess
 The logging handler applies both before and after the invocation of the selected method or accessing the selected property of the target object, depending on settings in the application configuration.  
 
 
-> ![(../../../images/note.gif)Note:
+> ![](../../../images/note.gif)Note:
 > This call handler is implemented in Microsoft.Practices.EnterpriseLibrary.Logging.PolicyInjection namespace of the Logging Application Block in the assembly Microsoft.Practices.EnterpriseLibrary.Logging.dll.
 
 
 The logging handler will initialize the Logging Application Block using the same configuration source as used to create the logging handler. By default, this will be the default configuration source. It is possible to specify an alternative configuration source if you instantiate the logging handler yourself using code. If you do this, you should create the configuration source once and use the same instance each time you create a logging handler to prevent performance issues and memory leaks.  
 
 
-> ![(../../../images/note.gif)Note:
+> ![](../../../images/note.gif)Note:
 > The Enterprise Library 5.0 Configuration tool does not support **Environmental Overrides **for the logging handler **Categories**. This means you will not be able to use the configuration tools at design time to customize the run-time settings of your logging handler **Categories** configuration to suit a particular environment such as a test or instrumentation environment.
 
 
@@ -40,7 +40,7 @@ The logging handler does the following:
 + **Exception **
 + **CallTime **
 
-> ![(../../../images/note.gif)Note:
+> ![](../../../images/note.gif)Note:
 > The values of parameters passed to the target member are available through the **ExtendedProperties** property of the **LogEntry** base class, which returns a populated **Dictionary** instance. You can optimize performance by configuring the properties the handler will collect information for and populate. Be aware that, because the properties in the preceding list are not available in the standard **LogEntry** class in the Logging Application Block, the default formatter templates will not display their values. You can use the **{property}** formatter token in the Log Formatter template to display these valuesâ€”for example, **{property(TypeName)}**. 
 
 

@@ -11,7 +11,7 @@ Output Filename: 2\6\1\8_The Return Type Matching Rule.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 The return type matching rule allows you to select target classes based on the type or type name of the return value, using wildcards characters as needed.
 

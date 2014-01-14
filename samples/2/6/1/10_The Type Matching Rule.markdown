@@ -11,7 +11,7 @@ Output Filename: 2\6\1\10_The Type Matching Rule.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 The type matching rule allows you to specify the target class using the namespace and class name of the target type.
 

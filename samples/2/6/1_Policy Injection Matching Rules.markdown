@@ -11,7 +11,7 @@ Output Filename: 2\6\1_Policy Injection Matching Rules.markdown
 ----------
 
 
-> ![(../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../images/note.gif)#!155CharTopicSummary!#:
 > 
 Unity includes matching rule implementations that provide capabilities for selecting objects and their members to which it adds a handler pipeline.
 

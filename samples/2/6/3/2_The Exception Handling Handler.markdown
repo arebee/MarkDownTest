@@ -11,7 +11,7 @@ Output Filename: 2\6\3\2_The Exception Handling Handler.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 This handler uses the Exception Handling Application Block, taking advantage of the wide range of options that it supports.
 
@@ -20,7 +20,7 @@ The exception handler applies **after** invocation of the selected method or acc
 Each instance of the exception handling handler maintains its own hierarchy of exception policies and any dependent objects. When using the logging handler with the Exception Handling Application Block, each exception handling handler instance will contain its own **LogWriter** instance and set of **TraceListeners**. If the Logging Application Block is configured to use a flat file trace listener or a rolling flat file trace listener, you may see multiple log files with GUIDs in their file names because multiple instances of the trace listeners are not able to write to the configured log file at the same time.  
 
 
-> ![(../../../images/note.gif)Note:
+> ![](../../../images/note.gif)Note:
 > <a name="_Toc253065315" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>This call handler is implemented in the Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.PolicyInjection namespace of the Exception Handling Application Block in the Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll assembly.
 
 

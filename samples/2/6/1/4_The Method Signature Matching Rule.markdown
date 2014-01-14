@@ -11,7 +11,7 @@ Output Filename: 2\6\1\4_The Method Signature Matching Rule.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 The method signature matching rule allows you to select target classes based on the name and signature (the list of parameter types) of its members.
 

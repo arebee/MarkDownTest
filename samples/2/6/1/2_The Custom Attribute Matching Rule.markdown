@@ -11,7 +11,7 @@ Output Filename: 2\6\1\2_The Custom Attribute Matching Rule.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 The custom attribute matching rule allows you to select target classes based on a custom attribute type that is applied to class members. 
 

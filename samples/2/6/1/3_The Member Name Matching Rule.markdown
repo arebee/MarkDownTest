@@ -11,7 +11,7 @@ Output Filename: 2\6\1\3_The Member Name Matching Rule.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 The member name matching rule allows you to select target classes based on the name of the class members (methods or properties).
 

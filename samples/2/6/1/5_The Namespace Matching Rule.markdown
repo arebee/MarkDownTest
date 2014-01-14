@@ -11,7 +11,7 @@ Output Filename: 2\6\1\5_The Namespace Matching Rule.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 The namespace matching rule allows you to select target classes based on their namespace, using wildcard characters for the child namespaces.
 

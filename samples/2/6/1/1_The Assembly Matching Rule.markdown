@@ -11,7 +11,7 @@ Output Filename: 2\6\1\1_The Assembly Matching Rule.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 The assembly matching rule allows you to select target classes based on the assembly name or by specifying a reference to an assembly.
 

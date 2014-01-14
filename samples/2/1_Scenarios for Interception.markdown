@@ -11,7 +11,7 @@ Output Filename: 2\1_Scenarios for Interception.markdown
 ----------
 
 
-> ![(../images/note.gif)#!155CharTopicSummary!#:
+> ![](../images/note.gif)#!155CharTopicSummary!#:
 > <a name="intro_highlights" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 Unity addresses a number of interception scenarios.
 

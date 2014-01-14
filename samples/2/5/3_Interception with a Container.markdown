@@ -11,7 +11,7 @@ Output Filename: 2\5\3_Interception with a Container.markdown
 ----------
 
 
-> ![(../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../images/note.gif)#!155CharTopicSummary!#:
 > <a name="interception_container" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 The Unity container extension enables you to configure a container for interception.
 

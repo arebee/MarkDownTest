@@ -11,7 +11,7 @@ Output Filename: 2\6\3_Enterprise Library Call Handlers.markdown
 ----------
 
 
-> ![(../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../images/note.gif)#!155CharTopicSummary!#:
 > 
 This section discusses some of the common scenarios for using the Policy Injection Application Block call handlers.
 

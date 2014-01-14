@@ -11,7 +11,7 @@ Output Filename: 2\6\1\6_The Parameter Type Matching Rule.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 The parameter type matching rule allows you to select target classes based on the type name of a parameter for a member of the target object.
 

@@ -11,13 +11,13 @@ Output Filename: 2\5\1_Stand-alone Unity Interception.markdown
 ----------
 
 
-> ![(../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../images/note.gif)#!155CharTopicSummary!#:
 > <a name="interception_standalone" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 You can use Unity interception as a stand-alone feature with no dependency injection container by using the Intercept class.
 
 You can use Unity interception as a stand-alone feature with no dependency injection container by using the **Intercept** class. As with a container, interception as a stand-alone feature enables you to perform instance or type interception. The **Intercept** class contains the **NewInstance,** **NewInstanceWithAdditionalInterfaces,** **ThroughProxy,** and **ThroughProxyWithAdditionalInterfaces** methods, enabling you to perform either proxy or instance interception. And both methods include the **AdditionalInterfaces** parameter, enabling you to implement additional interfaces on the target object. This corresponds to the **AdditionalInterface** feature when using interception with a container.   
 
-> ![(../../images/note.gif)Note:
+> ![](../../images/note.gif)Note:
 > The first parameter on **Intercept.ThroughProxy, Intercept.ThroughProxyWithAdditionalInterfaces** and **Intercept. NewInstance** is the corresponding interceptor when setting up interception through the stand-alone API.
 
 The **AdditionalInterfaces** parameter on the object enables you to receive more messages and to augment the set of methods the object can respond to.   

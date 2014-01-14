@@ -11,7 +11,7 @@ Output Filename: 2\6\2_Attribute-Driven Policies.markdown
 ----------
 
 
-> ![(../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../images/note.gif)#!155CharTopicSummary!#:
 > 
 Developers specify handlers for classes and their members (methods and properties) using call handler attributes.
 

@@ -11,7 +11,7 @@ Output Filename: 2\6_Using Interception and Policy Injection.markdown
 ----------
 
 
-> ![(../images/note.gif)#!155CharTopicSummary!#:
+> ![](../images/note.gif)#!155CharTopicSummary!#:
 > 
 Unity enables you to specify and customize any interception behavior and also enables you to use interception with or without a container.
 
@@ -39,7 +39,7 @@ At initialization time, when the intercepted object is created or an existing ob
 At execution time, when a method in an intercepted object is invoked, policy injection has the following process flow:   
 1. The handler pipeline built for the invoked method during initialization is retrieved from the method's handler pipeline mapping. 
 2. The method's handler pipeline is invoked, which effectively inserts it into the behaviors pipeline. 
-> ![(../images/note.gif)Note:
+> ![](../images/note.gif)Note:
 > Calls to other methods in the intercepted object result in the handlers pipeline for each of those objects also being inserted into the behaviors pipeline.
 
 
@@ -60,7 +60,7 @@ New InterceptionBehavior(Of PolicyInjectionBehavior)()
 The result of this is that the behavior object is resolved through the container with the container effectively supplying the constructor parameters.   
 The built-in policy injection behavior searches the container for all policies, and applies only those that match and are executed when a method is called or a property of the target object is accessed. The appropriate call handler is then accessed. It will look for call handler attributes on the target class and apply any specified call handlers. The **AttributeDrivenPolicy** policy uses call handler attributes to determine which call handlers to use. Other policies are the result of setting them up with matching rules and handlers.   
 
-> ![(../images/note.gif)Note:
+> ![](../images/note.gif)Note:
 > You do not link a policy with a target type. Instead use matching rules in each policy to select the type and members to which it will apply.
 
 The interception mechanism's determination of which methods can be intercepted is based on which interceptor you are using, such that only virtual methods get intercepted with the **VirtualMethodInterceptor** and only interface methods get intercepted by an **InterfaceInterceptor**.  
@@ -81,7 +81,7 @@ Effectively, the call from the originating class is intercepted and passed throu
 Unity does not contain any implementations of call handlers. You will usually create these to implement the specific crosscutting concerns or functionality you require. However, Enterprise Library contains a series of prebuilt call handlers that you can use with Unity interception. These handlers use the other blocks in Enterprise Library to implement common crosscutting concerns such as logging, caching, exception handling, authorization, and validation. For information, see [Enterprise Library Call Handlers](test-markdown_969b6f02-4da3-41d1-8527-c9e0009d1632.html).  
 
 
-> ![(../images/note.gif)Note:
+> ![](../images/note.gif)Note:
 > In Unity, a behaviors pipeline is used instead of a call handler pipeline. The behaviors pipeline can have behaviors added to it and one of these can be a policy injection behavior. You can still use code from earlier versions of Unity policy injection and Unity's underlying code will package it into a behavior and add it to the pipeline. For more information see [Configuration Files for Interception](test-markdown_af2f3726-4a3e-4e31-8f97-ebca0db3d907.html) and [Registering Interception](test-markdown_53570dcb-4520-4e42-b64d-84c9222841c0.html).
 
 

@@ -11,7 +11,7 @@ Output Filename: 2\6\3\1_The Authorization Handler.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 This handler uses the Security Application Block and takes advantage of the features that it exposes. 
 
@@ -19,7 +19,7 @@ The authorization handler provides the capability to check that the current user
 The authorization handler applies the security check **before** invocation of the selected method or setting of the selected property of the target object. If the current user does not have permission to access the method or property accessor, the authorization handler aborts execution during the preprocessing stage and does not invoke the target method or set the target property. It also generates an **UnauthorizedAccessException **and packages it into the message passed back to the previous handler in the pipeline.  
 
 
-> ![(../../../images/note.gif)Note:
+> ![](../../../images/note.gif)Note:
 > This call handler is implemented in the Microsoft.Practices.EnterpriseLibrary.Security.PolicyInjection namespace of the Security Application Block in the Microsoft.Practices.EnterpriseLibrary.Security.dll assembly.
 
 

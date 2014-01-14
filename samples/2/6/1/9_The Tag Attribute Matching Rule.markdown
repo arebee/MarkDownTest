@@ -11,7 +11,7 @@ Output Filename: 2\6\1\9_The Tag Attribute Matching Rule.markdown
 ----------
 
 
-> ![(../../../images/note.gif)#!155CharTopicSummary!#:
+> ![](../../../images/note.gif)#!155CharTopicSummary!#:
 > 
 The tag attribute matching rule allows you to select target classes based on an attribute of type Tag applied to a class or to members within a class. 
 
