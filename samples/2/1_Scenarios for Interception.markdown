@@ -11,13 +11,8 @@ Output Filename: 2\1_Scenarios for Interception.markdown
 ----------
 
 
-<<<<<<< HEAD
-> ![](images/note.gif)#!155CharTopicSummary!#:
-> <a name="intro_highlights" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
-=======
 > ![(../images/note.gif)#!155CharTopicSummary!#:
 > 
->>>>>>> Updated image path logic.
 Unity addresses a number of interception scenarios.
 
 Unity interception addresses the following scenarios:  

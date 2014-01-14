@@ -11,13 +11,8 @@ Output Filename: 1_5 - Interception using Unity.markdown
 ----------
 
 
-<<<<<<< HEAD
-&gt; ![](images/note.gif)#!155CharTopicSummary!#:
-&gt; 
-=======
 > ![](images/note.gif)#!155CharTopicSummary!#:
 > 
->>>>>>> Updated image path logic.
 This chapter introduces the concepts around interception with Unity, explains its benefits and drawbacks, discusses some alternatives, and when you should use it.
 
 
