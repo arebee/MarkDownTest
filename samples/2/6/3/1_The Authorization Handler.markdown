@@ -54,13 +54,13 @@ The following code extract shows how you can add an authorization handler to a p
 
 ```csharp
 IAuthorizationProvider myProvider 
-    = myContainer.Resolve&lt;IAuthorizationProvider>("MyAuthProvider");
+    = myContainer.Resolve<IAuthorizationProvider>("MyAuthProvider");
 
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-               .AddMatchingRule&lt;TypeMatchingRule>(new InjectionConstructor("My.Order.Object",
+               .AddMatchingRule<TypeMatchingRule>(new InjectionConstructor("My.Order.Object",
                         true))
-           .AddCallHandler&lt;AuthorizationCallHandler>
+           .AddCallHandler<AuthorizationCallHandler>
                 ("MyAuthProvider", new ContainerControlledLifetimeManager());
 ```
 
@@ -92,7 +92,7 @@ public void Deposit(decimal depositAmount)
 
 
 ```vb
-&lt;AuthorizationCallHandler("operation-name")> _
+<AuthorizationCallHandler("operation-name")> _
 Public Sub Deposit(depositAmount As Decimal)
   balance += depositAmount
 End Sub
@@ -106,7 +106,7 @@ You can also use a call handler attribute to specify the authorization provider 
 
 
 ```vb
-&lt;AuthorizationCallHandler(OperationName:="operation-name", _
+<AuthorizationCallHandler(OperationName:="operation-name", _
     ProviderName:="provider-name")>
 ```
 

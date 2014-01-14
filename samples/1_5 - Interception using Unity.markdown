@@ -53,7 +53,7 @@ using Microsoft.Practices.Unity.InterceptionExtension;
 ...
 
 IUnityContainer container = new UnityContainer();
-container.AddNewExtension&lt;Interception>();
+container.AddNewExtension<Interception>();
 ```
 
 
@@ -102,7 +102,7 @@ class LoggingInterceptionBehavior : IInterceptionBehavior
     return result;
   }
 
-  public IEnumerable&lt;Type> GetRequiredInterfaces()
+  public IEnumerable<Type> GetRequiredInterfaces()
   {
     return Type.EmptyTypes;
   }
@@ -160,7 +160,7 @@ class CachingInterceptionBehavior : IInterceptionBehavior
 
   }
 
-  public IEnumerable&lt;Type> GetRequiredInterfaces()
+  public IEnumerable<Type> GetRequiredInterfaces()
   {
     return Type.EmptyTypes;
   }
@@ -199,14 +199,14 @@ using Microsoft.Practices.Unity.InterceptionExtension;
 
 ...
 
-container.AddNewExtension&lt;Interception>();
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new Interceptor&lt;InterfaceInterceptor>(),
-  new InterceptionBehavior&lt;LoggingInterceptionBehavior>(),
-  new InterceptionBehavior&lt;CachingInterceptionBehavior>());
+container.AddNewExtension<Interception>();
+container.RegisterType<ITenantStore, TenantStore>(
+  new Interceptor<InterfaceInterceptor>(),
+  new InterceptionBehavior<LoggingInterceptionBehavior>(),
+  new InterceptionBehavior<CachingInterceptionBehavior>());
 ```
 
-The first parameter to the **RegisterType** method, an **Interceptor&lt;InterfaceInterceptor>** object, specifies the type of interception to use. In this example, the next two parameters register the two interception behaviors with the **TenantStore** type.  
+The first parameter to the **RegisterType** method, an **Interceptor<InterfaceInterceptor>** object, specifies the type of interception to use. In this example, the next two parameters register the two interception behaviors with the **TenantStore** type.  
 
 > ![](images/note.gif)Note:
 > The **InterfaceInterceptor** type defines interception based on a proxy object. You can also use the **TransparentProxyInterceptor** and **VirtualMethodInterceptor** types that are described later in this chapter.
@@ -223,13 +223,13 @@ Placing all your registration code in one place means that you can manage all th
 The final step is to use the interceptor at run time. The following code sample shows how you can resolve and use a **TenantStore** object that has the logging and caching behaviors attached to it.  
 
 ```csharp
-var tenantStore = container.Resolve&lt;ITenantStore>();
+var tenantStore = container.Resolve<ITenantStore>();
 tenantStore.SaveTenant(tenant);
 ```
 
 The type of the **tenantStore** variable is not **TenantStore**, it is a new dynamically created proxy type that implements the **ITenantStore** interface. This proxy type includes the methods, properties, and events defined in the **ITenantStore** interface.  
 Figure 1 illustrates the scenario implemented by the two behaviors and type registration youâ€™ve seen in the previous code samples.  
-![](/images/images\7708FE4F651AB54391D028161B98FD03.png)  
+![](images/7708FE4F651AB54391D028161B98FD03.png)  
 <p class="label" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><div class="caption">Figure 1 - The behavior pipeline</div></p>The numbers in the following list correspond to the numbers in Figure 1.  
 1. The client object calls the **Resolve** method on the Unity container to obtain an object that implements the **ITenantStore** interface. The container uses the **ITenantStore** registration information to instantiate a **TenantStore** object, create a pipeline with the interception behaviors, and dynamically generate a proxy **TenantStore** object. 
 2. The client invokes the **GetTenant** method on the **TenantStore** proxy object, passing a single string parameter identifying the tenant to fetch from the store.
@@ -255,16 +255,16 @@ The example shown earlier in this chapter illustrated the most common way to use
 The approach used in the example earlier in this chapter is an example of instance interception where Unity dynamically generates a proxy object and enables interception of methods defined in an interface, in this example the **ITenantStore** interface. As a reminder, here is the code that registers the interception.  
 
 ```csharp
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new Interceptor&lt;InterfaceInterceptor>(),
-  new InterceptionBehavior&lt;LoggingInterceptionBehavior>(),
-  new InterceptionBehavior&lt;CachingInterceptionBehavior>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new Interceptor<InterfaceInterceptor>(),
+  new InterceptionBehavior<LoggingInterceptionBehavior>(),
+  new InterceptionBehavior<CachingInterceptionBehavior>());
 ```
 
-In this example, the **Interceptor&lt;InterfaceInterceptor>** parameter specifies you are using a type of instance interception known as interface interception, and the **InterceptionBehavior** parameters define the two behaviors to insert into the behavior pipeline.  
+In this example, the **Interceptor<InterfaceInterceptor>** parameter specifies you are using a type of instance interception known as interface interception, and the **InterceptionBehavior** parameters define the two behaviors to insert into the behavior pipeline.  
 Unity interception includes two other interceptor types: **TransparentProxyInterceptor** and **VirtualMethodInterceptor**.  
 The following table summarizes the available interceptor types:  
-![](/images/images\3E1DEE59E65E54684DF57B5C2FF41A53.png)  
+![](images/3E1DEE59E65E54684DF57B5C2FF41A53.png)  
 For more information about the different interceptor types, see the topic [Unity Interception Techniques](http://go.microsoft.com/fwlink/p/?LinkID=304181).  
 
 
@@ -272,12 +272,12 @@ For more information about the different interceptor types, see the topic [Unity
 The **InterfaceInterceptor** type enables you to intercept methods on only one interface; in the example above, you can intercept the methods on the **ITenantStore** interface. If the **TenantStore** class also implements an interface such as the **ITenantLogoStore** interface, and you want to intercept methods defined on that interface in addition to methods defined on the **ITenantStore** interface then you should use the **TransparentProxyInterceptor** type as shown in the following code sample.  
 
 ```csharp
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new Interceptor&lt;TransparentProxyInterceptor>(),
-  new InterceptionBehavior&lt;LoggingInterceptionBehavior>(),
-  new InterceptionBehavior&lt;CachingInterceptionBehavior>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new Interceptor<TransparentProxyInterceptor>(),
+  new InterceptionBehavior<LoggingInterceptionBehavior>(),
+  new InterceptionBehavior<CachingInterceptionBehavior>());
 
-var tenantStore = container.Resolve&lt;ITenantStore>();
+var tenantStore = container.Resolve<ITenantStore>();
 
 // From the ITenantStore interface.
 tenantStore.SaveTenant(tenant);
@@ -299,12 +299,12 @@ The third interceptor type is the **VirtualMethodInterceptor** type. If you use 
 In the example shown below, which uses the **VirtualMethodInterceptor** interception type, the type of the **tenantStore** object derives from the **TenantStore** type so you can use it wherever you can use a **TenantStore** instance. However, you cannot use the **VirtualMethodInterceptor** interceptor on existing objects, you can only configure type interception when you are creating the target object. For example, you cannot use type interception on a WCF service proxy object that is created for you by a channel factory. For the logging and caching interception behaviors to work when you invoke the **SaveTenant** method in the following example, the **SaveTenant** method in the **TenantStore** class must be virtual, and the **TenantStore** class must be public.  
 
 ```csharp
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new Interceptor&lt;VirtualMethodInterceptor>(),
-  new InterceptionBehavior&lt;LoggingInterceptionBehavior>(),
-  new InterceptionBehavior&lt;CachingInterceptionBehavior>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new Interceptor<VirtualMethodInterceptor>(),
+  new InterceptionBehavior<LoggingInterceptionBehavior>(),
+  new InterceptionBehavior<CachingInterceptionBehavior>());
 
-var tenantStore = container.Resolve&lt;ITenantStore>();
+var tenantStore = container.Resolve<ITenantStore>();
 
 tenantStore.SaveTenant(tenant);
 ```
@@ -320,7 +320,7 @@ Another advantage of virtual method interception is that you can intercept inter
 Calls made with the **VirtualMethodInterceptor** are much faster than those made with the **TransparentProxyInterceptor**. 
 
 Figure 2 shows the objects that are involved with interception behaviors in this example.  
-![](/images/images\D3C12313037D0B7076CFCC38E993A8CE.png)  
+![](images/D3C12313037D0B7076CFCC38E993A8CE.png)  
 <p class="label" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><div class="caption">Figure 2 - Interception using the virtual method interceptor</div></p>The numbers in the following list correspond to the numbers in Figure 2.  
 1. The client object calls the **Resolve** method on the Unity container to obtain an object that implements the **ITenantStore** interface. The container uses the **ITenantStore** registration information to instantiate an object from a class derived from the **TenantStore** type that includes a pipeline with the interception behaviors. 
 2. The client invokes the **GetTenant** method on the **TenantStore** derived object, passing a single string parameter identifying the tenant to fetch from the store.
@@ -353,11 +353,11 @@ However, you may have a requirement for **TenantStore** instances to implement s
 When you register the **TenantStore** type with the container, you can specify that it supports additional interfaces, such as the **ILogger** interface, as shown in the following example:  
 
 ```csharp
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new Interceptor&lt;InterfaceInterceptor>(),
-  new InterceptionBehavior&lt;LoggingInterceptionBehavior>(),
-  new InterceptionBehavior&lt;CachingInterceptionBehavior>(),
-  new AdditionalInterface&lt;ILogger>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new Interceptor<InterfaceInterceptor>(),
+  new InterceptionBehavior<LoggingInterceptionBehavior>(),
+  new InterceptionBehavior<CachingInterceptionBehavior>(),
+  new AdditionalInterface<ILogger>());
 ```
 
 Then, in a behavior, you can intercept any calls made to methods defined on that interface. The following code sample shows part of the **LoggingInterceptionBehavior** class that filters for calls to methods on the **ILogger** interface and handles them.  
@@ -383,7 +383,7 @@ class LoggingInterceptionBehavior : IInterceptionBehavior
   private IMethodReturn CheckForILogger(IMethodInvocation input)
   {
     if (input.MethodBase.DeclaringType == typeof(ILogger)
-         &amp;&amp; input.MethodBase.Name == "WriteLogMessage")
+         && input.MethodBase.Name == "WriteLogMessage")
     {
       WriteLog(input.Arguments["message"].ToString());
       return input.CreateMethodReturn(null);
@@ -403,22 +403,22 @@ The examples youâ€™ve seen so far show how to setup interception as part of
 // Example 1. Using a container.
 // Configure the container for interception.
 container = new UnityContainer();
-container.AddNewExtension&lt;Interception>();
+container.AddNewExtension<Interception>();
 
 // Register the TenantStore type for interception.
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new Interceptor&lt;InterfaceInterceptor>(),
-  new InterceptionBehavior&lt;LoggingInterceptionBehavior>(),
-  new InterceptionBehavior&lt;CachingInterceptionBehavior>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new Interceptor<InterfaceInterceptor>(),
+  new InterceptionBehavior<LoggingInterceptionBehavior>(),
+  new InterceptionBehavior<CachingInterceptionBehavior>());
 
 // Obtain a proxy object with an interception pipeline.
-var tenantStore = container.Resolve&lt;ITenantStore>();
+var tenantStore = container.Resolve<ITenantStore>();
 ```
 
 
 ```csharp
 // Example 2. Using the Intercept class.
-ITenantStore tenantStore = Intercept.ThroughProxy&lt;ITenantStore>(
+ITenantStore tenantStore = Intercept.ThroughProxy<ITenantStore>(
   new TenantStore(tenantContainer, blobContainer),
   new InterfaceInterceptor(),
   new IInterceptionBehavior [] { 
@@ -435,7 +435,7 @@ TenantStore tenantStore =
 ...
 
 // Attach an interception pipeline.
-ITenantStore proxyTenantStore = Intercept.ThroughProxy&lt;ITenantStore>(
+ITenantStore proxyTenantStore = Intercept.ThroughProxy<ITenantStore>(
   tenantStore,
   new InterfaceInterceptor(),
     new IInterceptionBehavior [] {
@@ -459,38 +459,38 @@ Youâ€™ve seen the following registration code for the **TenantStore** class
 ```csharp
 // Configure the container for interception.
 container = new UnityContainer();
-container.AddNewExtension&lt;Interception>();
+container.AddNewExtension<Interception>();
 
 // Register the TenantStore type for interception.
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new Interceptor&lt;InterfaceInterceptor>(),
-  new InterceptionBehavior&lt;LoggingInterceptionBehavior>(),
-  new InterceptionBehavior&lt;CachingInterceptionBehavior>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new Interceptor<InterfaceInterceptor>(),
+  new InterceptionBehavior<LoggingInterceptionBehavior>(),
+  new InterceptionBehavior<CachingInterceptionBehavior>());
 
 // Obtain a proxy object with an interception pipeline.
-var tenantStore = container.Resolve&lt;ITenantStore>();
+var tenantStore = container.Resolve<ITenantStore>();
 ```
 
 Instead of this programmatic configuration, you can add the following configuration information to your configuration file.  
 
 ```other
-&lt;unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
-  &lt;sectionExtension type=
+<unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+  <sectionExtension type=
     "Microsoft.Practices.Unity.InterceptionExtension
     .Configuration.InterceptionConfigurationExtension,
     Microsoft.Practices.Unity.Interception.Configuration" />
-  &lt;namespace name="Tailspin.Web.Survey.Shared.Stores" />
-  &lt;namespace name="Tailspin.Utilities.InterceptionBehaviors" />
-  &lt;assembly name="Tailspin.Web.Survey.Shared" />
-  &lt;assembly name="Tailspin.Utilities" />
-  &lt;container>
-    &lt;register type="ITenantStore" mapTo="TenantStore">
-      &lt;interceptor type="InterfaceInterceptor"/>
-      &lt;interceptionBehavior type="LoggingInterceptionBehavior" />
-      &lt;interceptionBehavior type="CachingInterceptionBehavior" />
-    &lt;/register>
-  &lt;/container>
-&lt;/unity>
+  <namespace name="Tailspin.Web.Survey.Shared.Stores" />
+  <namespace name="Tailspin.Utilities.InterceptionBehaviors" />
+  <assembly name="Tailspin.Web.Survey.Shared" />
+  <assembly name="Tailspin.Utilities" />
+  <container>
+    <register type="ITenantStore" mapTo="TenantStore">
+      <interceptor type="InterfaceInterceptor"/>
+      <interceptionBehavior type="LoggingInterceptionBehavior" />
+      <interceptionBehavior type="CachingInterceptionBehavior" />
+    </register>
+  </container>
+</unity>
 ```
 
 Note that this snippet from the configuration file includes a **sectionExtension** element to enable you to use the interception specific elements. There are also **namespace** and **assembly** elements to enable Unity to find your interception behavior classes in addition to the **TenantStore** class and **ITenantStore** interface.  
@@ -501,7 +501,7 @@ IUnityContainer container = new UnityContainer();
 container.LoadConfiguration();
 
 // Obtain a proxy object with an interception pipeline.
-var tenantStore = container.Resolve&lt;ITenantStore>();
+var tenantStore = container.Resolve<ITenantStore>();
 
 ...
 
@@ -519,10 +519,10 @@ Defining the interception behaviors in the configuration file makes it possible 
 The following code sample shows how you insert two behaviors into the pipeline for a **TenantStore** instance created by the Unity container.  
 
 ```csharp
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new Interceptor&lt;InterfaceInterceptor>(),
-  new InterceptionBehavior&lt;LoggingInterceptionBehavior>(),
-  new InterceptionBehavior&lt;CachingInterceptionBehavior>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new Interceptor<InterfaceInterceptor>(),
+  new InterceptionBehavior<LoggingInterceptionBehavior>(),
+  new InterceptionBehavior<CachingInterceptionBehavior>());
 ```
 
 One of the drawbacks of this approach to implementing support for crosscutting concerns is that you must configure the interceptors for every class that needs them. In practice, you may have additional store classes in your application that all require caching support, and many more that require logging behavior.  
@@ -534,35 +534,35 @@ You may be able to use registration by convention to configure interceptors for 
 The following code sample shows an alternative approach based on policies for adding interception behaviors to objects in your application. Note that definitions of the **LoggingCallHandler** and **CachingCallHandler** classes are given later in this section.  
 
 ```csharp
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new InterceptionBehavior&lt;PolicyInjectionBehavior>(),
-  new Interceptor&lt;InterfaceInterceptor>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new InterceptionBehavior<PolicyInjectionBehavior>(),
+  new Interceptor<InterfaceInterceptor>());
 
-container.RegisterType&lt;ISurveyStore, SurveyStore>(
-  new InterceptionBehavior&lt;PolicyInjectionBehavior>(),
-  new Interceptor&lt;InterfaceInterceptor>());
+container.RegisterType<ISurveyStore, SurveyStore>(
+  new InterceptionBehavior<PolicyInjectionBehavior>(),
+  new Interceptor<InterfaceInterceptor>());
 
 var first = new InjectionProperty("Order", 1);
 var second = new InjectionProperty("Order", 2);
 
-container.Configure&lt;Interception>()
+container.Configure<Interception>()
   .AddPolicy("logging")
-  .AddMatchingRule&lt;AssemblyMatchingRule>(
+  .AddMatchingRule<AssemblyMatchingRule>(
     new InjectionConstructor(
     new InjectionParameter("Tailspin.Web.Survey.Shared")))
-  .AddCallHandler&lt;LoggingCallHandler>(
+  .AddCallHandler<LoggingCallHandler>(
     new ContainerControlledLifetimeManager(),
     new InjectionConstructor(),
     first);
 
-container.Configure&lt;Interception>()
+container.Configure<Interception>()
   .AddPolicy("caching")
-  .AddMatchingRule&lt;MemberNameMatchingRule>(
+  .AddMatchingRule<MemberNameMatchingRule>(
     new InjectionConstructor(new [] {"Get*", "Save*"}, true))
-  .AddMatchingRule&lt;NamespaceMatchingRule>(
+  .AddMatchingRule<NamespaceMatchingRule>(
     new InjectionConstructor(
       "Tailspin.Web.Survey.Shared.Stores", true))
-  .AddCallHandler&lt;CachingCallHandler>(
+  .AddCallHandler<CachingCallHandler>(
     new ContainerControlledLifetimeManager(),
     new InjectionConstructor(),
     second);
@@ -720,13 +720,13 @@ Typically, if you define policies for your call handlers, they are all defined i
 In this scenario, you can register the types that the container should inject with policies as shown in the following code sample.  
 
 ```csharp
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new InterceptionBehavior&lt;PolicyInjectionBehavior>(),
-  new Interceptor&lt;InterfaceInterceptor>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new InterceptionBehavior<PolicyInjectionBehavior>(),
+  new Interceptor<InterfaceInterceptor>());
 
-container.RegisterType&lt;ISurveyStore, SurveyStore>(
-  new InterceptionBehavior&lt;PolicyInjectionBehavior>(),
-  new Interceptor&lt;InterfaceInterceptor>());
+container.RegisterType<ISurveyStore, SurveyStore>(
+  new InterceptionBehavior<PolicyInjectionBehavior>(),
+  new Interceptor<InterfaceInterceptor>());
 ```
 
 There is no need to configure any policies, but you do need to define your attributes. The following code sample shows the **LoggingCallHandlerAttribute** class. The **CachingCallHandlerAttribute** class is almost identical.  
@@ -773,7 +773,7 @@ class MyTenantStoreWithAttributes : ITenantStore, ITenantLogoStore
   }
 
   [LoggingCallHandler(1)]
-  public IEnumerable&lt;string> GetTenantNames()
+  public IEnumerable<string> GetTenantNames()
   {
     ...
   }
@@ -807,31 +807,31 @@ For example, you could replace your **LoggingCallHandler** with **LogCallHandler
 
 ```csharp
 ConfigureLogger();
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new InterceptionBehavior&lt;PolicyInjectionBehavior>(),
-  new Interceptor&lt;InterfaceInterceptor>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new InterceptionBehavior<PolicyInjectionBehavior>(),
+  new Interceptor<InterfaceInterceptor>());
 
 var second = new InjectionProperty("Order", 2);
 
-container.Configure&lt;Interception>()
+container.Configure<Interception>()
   .AddPolicy("logging")
-  .AddMatchingRule&lt;AssemblyMatchingRule>(
+  .AddMatchingRule<AssemblyMatchingRule>(
     new InjectionConstructor(
       new InjectionParameter("Tailspin.Web.Survey.Shared")))
-  .AddCallHandler&lt;LogCallHandler>(
+  .AddCallHandler<LogCallHandler>(
     new ContainerControlledLifetimeManager(),
     new InjectionConstructor(
       9001, true, true,
       "start", "finish", true, false, true, 10, 1));
 
-container.Configure&lt;Interception>()
+container.Configure<Interception>()
   .AddPolicy("caching")
-  .AddMatchingRule&lt;MemberNameMatchingRule>(
+  .AddMatchingRule<MemberNameMatchingRule>(
     new InjectionConstructor(new[] { "Get*", "Save*" }, true))
-  .AddMatchingRule&lt;NamespaceMatchingRule>(
+  .AddMatchingRule<NamespaceMatchingRule>(
     new InjectionConstructor(
       "Tailspin.Web.Survey.Shared.Stores", true))
-  .AddCallHandler&lt;CachingCallHandler>(
+  .AddCallHandler<CachingCallHandler>(
     new ContainerControlledLifetimeManager(),
     new InjectionConstructor(),
     second);
@@ -847,9 +847,9 @@ The **LogCallHandler** constructor parameters enable you to configure the loggin
 If you want to control the behavior of the call handlers by using attributes in your business classes instead of through policies, you can enable this approach as shown in the following code sample.  
 
 ```csharp
-container.RegisterType&lt;ITenantStore, TenantStore>(
-  new InterceptionBehavior&lt;PolicyInjectionBehavior>(),
-  new Interceptor&lt;TransparentProxyInterceptor>());
+container.RegisterType<ITenantStore, TenantStore>(
+  new InterceptionBehavior<PolicyInjectionBehavior>(),
+  new Interceptor<TransparentProxyInterceptor>());
 ```
 
 You can then use one of the attributes, such as the **LogCallHandler** attribute, defined in the Enterprise Library blocks as shown in the following example.  
@@ -901,9 +901,9 @@ Note that the **ExpenseRepository** model class implements the **IExpenseReposit
 
 ```csharp
 container
-  .RegisterType&lt;IExpenseRepository, ExpenseRepository>(
-    new Interceptor&lt;VirtualMethodInterceptor>(),
-    new InterceptionBehavior&lt;PolicyInjectionBehavior>());
+  .RegisterType<IExpenseRepository, ExpenseRepository>(
+    new Interceptor<VirtualMethodInterceptor>(),
+    new InterceptionBehavior<PolicyInjectionBehavior>());
 ```
 
 The following code sample shows the **SemanticLogCallHandler** call handler class that performs the logging.  
@@ -942,22 +942,22 @@ This call handler uses the Semantic Logging Application Block to log events befo
 The application configures the Policy Injection Application Block declaratively. The following snippet from the Web.config file shows how the **Tag** attribute is associated with the **SemanticLogCallHandler** type.  
 
 ```other
-&lt;policyInjection>
-  &lt;policies>
-    &lt;add name="ExpenseTracingPolicy">
-      &lt;matchingRules>
-        &lt;add name="TagRule" match="SaveExpensePolicyRule" ignoreCase="false" 
+<policyInjection>
+  <policies>
+    <add name="ExpenseTracingPolicy">
+      <matchingRules>
+        <add name="TagRule" match="SaveExpensePolicyRule" ignoreCase="false" 
            type="Microsoft.Practices.EnterpriseLibrary.PolicyInjection
                  .MatchingRules.TagAttributeMatchingRule, ..."/>
-      &lt;/matchingRules>
-      &lt;handlers>
-        &lt;add type="AExpense.Instrumentation.SemanticLogCallHandler, AExpense,
+      </matchingRules>
+      <handlers>
+        <add type="AExpense.Instrumentation.SemanticLogCallHandler, AExpense,
                    Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" 
                    name="SemanticLogging Call Handler" />
-      &lt;/handlers>
-    &lt;/add>
-  &lt;/policies>
-&lt;/policyInjection>
+      </handlers>
+    </add>
+  </policies>
+</policyInjection>
 
 ```
 

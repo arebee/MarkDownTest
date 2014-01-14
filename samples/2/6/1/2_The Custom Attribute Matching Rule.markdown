@@ -42,11 +42,11 @@ The following table describes the parameters shown above.
 The following code extract shows how you can add a custom attribute matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;CustomAttributeMatchingRule>
+           .AddMatchingRule<CustomAttributeMatchingRule>
                (new InjectionConstructor(typeof(MyAttributeType), true))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

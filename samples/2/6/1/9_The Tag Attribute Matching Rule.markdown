@@ -39,12 +39,12 @@ public class AnnotatedWithTags
 ```vb
 Public Class AnnotatedWithTags
 
-  &lt;Tag("MyTagName")> _
+  <Tag("MyTagName")> _
   Public Sub TaggedMethod(parameter1 As String)
     ... method implementation here ...
   End Sub
 
-  &lt;Tag("AnotherTagName")> _
+  <Tag("AnotherTagName")> _
   Public Property TaggedProperty As String
      ... property implementation here ... 
   End Property
@@ -64,7 +64,7 @@ public class AnnotatedWithTagOnClass
 
 
 ```vb
-&lt;Tag("MyClassTagName")> _
+<Tag("MyClassTagName")> _
 Public Class AnnotatedWithTagOnClass
   ... class implementation here ...
 End Class
@@ -100,11 +100,11 @@ The following table describes the parameters shown above.
 The following code extract shows how you can add a tag attribute matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;TagAttributeMatchingRule>
+           .AddMatchingRule<TagAttributeMatchingRule>
                (new InjectionConstructor("MyTagName", true))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
            ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

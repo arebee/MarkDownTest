@@ -31,7 +31,7 @@ This topic contains the following sections that will help you to understand inte
 
 # Instance Interception #
 <a name="interception_instance" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>Instance interception works with both existing instances of objects, and with new instances created by Unity. The following schematic shows the basic process of instance interception.   
-![](/images/images\2FE4AF6648C3A3CE0101D8BBD767C0E2.png)  
+![(../images/2FE4AF6648C3A3CE0101D8BBD767C0E2.png)  
 When the application resolves the object through the Unity container, the Unity interception container extension manages the process. It obtains a new or existing instance of the object from the container, and creates a proxy to the object. Then it creates the handler pipeline and connects it to the target object before returning a reference to the proxy. The client then calls methods and sets properties on the proxy as though it were the target object.   
 
 > ![(../images/note.gif)Note:
@@ -43,7 +43,7 @@ Instance interception is the most common and widely used technique. It can be us
 
 # Type Interception #
 <a name="interception_type" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>Type interception uses a derived class instead of a proxy. As described in the previous section, instance interception works by creating a proxy to the target object. Type interception, on the other hand, more closely resembles aspect-oriented programming (AOP) techniques common in Java-based systems. Type interception avoids the possible performance penalties of using a proxy object by dynamically deriving a new class from the original class, and inserting calls to the behaviors that make up the pipeline. The following schematic shows the basic process of type interception.  
-![](/images/images\19801E7EC4B67B413FB471679CBF6670.png)  
+![(../images/19801E7EC4B67B413FB471679CBF6670.png)  
 When the application resolves the required type through the Unity container, the Unity interception container extension creates the new derived type and passes it, rather than the resolved type, back to the caller. Because the type passed to the caller derives from the original class, it can be used in the same way as the original class. The caller simply calls the object, and the derived class will pass the call through the behaviors in the pipeline just as is done when using instance interception.   
 
 > ![(../images/note.gif)Note:

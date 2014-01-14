@@ -38,7 +38,7 @@ public void Deposit([RangeValidator(typeof(Decimal), "0.0",
 
 
 ```vb
-Public Sub Deposit(&lt;RangeValidator((GetType([Decimal]), "0.0", _
+Public Sub Deposit(<RangeValidator((GetType([Decimal]), "0.0", _
                      RangeBoundaryType.Exclusive, "0.0", _
                      RangeBoundaryType.Ignore)> depositAmount As Decimal)
   balance += depositAmount
@@ -85,11 +85,11 @@ The validation handler exposes only the **Order** property.
 The following code extract shows how you can add a validation handler to a policy using the Unity interception mechanism.   
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-               .AddMatchingRule&lt;TypeMatchingRule>
+               .AddMatchingRule<TypeMatchingRule>
                     (new InjectionConstructor("My.Order.Object", true))
-               .AddCallHandler&lt;ValidationCallHandler>
+               .AddCallHandler<ValidationCallHandler>
                    ("MyValidator", new ContainerControlledLifetimeManager());
 ```
 
@@ -122,12 +122,12 @@ public void Withdraw(decimal withdrawAmount)
 
 
 ```vb
-&lt;ValidationCallHandler("ruleset-name")> _
+<ValidationCallHandler("ruleset-name")> _
 Public Sub Deposit(depositAmount As Decimal)
 balance += depositAmount
 End Sub
 
-&lt;ValidationCallHandler> _
+<ValidationCallHandler> _
 Public Sub Withdraw(withdrawAmount As Decimal)
 balance -= withdrawAmount
 End Sub
@@ -143,7 +143,7 @@ To set these properties using an attribute, add them as parameters to the attrib
 
 
 ```vb
-&lt;ValidationCallHandler("ruleset-name", SpecificationSource:=SpecificationSource.Both)>
+<ValidationCallHandler("ruleset-name", SpecificationSource:=SpecificationSource.Both)>
 ```
 
 <a name="_Toc253065331" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
@@ -163,10 +163,10 @@ public void SomeMethod(
 
 
 ```vb
-&lt;ValidationCallHandler> _
+<ValidationCallHandler> _
 Public Sub SomeMethod( _
-           &lt;RegexValidator("...")> x As String, _
-           &lt;ObjectValidator("RulesetName")> y As String) 
+           <RegexValidator("...")> x As String, _
+           <ObjectValidator("RulesetName")> y As String) 
 End Sub
 ```
 

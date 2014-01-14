@@ -36,7 +36,7 @@ PropertyMatchingRule(string propertyName, PropertyMatchingOption option)
 
 PropertyMatchingRule(string propertyName, PropertyMatchingOption option, bool ignoreCase)
 
-PropertyMatchingRule(IEnumerable&lt;PropertyMatchingInfo> matches)
+PropertyMatchingRule(IEnumerable<PropertyMatchingInfo> matches)
 ```
 
 
@@ -55,12 +55,12 @@ The following table describes the parameters shown above.
 The following code extract shows how you can add a property matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;PropertyMatchingRule>
+           .AddMatchingRule<PropertyMatchingRule>
                 (new InjectionConstructor
                     ("MyPropertyName", PropertyMatchingOption.GetOrSet,true))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

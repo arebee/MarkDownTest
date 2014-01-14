@@ -35,7 +35,7 @@ TypeMatchingRule(string typeName)
 
 TypeMatchingRule(string typeName, bool ignoreCase)
 
-TypeMatchingRule(IEnumerable&lt;MatchingInfo> matches)
+TypeMatchingRule(IEnumerable<MatchingInfo> matches)
 ```
 
 
@@ -54,11 +54,11 @@ The following table describes the parameters shown above.
 The following code extract shows how you can add a type matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;TypeMatchingRule>
+           .AddMatchingRule<TypeMatchingRule>
                 (new InjectionConstructor("My.Order.Object", true))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

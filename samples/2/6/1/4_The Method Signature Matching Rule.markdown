@@ -30,14 +30,14 @@ The matching rules for a policy can be defined in configuration or created and a
 The following constructor overloads can be used when creating an instance of the **MethodSignatureMatchingRule** class.  
 
 ```csharp
-MethodSignatureMatchingRule(IEnumerable&lt;string> parameterTypeNames)
+MethodSignatureMatchingRule(IEnumerable<string> parameterTypeNames)
  
-MethodSignatureMatchingRule(IEnumerable&lt;string> parameterTypeNames, bool ignoreCase)
+MethodSignatureMatchingRule(IEnumerable<string> parameterTypeNames, bool ignoreCase)
  
-MethodSignatureMatchingRule(string methodName, IEnumerable&lt;string> parameterTypeNames)
+MethodSignatureMatchingRule(string methodName, IEnumerable<string> parameterTypeNames)
 
 MethodSignatureMatchingRule(string methodName,
-                            IEnumerable&lt;string> parameterTypeNames, bool ignoreCase)
+                            IEnumerable<string> parameterTypeNames, bool ignoreCase)
 ```
 
 
@@ -57,12 +57,12 @@ The following table describes the parameters shown above.
 The following code extract shows how you can add a method signature matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-IEnumerable&lt;string> paramTypes = new List&lt;string> {"System.String", "System.Int32"};
-myContainer.Configure&lt;Interception>()
+IEnumerable<string> paramTypes = new List<string> {"System.String", "System.Int32"};
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;MethodSignatureMatchingRule>
+           .AddMatchingRule<MethodSignatureMatchingRule>
                 (new InjectionConstructor("MyMethodName", paramTypes, true))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 

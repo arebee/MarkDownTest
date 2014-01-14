@@ -55,13 +55,13 @@ namespace InterceptionDemo.InterceptionBehaviors
         private static readonly MethodInfo removeEventMethodInfo =
             typeof (INotifyPropertyChanged).GetEvent("PropertyChanged").GetRemoveMethod();
 
-        /// &lt;summary>
+        /// <summary>
         /// Implement this method to execute your behavior processing.
-        /// &lt;/summary>
-        /// &lt;param name="input">Inputs to the current call to the target.&lt;/param>&lt;param name="getNext">Delegate to execute to get the next delegate in the behavior chain.&lt;/param>
-        /// &lt;returns>
+        /// </summary>
+        /// <param name="input">Inputs to the current call to the target.</param><param name="getNext">Delegate to execute to get the next delegate in the behavior chain.</param>
+        /// <returns>
         /// Return value from the target.
-        /// &lt;/returns>
+        /// </returns>
         public IMethodReturn Invoke(IMethodInvocation input, GetNextInterceptionBehaviorDelegate getNext)
         {
             if(input.MethodBase == addEventMethodInfo)
@@ -79,22 +79,22 @@ namespace InterceptionDemo.InterceptionBehaviors
             return getNext()(input, getNext);
         }
 
-        /// &lt;summary>
+        /// <summary>
         /// Optimization hint for proxy generation - will this behavior actually
         /// perform any operations when invoked?
-        /// &lt;/summary>
+        /// </summary>
         public bool WillExecute
         {
             get { return true; }
         }
 
-        /// &lt;summary>
+        /// <summary>
         /// Returns the interfaces required by the behavior for the objects it intercepts.
-        /// &lt;/summary>
-        /// &lt;returns>
+        /// </summary>
+        /// <returns>
         /// The required interfaces.
-        /// &lt;/returns>
-        public IEnumerable&lt;Type> GetRequiredInterfaces()
+        /// </returns>
+        public IEnumerable<Type> GetRequiredInterfaces()
         {
             return new [] { typeof(INotifyPropertyChanged) };
         }
@@ -115,7 +115,7 @@ namespace InterceptionDemo.InterceptionBehaviors
 
         private static bool IsPropertySetter(IMethodInvocation input)
         {
-            return input.MethodBase.IsSpecialName &amp;&amp; input.MethodBase.Name.StartsWith("set_");
+            return input.MethodBase.IsSpecialName && input.MethodBase.Name.StartsWith("set_");
         }
 
         private IMethodReturn InterceptPropertySet(IMethodInvocation input, GetNextInterceptionBehaviorDelegate getNext)
@@ -150,13 +150,13 @@ namespace InterceptionDemo.InterceptionBehaviors
         Private Shared removeEventMethodInfo As MethodInfo = _
             GetType(INotifyPropertyChanged).GetEvent("PropertyChanged").GetRemoveMethod()
 
-        ''' &lt;summary>
+        ''' <summary>
         ''' Implement this method to execute your behavior processing.
-        ''' &lt;/summary>
-        ''' &lt;param name="input">Inputs to the current call to the target.&lt;/param>&lt;param name="getNext">Delegate to execute to get the next delegate in the behavior chain.&lt;/param>
-        ''' &lt;returns>
+        ''' </summary>
+        ''' <param name="input">Inputs to the current call to the target.</param><param name="getNext">Delegate to execute to get the next delegate in the behavior chain.</param>
+        ''' <returns>
         ''' Return value from the target.
-        ''' &lt;/returns>
+        ''' </returns>
         Public Function Invoke(ByVal input As IMethodInvocation, _
             ByVal getNext As GetNextInterceptionBehaviorDelegate) _
             As IMethodReturn Implements IInterceptionBehavior.Invoke
@@ -173,21 +173,21 @@ namespace InterceptionDemo.InterceptionBehaviors
 
             Return getNext()(input, getNext)
         End Function
-        ''' &lt;summary>
+        ''' <summary>
         ''' Returns the interfaces required by the behavior for the objects it intercepts.
-        ''' &lt;/summary>
-        ''' &lt;returns>
+        ''' </summary>
+        ''' <returns>
         ''' The required interfaces.
-        ''' &lt;/returns>
+        ''' </returns>
         Public Function GetRequiredInterfaces() As IEnumerable(Of Type) _
         Implements IInterceptionBehavior.GetRequiredInterfaces
 
             Return New Type() {GetType(INotifyPropertyChanged)}
         End Function
-        ''' &lt;summary>
+        ''' <summary>
         ''' Optimization hint for proxy generation - will this behavior actually
         ''' perform any operations when invoked?
-        ''' &lt;/summary>
+        ''' </summary>
         Public ReadOnly Property WillExecute() As Boolean _
             Implements IInterceptionBehavior.WillExecute
 

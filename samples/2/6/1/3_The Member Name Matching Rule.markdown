@@ -33,11 +33,11 @@ MemberNameMatchingRule(string nameToMatch)
 
 MemberNameMatchingRule(string nameToMatch, bool ignoreCase)
 
-MemberNameMatchingRule(IEnumerable&lt;string> namesToMatch)
+MemberNameMatchingRule(IEnumerable<string> namesToMatch)
 
-MemberNameMatchingRule(IEnumerable&lt;string> namesToMatch, bool ignoreCase)
+MemberNameMatchingRule(IEnumerable<string> namesToMatch, bool ignoreCase)
 
-MemberNameMatchingRule(IEnumerable&lt;MatchingInfo> matches)
+MemberNameMatchingRule(IEnumerable<MatchingInfo> matches)
 ```
 
 
@@ -58,11 +58,11 @@ The following table describes the parameters shown above.
 The following code excerpt shows how you can add a member name matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;MemberNameMatchingRule>
+           .AddMatchingRule<MemberNameMatchingRule>
                 (new InjectionConstructor("MyMemberName", true))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
                ("MyValidator", 
                new ContainerControlledLifetimeManager());
 ```

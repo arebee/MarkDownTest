@@ -50,11 +50,11 @@ The following table describes the parameters shown above.
 The following code extract shows how you can add a return type matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;ReturnTypeMatchingRule>
+           .AddMatchingRule<ReturnTypeMatchingRule>
                 (new InjectionConstructor("MyReturnType", true))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
             ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

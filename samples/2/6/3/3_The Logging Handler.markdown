@@ -48,7 +48,7 @@ The logging handler does the following:
 + If the configuration specifies logging after the method call and includes the option to log the call duration, the logging handler records the difference between the times when its preprocessing tasks and post-processing tasks occur, and it logs this along with any other configured values.
 
 # Creating Instances of the Logging Handler #
-When you use this call handler with the Unity interception mechanism, you must provide values for any mandatory parameters of its constructors, and optionally provide values for other parameters. If you configure the container with Enterprise Library's classes, then you want that configured **LogWriter** to be injected. If you are using an unconfigured container then you will need to get the facade's writer, which will belong to Enterprise Library's default container. If you want to inject the log writer from the container being configured, then you must provide it by using **typeof(LogWriter)** or **new ResolvedParameter&lt;LogWriter>()** as the first element in the **InjectionConstructor** to specify that the constructor parameter is to be resolved The values provided are used to set the properties of the handler at run time. The constructors you can use are shown in the following code.  
+When you use this call handler with the Unity interception mechanism, you must provide values for any mandatory parameters of its constructors, and optionally provide values for other parameters. If you configure the container with Enterprise Library's classes, then you want that configured **LogWriter** to be injected. If you are using an unconfigured container then you will need to get the facade's writer, which will belong to Enterprise Library's default container. If you want to inject the log writer from the container being configured, then you must provide it by using **typeof(LogWriter)** or **new ResolvedParameter<LogWriter>()** as the first element in the **InjectionConstructor** to specify that the constructor parameter is to be resolved The values provided are used to set the properties of the handler at run time. The constructors you can use are shown in the following code.  
 
 ```csharp
 // Uses the default values. Gets the logWriter from the Logger.Writer facade method.
@@ -95,11 +95,11 @@ The Logging Handler also exposes these values as the **LogWriter**, **EventId**,
 The following code extract shows how you can add a Logging Handler to a policy using the Unity type resolution and interception mechanisms. This example specifies that **LogWriter** is to be resolved by the container and it provides values for the **LogCallHandler** property values.  
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-               .AddMatchingRule&lt;TypeMatchingRule>(
+               .AddMatchingRule<TypeMatchingRule>(
                     new InjectionConstructor("My.Order.Object", true))
-               .AddCallHandler&lt;LogCallHandler>( 
+               .AddCallHandler<LogCallHandler>( 
                   new ContainerControlledLifetimeManager(),
                   new InjectionConstructor(
                       typeof(LogWriter), 
@@ -136,7 +136,7 @@ public void Deposit(decimal depositAmount)
 
 
 ```vb
-&lt;LogCallHandler> _
+<LogCallHandler> _
 Public Sub Deposit(depositAmount As Decimal)
   balance += depositAmount
 End Sub
@@ -153,7 +153,7 @@ To set these properties using an attribute, add them as parameters to the attrib
 
 
 ```vb
-&lt;LogCallHandler(Categories:=New String(){"My Category"}, LogBeforeCall:=True, _
+<LogCallHandler(Categories:=New String(){"My Category"}, LogBeforeCall:=True, _
          BeforeMessage:="This occurs before the call to the target object")>
 ```
 

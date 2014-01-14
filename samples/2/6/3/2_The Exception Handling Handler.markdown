@@ -58,12 +58,12 @@ The following code extract shows how you can add an exception handling handler t
 
 ```csharp
 ExceptionPolicyImpl myPolicy 
-    = myContainer.Resolve&lt;ExceptionPolicyImpl>("MyExceptionPolicy"); 
-myContainer.Configure&lt;Interception>()
+    = myContainer.Resolve<ExceptionPolicyImpl>("MyExceptionPolicy"); 
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-               .AddMatchingRule&lt;TypeMatchingRule>(new InjectionConstructor("My.Order.Object",
+               .AddMatchingRule<TypeMatchingRule>(new InjectionConstructor("My.Order.Object",
                         true))
-               .AddCallHandler&lt;AuthorizationCallHandler>
+               .AddCallHandler<AuthorizationCallHandler>
                 ("MyExceptionPolicy", new ContainerControlledLifetimeManager());
 ```
 
@@ -97,7 +97,7 @@ public void Deposit(decimal depositAmount)
 
 
 ```vb
-&lt;ExceptionCallHandler("exception-policy-name")> _
+<ExceptionCallHandler("exception-policy-name")> _
 Public Sub Deposit(depositAmount As Decimal)
   balance += depositAmount
 End Sub

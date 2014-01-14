@@ -29,7 +29,7 @@ This section contains the following sections describing stand-alone interception
 <a name="Standalone_proxy" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>Instance interceptors work by creating a proxy to the intercepted instance. The following examples create a Proxy interface interceptor. The first example implements no additional interfaces.   
 
 ```csharp
-IInterface proxy = Intercept.ThroughProxy&lt;IInterface>(
+IInterface proxy = Intercept.ThroughProxy<IInterface>(
         new BaseClass(10),
         new InterfaceInterceptor(),
         new[] { interceptionBehavior }
@@ -72,7 +72,7 @@ Dim proxy As IInterface = DirectCast(Intercept.ThroughProxyWithAdditionalInterfa
 
 ```csharp
 BaseClass instance =
-    Intercept.NewInstance&lt;BaseClass>(
+    Intercept.NewInstance<BaseClass>(
         new VirtualMethodInterceptor(),
         new[] { interceptionBehavior },
         10);
@@ -91,7 +91,7 @@ This is the same as the previous example, except additional interfaces are speci
 
 ```csharp
 BaseClass instance =
-    Intercept.NewInstanceWithAdditionalInterfaces&lt;BaseClass>(
+    Intercept.NewInstanceWithAdditionalInterfaces<BaseClass>(
         new VirtualMethodInterceptor(),
         new[] { interceptionBehavior },
         new[] { typeof(ISomeInterface), typeof(IsomeOtherInterface)},

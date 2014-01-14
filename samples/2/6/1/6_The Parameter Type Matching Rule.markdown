@@ -30,7 +30,7 @@ The matching rules for a policy can be defined in configuration or created and a
 The following constructor overloads can be used when creating an instance of the **ParameterTypeMatchingRule** class.  
 
 ```csharp
-ParameterTypeMatchingRule(IEnumerable&lt;ParameterTypeMatchingInfo> matches)
+ParameterTypeMatchingRule(IEnumerable<ParameterTypeMatchingInfo> matches)
 ```
 
 
@@ -48,11 +48,11 @@ ParameterTypeMatchingInfo paramsUsed = new ParameterTypeMatchingInfo[]
                     {
                         new ParameterTypeMatchingInfo("System.String", false, ParameterKind.Input)
                     };
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;ParameterTypeMatchingRule>
+           .AddMatchingRule<ParameterTypeMatchingRule>
                 (new InjectionConstructor(paramsUsed))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
                 ("ContentValidator", 
                 new ContainerControlledLifetimeManager());
 ```

@@ -27,7 +27,7 @@ The performance counter handler applies both before and after invocation of the 
 To use the performance counter handler, you must first install the performance counters into the operating system. You can use the Installutil.exe utility that ships with the .NET Framework to install or uninstall the performance counters.  
 
 ```other
-installutil.exe /category=&lt;category>[;&lt;category> ...] Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.dll
+installutil.exe /category=<category>[;<category> ...] Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.dll
 ```
 
 Alternatively, Enterprise Library includes a utility class named **PerformanceCountersInstaller** that you can use to install the appropriate counters. The file PerformanceCountersInstaller.cs that contains this class is in the \Source\Blocks\PolicyInjection\Src\PolicyInjection\Installers subfolder of Enterprise Library. The **PerformanceCountersInstaller** class inherits from the **Installer** class in the **System.Configuration** namespace, which exposes methods to install and uninstall performance counters.  
@@ -142,10 +142,10 @@ The performance counter handler also exposes these values as the **Category**, *
 The following code extract shows how you can add a Performance Counter Handler to a policy using the Unity interception mechanism.   
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-               .AddMatchingRule&lt;TypeMatchingRule>(new InjectionConstructor("My.Order.Object", true))
-               .AddCallHandler&lt;PerformanceCounterCallHandler>
+               .AddMatchingRule<TypeMatchingRule>(new InjectionConstructor("My.Order.Object", true))
+               .AddCallHandler<PerformanceCounterCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
  
@@ -175,7 +175,7 @@ public void Deposit(decimal depositAmount)
 
 
 ```vb
-&lt;PerformanceCounterCallHandler("category-name", "instance-name")> _
+<PerformanceCounterCallHandler("category-name", "instance-name")> _
 Public Sub Deposit(depositAmount As Decimal)
   balance += depositAmount
 End Sub
@@ -192,7 +192,7 @@ To set these properties using an attribute, add them as parameters to the attrib
 
 
 ```vb
-&lt;PerformanceCounterCallHandler(CategoryName:="My Category", _
+<PerformanceCounterCallHandler(CategoryName:="My Category", _
                                InstanceName:="MyInstance", UseTotalCounter:=False)>
 ```
 

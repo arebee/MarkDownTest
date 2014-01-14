@@ -15,7 +15,7 @@ Output Filename: 2\6\3_Enterprise Library Call Handlers.markdown
 > 
 This section discusses some of the common scenarios for using the Policy Injection Application Block call handlers.
 
-The [patterns &amp; practices Enterprise Library](http://msdn.microsoft.com/entlib/) includes a set of call handlers and the equivalent call handler attributes designed for use with the Unity **PolicyInjectionBehavior**. This section discusses some of the common scenarios for using the Policy Injection Application Block call handlers. It examines the following common scenarios where the block can simplify and accelerate application development:  
+The [patterns & practices Enterprise Library](http://msdn.microsoft.com/entlib/) includes a set of call handlers and the equivalent call handler attributes designed for use with the Unity **PolicyInjectionBehavior**. This section discusses some of the common scenarios for using the Policy Injection Application Block call handlers. It examines the following common scenarios where the block can simplify and accelerate application development:  
 + <a href="#scenarios_logging" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Logging Method Invocation and Property Access</a>
 + <a href="#scenarios_exceptions" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Handling Exceptions in a Structured Manner</a>
 + <a href="#scenarios_validation" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Validating Parameter Values</a>

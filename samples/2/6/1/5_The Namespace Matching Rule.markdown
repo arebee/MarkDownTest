@@ -33,7 +33,7 @@ NamespaceMatchingRule(string namespaceName)
 
 NamespaceMatchingRule(string namespaceName, bool ignoreCase)
 
-NamespaceMatchingRule(IEnumerable&lt;MatchingInfo> matches)
+NamespaceMatchingRule(IEnumerable<MatchingInfo> matches)
 ```
 
 
@@ -50,11 +50,11 @@ The following table describes the parameters shown above.
 The following code extract shows how you can add a namespace matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;NamespaceMatchingRule>
+           .AddMatchingRule<NamespaceMatchingRule>
                 (new InjectionConstructor("My.Namespace.Name", true))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

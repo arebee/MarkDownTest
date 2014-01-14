@@ -45,11 +45,11 @@ The following table describes the parameters shown above.
 The following code extract shows how you can add an assembly matching rule to a policy using the Unity interception mechanism.  
 
 ```other
-myContainer.Configure&lt;Interception>()
+myContainer.Configure<Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule&lt;AssemblyMatchingRule>
+           .AddMatchingRule<AssemblyMatchingRule>
                 (new InjectionConstructor("my.assembly.name"))
-           .AddCallHandler&lt;MyCallHandler>
+           .AddCallHandler<MyCallHandler>
                 ("NamespaceMatchHandler", 
                 new ContainerControlledLifetimeManager());
 ```
