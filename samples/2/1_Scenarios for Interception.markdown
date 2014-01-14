@@ -12,7 +12,7 @@ Output Filename: 2\1_Scenarios for Interception.markdown
 
 
 > ![(../images/note.gif)#!155CharTopicSummary!#:
-> 
+> <a name="intro_highlights" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 Unity addresses a number of interception scenarios.
 
 Unity interception addresses the following scenarios:  
@@ -41,7 +41,7 @@ The following are factors to keep in mind when evaluating the use of Unity inter
 + Interception provides more flexibility than other alternatives, such as static inheritance. 
 
 # Limitations of Unity Interception #
-All interception technologies impose some extra processing requirements on applicationsâ€”although the design of the Unity mechanism minimizes these as much as possible. The features it provides, and the opportunities it offers to simplify coding solutions that minimize crosscutting concerns and promote manageability, usually outweigh the small extra processing requirement.   
+<a name="intro_whentouse" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>All interception technologies impose some extra processing requirements on applicationsâ€”although the design of the Unity mechanism minimizes these as much as possible. The features it provides, and the opportunities it offers to simplify coding solutions that minimize crosscutting concerns and promote manageability, usually outweigh the small extra processing requirement.   
 There are some functional limitations when using Unity interception to intercept calls and route them through the behaviors pipeline instead of directly executing custom application code:  
 + Only virtual method interception allows for intercepting and adding functionality to non-public methods and they must be non-final, virtual instance methods.
 + There are some limitations on the type of objects that can be intercepted, depending on the interception mechanism you use. In general, objects must implement a known interface containing the methods and properties for which behaviors are required, inherit from the abstract base class **MarshalByRefObject**, or expose virtual methods that can be overridden in a derived class.
@@ -49,7 +49,7 @@ There are some functional limitations when using Unity interception to intercept
 + Self calls, that is, calls in which a (potentially different) method on the same class is invoked, are not intercepted except when you are using virtual method interception.
 
 # Alternatives to Using Unity Interception #
-Alternatives to using Unity to intercept objects may include the following:  
+<a name="intro_alternatives" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>Alternatives to using Unity to intercept objects may include the following:  
 + One of the aspect-oriented programming (AOP) frameworks available from third-party suppliers, such as the Spring Framework ([http://www.springframework.net/](http://www.springframework.net/))
 + Traditional techniques for adding features such as logging, caching, authorization and validation to the members of a classâ€”for example, using custom code or the ASP.NET server controls
 

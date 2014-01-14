@@ -17,7 +17,7 @@ Unity provides instance and type interception, enables interception with either 
 
 Unity interception enables you to effectively capture calls to objects and add additional functionality to the target object. Interception is useful when you want to modify the behavior for individual objects but not the entire class, very much as you would do when using the [Decorator pattern](http://en.wikipedia.org/wiki/Decorator_pattern). It provides a flexible approach for adding new behaviors to an object at run time.   
 This section contains the following topics that will help you to understand interception:  
-+ About Unity Interception. This section of this topic describes the basic principles of interception in Unity.
++ <a href="#interception_about_unity" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">About Unity Interception</a>. This section of this topic describes the basic principles of interception in Unity.
 + [Scenarios for Interception](test-markdown_ed7289ac-2407-409a-8a4d-04bc2a0c763a.html). This topic describes common scenarios addressed by Unity interception.
 + [Behaviors for Interception](test-markdown_73690eea-cce2-48aa-a143-d6fcd80e1654.html). This topic describes behaviors you might implement with the **IInterceptionBehavior** interface to configure a container through the **RegisterType** method.
 + [Configuring a Container for Interception](test-markdown_6a974ef0-4f5e-407f-b196-b126a08f9205.html). This topic describes how to configure the Unity container for interception.
@@ -30,7 +30,7 @@ This section contains the following topics that will help you to understand inte
 
 
 # About Unity Interception #
-Unity provides both instance and type interception, and enables interception with either objects you resolve through the container, or by using the stand-alone API to explicitly invoke interception on a known instance.  
+<a name="interception_about_unity" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>Unity provides both instance and type interception, and enables interception with either objects you resolve through the container, or by using the stand-alone API to explicitly invoke interception on a known instance.  
 
 
 > ![](images/note.gif)Note:
@@ -47,7 +47,7 @@ The interception mechanism captures the call to an object at invocation time and
 Unity interception uses a single behaviors pipeline encompassing all of the behaviors for processing interception. The pipeline consists of an essentially fixed series of elements, the behaviors that you have set up, that perform pre- and/or post-processing logic on the object. If so dictated by the behavior element logic, each behavior element in the pipeline can end the invocations, and subsequent pipeline elements will not execute. The last executed element in the pipeline exits the pipeline and invokes the implementation of the intercepted object, thus enabling run-time processing. In post processing the process is reversed.  
 ![](/images/images\68DE2665B2D4503428107A4DD26F42E3.png)  
 The following table describes the basic components of the Unity interception mechanism.  
-Interception ComponentDescriptionInterceptorRepresents an interception mechanism. The interception mechanism actually intercepts the object call. There are two kinds of interceptors, type and instance. Unity provides a single type interceptor, VirtualMethodInterceptor, and two instance interceptors, Interface and TransparentProxy. For more information on type and instance interceptors see Unity Interception Techniques.Interception behaviorRepresents what to do when a method is intercepted. Behaviors always apply to every method on an intercepted type. Policy injection is just one such behavior.Behaviors pipelineA pipeline of behaviors that processing is routed to for interception.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Interception Component</p></th><th><p>Description</p></th></tr><tr><td><p>Interceptor</p></td><td><p>Represents an interception mechanism. The interception mechanism actually intercepts the object call. There are two kinds of interceptors, type and instance. Unity provides a single type interceptor, <b>VirtualMethodInterceptor</b>, and two instance interceptors, <b>Interface</b> and <b>TransparentProxy</b>. For more information on type and instance interceptors see <hlink xlink:type="simple" xlink:show="new" xlink:actuate="onRequest" xlink:href="9765b670-328a-488c-a219-d114381b7c75.html">Unity Interception Techniques</hlink>.</p></td></tr><tr><td><p>Interception behavior</p></td><td><p>Represents what to do when a method is intercepted. Behaviors always apply to every method on an intercepted type. Policy injection is just one such behavior.</p></td></tr><tr><td><p>Behaviors pipeline</p></td><td><p>A pipeline of behaviors that processing is routed to for interception.</p></td></tr></table>
 
 > ![](images/note.gif)Note:
 > Interception behaviors are a generalization of the default policy injection call handlers. The **ICallHandler** interface is very similar to the **IInterceptionBehavior** interface. A major difference is that the call handlers are passed to the method that they are called on.

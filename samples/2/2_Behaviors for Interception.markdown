@@ -22,11 +22,11 @@ When implementing a WPF view model, in order to get the property change event ac
 There is no built-in support for the **ErrorProvider/IDataErrorInfo** approach to validation in WPF; hence there is no **ErrorProvider** component in WPF either. You must create an **ErrorProvider** for use in WPF applications. The **DataGrid** (1.1) and **DataGridView** (2.0) in Windows Forms both automatically detected the presence of this interface on objects they were bound to, and showed any errors without any work. The Windows Forms **ErrorProvider** could be used to automatically display errors on any control that came from the objects they (and the **ErrorProvider**) were bound to, all without any extra code being written. You can use **IDataErrorInfo** to take advantage of the validation work in the .NET Framework. You can implement **IDataErrorInfo** in a class and bind the class concrete object to the **DataGridView** control through the **Bindingsource **property. Then use the Validation Application Block to validate the class object and store the results for each property.  
 Implementing a mocking framework through an interception behavior could be useful in cases where the code requires an interface that has no implementation. The behavior can give you a mock up interface. You could use a mocking framework to implement a mock database, mock logger, or mock builder context.   
 The following topics explain or demonstrate interception behaviors in more detail:  
-+ Custom Interception Behaviors
-+ Implement** **IDataErrorInfo** **Example
++ <a href="#interception_behavior_custom" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Custom Interception Behaviors</a>
++ <a href="#interception_behavior_INotifyProperty" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Implement** **IDataErrorInfo** **Example</a>
 
 # Custom Interception Behaviors #
-Custom interception behaviors are implementations of the **IInterceptionBehavior** interface. You must provide an implementation of the two **IInterceptionBehavior** interface methods, **Invoke** and **GetRequiredInterfaces,** and set the **WillExecute** property. The **Invoke** method is required to actually execute the behavior logic. For more information on injection attributes, see [Annotating Objects for Constructor Injection](test-markdown_fdc0d23e-7821-4510-90a8-a6a64bf51854.html). The **GetRequiredInterfaces **method returns the interfaces required by the behavior for the intercepted objects.  
+<a name="interception_behavior_custom" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>Custom interception behaviors are implementations of the **IInterceptionBehavior** interface. You must provide an implementation of the two **IInterceptionBehavior** interface methods, **Invoke** and **GetRequiredInterfaces,** and set the **WillExecute** property. The **Invoke** method is required to actually execute the behavior logic. For more information on injection attributes, see [Annotating Objects for Constructor Injection](test-markdown_fdc0d23e-7821-4510-90a8-a6a64bf51854.html). The **GetRequiredInterfaces **method returns the interfaces required by the behavior for the intercepted objects.  
 The **WillExecute** property is simply used to optimize proxy creation. It simply returns a flag indicating if the behavior will actually do anything when invoked, and if not, enables the interception mechanism to skip the behavior. In the case of policy injection, when no policies match, **WillExecute** is false. If **WillExecute** is false for all the behaviors in the behaviors pipeline, then nothing is intercepted and proxy or intercepting class generation is simply not performed, thus optimizing performance.  
 
 > ![(../images/note.gif)Note:
@@ -34,7 +34,7 @@ The **WillExecute** property is simply used to optimize proxy creation. It simpl
 
 
 # Implement INotifyPropertyChanged Example #
-The following **NotifyPropertyChangedBehavior** class is an example that implements **IInterceptionBehavior**.   
+<a name="interception_behavior_INotifyProperty" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>The following **NotifyPropertyChangedBehavior** class is an example that implements **IInterceptionBehavior**.   
 
 ```csharp
 using System;
@@ -55,13 +55,13 @@ namespace InterceptionDemo.InterceptionBehaviors
         private static readonly MethodInfo removeEventMethodInfo =
             typeof (INotifyPropertyChanged).GetEvent("PropertyChanged").GetRemoveMethod();
 
-        /// <summary>
+        /// &lt;summary>
         /// Implement this method to execute your behavior processing.
-        /// </summary>
-        /// <param name="input">Inputs to the current call to the target.</param><param name="getNext">Delegate to execute to get the next delegate in the behavior chain.</param>
-        /// <returns>
+        /// &lt;/summary>
+        /// &lt;param name="input">Inputs to the current call to the target.&lt;/param>&lt;param name="getNext">Delegate to execute to get the next delegate in the behavior chain.&lt;/param>
+        /// &lt;returns>
         /// Return value from the target.
-        /// </returns>
+        /// &lt;/returns>
         public IMethodReturn Invoke(IMethodInvocation input, GetNextInterceptionBehaviorDelegate getNext)
         {
             if(input.MethodBase == addEventMethodInfo)
@@ -79,22 +79,22 @@ namespace InterceptionDemo.InterceptionBehaviors
             return getNext()(input, getNext);
         }
 
-        /// <summary>
+        /// &lt;summary>
         /// Optimization hint for proxy generation - will this behavior actually
         /// perform any operations when invoked?
-        /// </summary>
+        /// &lt;/summary>
         public bool WillExecute
         {
             get { return true; }
         }
 
-        /// <summary>
+        /// &lt;summary>
         /// Returns the interfaces required by the behavior for the objects it intercepts.
-        /// </summary>
-        /// <returns>
+        /// &lt;/summary>
+        /// &lt;returns>
         /// The required interfaces.
-        /// </returns>
-        public IEnumerable<Type> GetRequiredInterfaces()
+        /// &lt;/returns>
+        public IEnumerable&lt;Type> GetRequiredInterfaces()
         {
             return new [] { typeof(INotifyPropertyChanged) };
         }
@@ -115,7 +115,7 @@ namespace InterceptionDemo.InterceptionBehaviors
 
         private static bool IsPropertySetter(IMethodInvocation input)
         {
-            return input.MethodBase.IsSpecialName && input.MethodBase.Name.StartsWith("set_");
+            return input.MethodBase.IsSpecialName &amp;&amp; input.MethodBase.Name.StartsWith("set_");
         }
 
         private IMethodReturn InterceptPropertySet(IMethodInvocation input, GetNextInterceptionBehaviorDelegate getNext)
@@ -150,13 +150,13 @@ namespace InterceptionDemo.InterceptionBehaviors
         Private Shared removeEventMethodInfo As MethodInfo = _
             GetType(INotifyPropertyChanged).GetEvent("PropertyChanged").GetRemoveMethod()
 
-        ''' <summary>
+        ''' &lt;summary>
         ''' Implement this method to execute your behavior processing.
-        ''' </summary>
-        ''' <param name="input">Inputs to the current call to the target.</param><param name="getNext">Delegate to execute to get the next delegate in the behavior chain.</param>
-        ''' <returns>
+        ''' &lt;/summary>
+        ''' &lt;param name="input">Inputs to the current call to the target.&lt;/param>&lt;param name="getNext">Delegate to execute to get the next delegate in the behavior chain.&lt;/param>
+        ''' &lt;returns>
         ''' Return value from the target.
-        ''' </returns>
+        ''' &lt;/returns>
         Public Function Invoke(ByVal input As IMethodInvocation, _
             ByVal getNext As GetNextInterceptionBehaviorDelegate) _
             As IMethodReturn Implements IInterceptionBehavior.Invoke
@@ -173,21 +173,21 @@ namespace InterceptionDemo.InterceptionBehaviors
 
             Return getNext()(input, getNext)
         End Function
-        ''' <summary>
+        ''' &lt;summary>
         ''' Returns the interfaces required by the behavior for the objects it intercepts.
-        ''' </summary>
-        ''' <returns>
+        ''' &lt;/summary>
+        ''' &lt;returns>
         ''' The required interfaces.
-        ''' </returns>
+        ''' &lt;/returns>
         Public Function GetRequiredInterfaces() As IEnumerable(Of Type) _
         Implements IInterceptionBehavior.GetRequiredInterfaces
 
             Return New Type() {GetType(INotifyPropertyChanged)}
         End Function
-        ''' <summary>
+        ''' &lt;summary>
         ''' Optimization hint for proxy generation - will this behavior actually
         ''' perform any operations when invoked?
-        ''' </summary>
+        ''' &lt;/summary>
         Public ReadOnly Property WillExecute() As Boolean _
             Implements IInterceptionBehavior.WillExecute
 

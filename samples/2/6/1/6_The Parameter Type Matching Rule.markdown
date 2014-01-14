@@ -30,7 +30,7 @@ The matching rules for a policy can be defined in configuration or created and a
 The following constructor overloads can be used when creating an instance of the **ParameterTypeMatchingRule** class.  
 
 ```csharp
-ParameterTypeMatchingRule(IEnumerable<ParameterTypeMatchingInfo> matches)
+ParameterTypeMatchingRule(IEnumerable&lt;ParameterTypeMatchingInfo> matches)
 ```
 
 
@@ -39,7 +39,7 @@ ParameterTypeMatchingRule(matches As IEnumerable(Of ParameterTypeMatchingInfo))
 ```
 
 The following table describes the parameter shown above.  
-ParameterDescriptionmatchesParameterTypeMatchingInfo collection. The ParameterTypeMatchingInfo class defines three items of information about each parameter that it will match:The parameter type name as a String. A Boolean value that specifies whether the match should be carried out on a case-sensitive basis. The default is false.The usage of the parameter as a value from the ParameterKind enumeration. Valid values are Input, Output, InputOrOutput, and ReturnValue.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>matches</b></p></td><td><p><b>ParameterTypeMatchingInfo</b> collection.<b> </b>The <b>ParameterTypeMatchingInfo</b> class defines three items of information about each parameter that it will match:</p><p>The parameter type name as a <b>String</b>. </p><p>A <b>Boolean</b> value that specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p><p>The usage of the parameter as a value from the <b>ParameterKind</b> enumeration. Valid values are <b>Input</b>, <b>Output</b>, <b>InputOrOutput</b>, and <b>ReturnValue</b>.</p></td></tr></table>
 The parameter type matching rule also exposes the **ParameterMatches** property as an **IEnumerable** collection of **ParameterTypeMatchingInfo** instances.  
 The following code extract shows how you can add a parameter type matching rule to a policy using the Unity interception mechanism.  
 
@@ -48,11 +48,11 @@ ParameterTypeMatchingInfo paramsUsed = new ParameterTypeMatchingInfo[]
                     {
                         new ParameterTypeMatchingInfo("System.String", false, ParameterKind.Input)
                     };
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule<ParameterTypeMatchingRule>
+           .AddMatchingRule&lt;ParameterTypeMatchingRule>
                 (new InjectionConstructor(paramsUsed))
-           .AddCallHandler<MyCallHandler>
+           .AddCallHandler&lt;MyCallHandler>
                 ("ContentValidator", 
                 new ContainerControlledLifetimeManager());
 ```

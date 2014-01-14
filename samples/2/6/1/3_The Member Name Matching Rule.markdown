@@ -33,11 +33,11 @@ MemberNameMatchingRule(string nameToMatch)
 
 MemberNameMatchingRule(string nameToMatch, bool ignoreCase)
 
-MemberNameMatchingRule(IEnumerable<string> namesToMatch)
+MemberNameMatchingRule(IEnumerable&lt;string> namesToMatch)
 
-MemberNameMatchingRule(IEnumerable<string> namesToMatch, bool ignoreCase)
+MemberNameMatchingRule(IEnumerable&lt;string> namesToMatch, bool ignoreCase)
 
-MemberNameMatchingRule(IEnumerable<MatchingInfo> matches)
+MemberNameMatchingRule(IEnumerable&lt;MatchingInfo> matches)
 ```
 
 
@@ -54,15 +54,15 @@ MemberNameMatchingRule(matches As IEnumerable(Of MatchingInfo))
 ```
 
 The following table describes the parameters shown above.  
-ParameterDescriptionnameToMatchThis is the name of a method or parameter of the target object, such as GetOrderDetails. It can consist of or include the * or ? wildcard characters for selecting multiple types. You can also use square brackets [ ] to specify a range of characters. The following are some examples:GetOrder**OrderFunctionsOrderProcess??NodeTransacted[order]Node*namesToMatchString collection. A list of more than one method or parameter name, using the same rules as for the nameToMatch parameter.matchesMatchingInfo collection. A list of one or more method or parameter names, using the same rules as for the nameToMatch parameter. MatchingInfo is a class used for storing information about a single name and case-sensitivity value pair.ignoreCaseBoolean. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>nameToMatch</b></p></td><td><p>This is the name of a method or parameter of the target object, such as GetOrderDetails. It can consist of or include the * or ? wildcard characters for selecting multiple types. You can also use square brackets [ ] to specify a range of characters. The following are some examples:</p><p>GetOrder*</p><p>*OrderFunctions</p><p>OrderProcess??Node</p><p>Transacted[order]Node</p><p>*</p></td></tr><tr><td><p><b>namesToMatch</b></p></td><td><p><b>String </b>collection. A list of more than one method or parameter name, using the same rules as for the <b>nameToMatch</b> parameter.</p></td></tr><tr><td><p><b>matches</b></p></td><td><p><b>MatchingInfo </b>collection. A list of one or more method or parameter names, using the same rules as for the <b>nameToMatch</b> parameter. <b>MatchingInfo</b> is a class used for storing information about a single name and case-sensitivity value pair.</p></td></tr><tr><td><p><b>ignoreCase</b></p></td><td><p><b>Boolean</b>. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr></table>
 The following code excerpt shows how you can add a member name matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule<MemberNameMatchingRule>
+           .AddMatchingRule&lt;MemberNameMatchingRule>
                 (new InjectionConstructor("MyMemberName", true))
-           .AddCallHandler<MyCallHandler>
+           .AddCallHandler&lt;MyCallHandler>
                ("MyValidator", 
                new ContainerControlledLifetimeManager());
 ```

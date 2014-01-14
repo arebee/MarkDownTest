@@ -46,15 +46,15 @@ ReturnTypeMatchingRule(returnTypeName As String, ignoreCase As Boolean)
 ```
 
 The following table describes the parameters shown above.  
-ParameterDescriptionreturnTypeType. The type of the return value of the method to match.returnTypeNameString. The full namespace-qualified name or just the type name of the type of the return value of the method to match. The following are examples:System.Int32StringInt32ignoreCaseBoolean. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>returnType</b></p></td><td><p><b>Type</b>. The type of the return value of the method to match.</p></td></tr><tr><td><p><b>returnTypeName</b></p></td><td><p><b>String</b>. The full namespace-qualified name or just the type name of the type of the return value of the method to match. The following are examples:</p><p>System.Int32</p><p>String</p><p>Int32</p></td></tr><tr><td><p><b>ignoreCase</b></p></td><td><p><b>Boolean</b>. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr></table>
 The following code extract shows how you can add a return type matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule<ReturnTypeMatchingRule>
+           .AddMatchingRule&lt;ReturnTypeMatchingRule>
                 (new InjectionConstructor("MyReturnType", true))
-           .AddCallHandler<MyCallHandler>
+           .AddCallHandler&lt;MyCallHandler>
             ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

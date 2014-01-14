@@ -12,7 +12,7 @@ Output Filename: 2\5\1_Stand-alone Unity Interception.markdown
 
 
 > ![(../../images/note.gif)#!155CharTopicSummary!#:
-> 
+> <a name="interception_standalone" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 You can use Unity interception as a stand-alone feature with no dependency injection container by using the Intercept class.
 
 You can use Unity interception as a stand-alone feature with no dependency injection container by using the **Intercept** class. As with a container, interception as a stand-alone feature enables you to perform instance or type interception. The **Intercept** class contains the **NewInstance,** **NewInstanceWithAdditionalInterfaces,** **ThroughProxy,** and **ThroughProxyWithAdditionalInterfaces** methods, enabling you to perform either proxy or instance interception. And both methods include the **AdditionalInterfaces** parameter, enabling you to implement additional interfaces on the target object. This corresponds to the **AdditionalInterface** feature when using interception with a container.   
@@ -22,14 +22,14 @@ You can use Unity interception as a stand-alone feature with no dependency injec
 
 The **AdditionalInterfaces** parameter on the object enables you to receive more messages and to augment the set of methods the object can respond to.   
 This section contains the following sections describing stand-alone interception:  
-+ Stand-Alone Interception with a Proxy describes creating a proxy to the intercepted instance.
-+ Stand-Alone Interception with a Derived Type describes interception by using a derived type.
++ <a href="#Standalone_proxy" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Stand-Alone Interception with a Proxy</a> describes creating a proxy to the intercepted instance.
++ <a href="#Standalone_type" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Stand-Alone Interception with a Derived Type</a> describes interception by using a derived type.
 
 # Stand-Alone Interception with a Proxy #
-Instance interceptors work by creating a proxy to the intercepted instance. The following examples create a Proxy interface interceptor. The first example implements no additional interfaces.   
+<a name="Standalone_proxy" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>Instance interceptors work by creating a proxy to the intercepted instance. The following examples create a Proxy interface interceptor. The first example implements no additional interfaces.   
 
 ```csharp
-IInterface proxy = Intercept.ThroughProxy<IInterface>(
+IInterface proxy = Intercept.ThroughProxy&lt;IInterface>(
         new BaseClass(10),
         new InterfaceInterceptor(),
         new[] { interceptionBehavior }
@@ -68,11 +68,11 @@ Dim proxy As IInterface = DirectCast(Intercept.ThroughProxyWithAdditionalInterfa
 
 
 # Stand-alone Interception with a Derived Type #
-You can use **Intercept.NewInstance** to set up type interception using a derived type. You can use the **additionalInterfaces** parameter to implement additional interfaces on the target object. You can provide any number of interfaces for this parameter. Unity provides one derived type interceptor: the virtual method interceptor. The last parameter contains arguments for the creation of the new instance and is an arbitrary number in this example.  
+<a name="Standalone_type" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>You can use **Intercept.NewInstance** to set up type interception using a derived type. You can use the **additionalInterfaces** parameter to implement additional interfaces on the target object. You can provide any number of interfaces for this parameter. Unity provides one derived type interceptor: the virtual method interceptor. The last parameter contains arguments for the creation of the new instance and is an arbitrary number in this example.  
 
 ```csharp
 BaseClass instance =
-    Intercept.NewInstance<BaseClass>(
+    Intercept.NewInstance&lt;BaseClass>(
         new VirtualMethodInterceptor(),
         new[] { interceptionBehavior },
         10);
@@ -91,7 +91,7 @@ This is the same as the previous example, except additional interfaces are speci
 
 ```csharp
 BaseClass instance =
-    Intercept.NewInstanceWithAdditionalInterfaces<BaseClass>(
+    Intercept.NewInstanceWithAdditionalInterfaces&lt;BaseClass>(
         new VirtualMethodInterceptor(),
         new[] { interceptionBehavior },
         new[] { typeof(ISomeInterface), typeof(IsomeOtherInterface)},

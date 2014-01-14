@@ -38,7 +38,7 @@ public void Deposit([RangeValidator(typeof(Decimal), "0.0",
 
 
 ```vb
-Public Sub Deposit(<RangeValidator((GetType([Decimal]), "0.0", _
+Public Sub Deposit(&lt;RangeValidator((GetType([Decimal]), "0.0", _
                      RangeBoundaryType.Exclusive, "0.0", _
                      RangeBoundaryType.Ignore)> depositAmount As Decimal)
   balance += depositAmount
@@ -50,7 +50,7 @@ End Sub
 + It validates the parameters according to the discovered validators. 
 + If validation succeeds, it allows the next handler to execute.
 + If validation fails, it creates an exception, wraps it in a message, and returns it to the previous handler, which may act on it. The exception ultimately returns to the caller.
-
+<a name="_Toc253065329" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 > ![(../../../images/note.gif)Note:
 > The validation handler will always initialize the Validation Application Block using the default configuration source, even if you instantiate the handler yourself in code and specify an alternative configuration source. 
@@ -80,16 +80,16 @@ ValidationCallHandler(ruleSet As String, factory As ValidatorFactory, handlerOrd
 ```
 
 The following table describes the values for the parameters shown above.  
-PropertyDescriptionruleSetString. The name of the rule set to use for all target object types. An empty string causes the handler to use the default rule set.specificationSourceA value from the SpecificationSource enumeration that defines the locations where the handler will look for validation rules. Valid values are Attributes, Configuration, ParameterAttributesOnly, and Both.orderInteger. The position of the handler within the policy handler chain, starting from 1. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Property</p></th><th><p>Description</p></th></tr><tr><td><p><b>ruleSet</b></p></td><td><p><b>String</b>. The name of the rule set to use for all target object types. An empty string causes the handler to use the default rule set.</p></td></tr><tr><td><p><b>specificationSource</b></p></td><td><p>A value from the <b>SpecificationSource</b> enumeration that defines the locations where the handler will look for validation rules. Valid values are <b>Attributes</b>, <b>Configuration</b>, <b>ParameterAttributesOnly</b>, and <b>Both</b>.</p></td></tr><tr><td><p><b>order</b></p></td><td><p><b>Integer</b>. The position of the handler within the policy handler chain, starting from <b>1</b>. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.</p></td></tr></table>
 The validation handler exposes only the **Order** property.   
 The following code extract shows how you can add a validation handler to a policy using the Unity interception mechanism.   
 
 ```csharp
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-               .AddMatchingRule<TypeMatchingRule>
+               .AddMatchingRule&lt;TypeMatchingRule>
                     (new InjectionConstructor("My.Order.Object", true))
-               .AddCallHandler<ValidationCallHandler>
+               .AddCallHandler&lt;ValidationCallHandler>
                    ("MyValidator", new ContainerControlledLifetimeManager());
 ```
 
@@ -122,19 +122,19 @@ public void Withdraw(decimal withdrawAmount)
 
 
 ```vb
-<ValidationCallHandler("ruleset-name")> _
+&lt;ValidationCallHandler("ruleset-name")> _
 Public Sub Deposit(depositAmount As Decimal)
 balance += depositAmount
 End Sub
 
-<ValidationCallHandler> _
+&lt;ValidationCallHandler> _
 Public Sub Withdraw(withdrawAmount As Decimal)
 balance -= withdrawAmount
 End Sub
 ```
 
 The following table describes the properties of the **ValidationCallHandlerAttribute **class.   
-PropertyDescriptionSpecificationSourceA value from the SpecificationSource enumeration that defines the locations where the handler will look for validation rules. Valid values are Attributes, Configuration, ParameterAttributesOnly, and Both.OrderInteger. The position of the handler within the policy handler chain, starting from 1. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Property</p></th><th><p>Description</p></th></tr><tr><td><p><b>SpecificationSource</b></p></td><td><p>A value from the <b>SpecificationSource</b> enumeration that defines the locations where the handler will look for validation rules. Valid values are <b>Attributes</b>, <b>Configuration</b>, <b>ParameterAttributesOnly</b>, and <b>Both</b>.</p></td></tr><tr><td><p><b>Order</b></p></td><td><p><b>Integer</b>. The position of the handler within the policy handler chain, starting from <b>1</b>. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.</p></td></tr></table>
 To set these properties using an attribute, add them as parameters to the attribute declaration, as shown in the following code.  
 
 ```csharp
@@ -143,10 +143,10 @@ To set these properties using an attribute, add them as parameters to the attrib
 
 
 ```vb
-<ValidationCallHandler("ruleset-name", SpecificationSource:=SpecificationSource.Both)>
+&lt;ValidationCallHandler("ruleset-name", SpecificationSource:=SpecificationSource.Both)>
 ```
 
-
+<a name="_Toc253065331" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 # Validating Parameters with Attribute-based Targeting #
 When you use the **Validation Call Handler**, you can specify the name of a rule set when using an **Object Validator **to validate individual parameters of a method, as shown in the following code.   
@@ -163,10 +163,10 @@ public void SomeMethod(
 
 
 ```vb
-<ValidationCallHandler> _
+&lt;ValidationCallHandler> _
 Public Sub SomeMethod( _
-           <RegexValidator("...")> x As String, _
-           <ObjectValidator("RulesetName")> y As String) 
+           &lt;RegexValidator("...")> x As String, _
+           &lt;ObjectValidator("RulesetName")> y As String) 
 End Sub
 ```
 

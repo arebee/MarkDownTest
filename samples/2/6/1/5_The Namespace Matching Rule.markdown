@@ -33,7 +33,7 @@ NamespaceMatchingRule(string namespaceName)
 
 NamespaceMatchingRule(string namespaceName, bool ignoreCase)
 
-NamespaceMatchingRule(IEnumerable<MatchingInfo> matches)
+NamespaceMatchingRule(IEnumerable&lt;MatchingInfo> matches)
 ```
 
 
@@ -46,15 +46,15 @@ NamespaceMatchingRule(matches As IEnumerable(Of MatchingInfo))
 ```
 
 The following table describes the parameters shown above.  
-ParameterDescriptionnamespaceNameString. This is the namespace of the target object, such as MyObjects.BusinessRules or System.Collections. It can include the * or ? wildcard characters for selecting multiple child namespaces. The following are examples:System.Collections.*MyObjects.Order*MyObjects.Order??MyObjects.*matchesMatchingInfo collection. A list of one or more namespaces, using the same rules as for the namespaceName parameter. MatchingInfo is a class used for storing information about a single name and case sensitivity value pair.ignoreCaseBoolean. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>namespaceName</b></p></td><td><p><b>String</b>. This is the namespace of the target object, such as MyObjects.BusinessRules or System.Collections. It can include the * or ? wildcard characters for selecting multiple child namespaces. The following are examples:</p><p>System.Collections.*</p><p>MyObjects.Order*</p><p>MyObjects.Order??</p><p>MyObjects.*</p></td></tr><tr><td><p><b>matches</b></p></td><td><p><b>MatchingInfo </b>collection. A list of one or more namespaces, using the same rules as for the <b>namespaceName </b>parameter. <b>MatchingInfo</b> is a class used for storing information about a single name and case sensitivity value pair.</p></td></tr><tr><td><p><b>ignoreCase</b></p></td><td><p><b>Boolean</b>. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr></table>
 The following code extract shows how you can add a namespace matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule<NamespaceMatchingRule>
+           .AddMatchingRule&lt;NamespaceMatchingRule>
                 (new InjectionConstructor("My.Namespace.Name", true))
-           .AddCallHandler<MyCallHandler>
+           .AddCallHandler&lt;MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

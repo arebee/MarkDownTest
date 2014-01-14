@@ -36,7 +36,7 @@ PropertyMatchingRule(string propertyName, PropertyMatchingOption option)
 
 PropertyMatchingRule(string propertyName, PropertyMatchingOption option, bool ignoreCase)
 
-PropertyMatchingRule(IEnumerable<PropertyMatchingInfo> matches)
+PropertyMatchingRule(IEnumerable&lt;PropertyMatchingInfo> matches)
 ```
 
 
@@ -51,16 +51,16 @@ PropertyMatchingRule(matches As IEnumerable(Of PropertyMatchingInfo))
 ```
 
 The following table describes the parameters shown above.  
-ParameterDescriptionpropertyNameString. This is the name of the target property. It can include or consist of the * or ? wildcard characters so you can select multiple properties. You can also use square brackets [ ] to specify a range of characters. The following are examples:Get**Orders*TransactedOrder???BusinessRules[order]Process.**matchesPropertyMatchingInfo collection. The PropertyMatchingInfo class defines three items of information about each parameter that it will match:The property name as a String. A value from the PropertyMatchingOption enumeration that indicates if the rule should match on the Get, Set, or both for a selected parameter. Valid values are Get, Set, and GetOrSet.A Boolean value that specifies whether the match should be carried out on a case-sensitive basis. The default is false.ignoreCaseBoolean. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>propertyName</b></p></td><td><p><b>String</b>. This is the name of the target property. It can include or consist of the * or ? wildcard characters so you can select multiple properties. You can also use square brackets [ ] to specify a range of characters. The following are examples:</p><p>Get*</p><p>*Orders</p><p>*TransactedOrder???</p><p>BusinessRules[order]Process.*</p><p>*</p></td></tr><tr><td><p><b>matches</b></p></td><td><p><b>PropertyMatchingInfo </b>collection.<b> </b>The <b>PropertyMatchingInfo </b>class defines three items of information about each parameter that it will match:</p><p>The property name as a <b>String</b>. </p><p>A value from the <b>PropertyMatchingOption</b> enumeration that indicates if the rule should match on the <b>Get</b>, <b>Set</b>, or both for a selected parameter. Valid values are <b>Get</b>, <b>Set</b>, and <b>GetOrSet</b>.</p><p>A <b>Boolean</b> value that specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr><tr><td><p><b>ignoreCase</b></p></td><td><p><b>Boolean</b>. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr></table>
 The following code extract shows how you can add a property matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule<PropertyMatchingRule>
+           .AddMatchingRule&lt;PropertyMatchingRule>
                 (new InjectionConstructor
                     ("MyPropertyName", PropertyMatchingOption.GetOrSet,true))
-           .AddCallHandler<MyCallHandler>
+           .AddCallHandler&lt;MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

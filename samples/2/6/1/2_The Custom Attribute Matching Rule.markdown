@@ -23,7 +23,7 @@ The custom attribute matching rule does the following:
 + It compares the **attributeType** value to the type of any attributes that are applied to members of the target object.
 + It searches for matching attribute types in all base classes that the target class inherits from if the **inherited **parameter is **True**.
 + It returns **True** if the attribute type matches the value of the **attributeType** parameter; if the attribute type does not match the value of the **attributeType**, it returns **False**. 
-The matching rules for a policy can be defined in configuration or created and applied to policies at run time. For more information about configuring matching rules at design time, see [Configuration Files for Interception](test-markdown_af2f3726-4a3e-4e31-8f97-ebca0db3d907.html) in the section [Design-Time Configuration](test-markdown_d084d31d-6894-4cd3-ab6b-40f7a69899b2.html).  
+<a name="_Toc192507471" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>The matching rules for a policy can be defined in configuration or created and applied to policies at run time. For more information about configuring matching rules at design time, see [Configuration Files for Interception](test-markdown_af2f3726-4a3e-4e31-8f97-ebca0db3d907.html) in the section [Design-Time Configuration](test-markdown_d084d31d-6894-4cd3-ab6b-40f7a69899b2.html).  
 
 # Creating a Custom Attribute Matching Rule at Run Time #
 The following constructor overloads can be used when creating an instance of the **CustomAttributeMatchingRule** class.  
@@ -38,15 +38,15 @@ CustomAttributeMatchingRule(attributeType As Type, inherited As Boolean)
 ```
 
 The following table describes the parameters shown above.  
-ParameterDescriptionattributeTypeType. This is the type name of the custom attribute that is applied to members of the target object, such as MyCustomAttribute.inheritedBoolean. This specifies whether the rule should also search base classes for members that carry the custom attribute.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>attributeType</b></p></td><td><p><b>Type</b>. This is the type name of the custom attribute that is applied to members of the target object, such as MyCustomAttribute.</p></td></tr><tr><td><p><b>inherited</b></p></td><td><p><b>Boolean</b>. This specifies whether the rule should also search base classes for members that carry the custom attribute.</p></td></tr></table>
 The following code extract shows how you can add a custom attribute matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule<CustomAttributeMatchingRule>
+           .AddMatchingRule&lt;CustomAttributeMatchingRule>
                (new InjectionConstructor(typeof(MyAttributeType), true))
-           .AddCallHandler<MyCallHandler>
+           .AddCallHandler&lt;MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```

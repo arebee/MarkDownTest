@@ -31,7 +31,7 @@ Unity combines all the policies it discovers for each class and class member. Wh
 5. If the configuration contains matching rules that select the class or member, Unity applies these handlers. However, it will not overwrite, change, or replace any handlers defined at higher precedence. It applies policies defined later in the configuration closer to the target (later in the handler pipeline) and applies handlers within each policy in the order in which they occur in the configuration or the order specified by for the **Order** property of each one. 
 
 # Example of an Attribute-Driven Policy #
-Unity does not contain any call handlers, and so the following example demonstrates how you can create an attribute-driven policy using the **ValidationCallHandler** that is provided with the patterns & practices Enterprise Library. It shows a method named **Deposit** that has the **ValidationCallHandler** attribute applied. Unity creates a handler pipeline that contains the **ValidationCallHandler**, which itself uses the features of the Enterprise Library Validation Application Block. The Validation Application Block then uses the settings you specify with attributes on the class members, or in a rule set defined within the Validation Application Block configuration, to validate the value of the **depositAmount** parameter and ensure that the value is greater than zero.   
+Unity does not contain any call handlers, and so the following example demonstrates how you can create an attribute-driven policy using the **ValidationCallHandler** that is provided with the patterns &amp; practices Enterprise Library. It shows a method named **Deposit** that has the **ValidationCallHandler** attribute applied. Unity creates a handler pipeline that contains the **ValidationCallHandler**, which itself uses the features of the Enterprise Library Validation Application Block. The Validation Application Block then uses the settings you specify with attributes on the class members, or in a rule set defined within the Validation Application Block configuration, to validate the value of the **depositAmount** parameter and ensure that the value is greater than zero.   
 
 ```csharp
 [ValidationCallHandler]
@@ -45,8 +45,8 @@ public void Deposit([RangeValidator(typeof(Decimal), "0.0",
 
 
 ```vb
-<ValidationCallHandler> _
-Public Sub Deposit(<RangeValidator(GetType(Decimal), "0.0", _
+&lt;ValidationCallHandler> _
+Public Sub Deposit(&lt;RangeValidator(GetType(Decimal), "0.0", _
                     RangeBoundaryType.Exclusive, "0.0", _
                     RangeBoundaryType.Ignore)> Decimal depositAmount)
   balance += depositAmount

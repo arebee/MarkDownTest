@@ -27,7 +27,7 @@ The performance counter handler applies both before and after invocation of the 
 To use the performance counter handler, you must first install the performance counters into the operating system. You can use the Installutil.exe utility that ships with the .NET Framework to install or uninstall the performance counters.  
 
 ```other
-installutil.exe /category=<category>[;<category> ...] Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.dll
+installutil.exe /category=&lt;category>[;&lt;category> ...] Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.dll
 ```
 
 Alternatively, Enterprise Library includes a utility class named **PerformanceCountersInstaller** that you can use to install the appropriate counters. The file PerformanceCountersInstaller.cs that contains this class is in the \Source\Blocks\PolicyInjection\Src\PolicyInjection\Installers subfolder of Enterprise Library. The **PerformanceCountersInstaller** class inherits from the **Installer** class in the **System.Configuration** namespace, which exposes methods to install and uninstall performance counters.  
@@ -137,15 +137,15 @@ PerformanceCounterCallHandler(category As String, instanceName As String, _
 ```
 
 The following table describes the values for the parameters shown above.  
-PropertyDescriptioncategoryString. The name of the category of the target performance counter.instanceNameString. The name of the instance of the target performance counter. Can include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.counterInstanceNameString. The name of the instance of the target performance counter. Can include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.useTotalCounterBoolean. Whether to increment a "Total" counter each time. incrementNumberOfCallsBoolean. Whether to increment a "Total number of calls" counter each time. incrementCallsPerSecondBoolean. Whether to increment a "Number of calls per second" counter each time. incrementAverageCallDurationBoolean. Whether to increment an "Average duration of each call" counter each time. incrementTotalExceptionsBoolean. Whether to increment a "Total number of exceptions" counter each time.incrementExceptionsPerSecondBoolean. Whether to increment a "Number of exceptions per second" counter each time.handlerOrderInteger. The position of the handler within the policy handler chain, starting from 1. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Property</p></th><th><p>Description</p></th></tr><tr><td><p><b>category</b></p></td><td><p><b>String</b>. The name of the category of the target performance counter.</p></td></tr><tr><td><p><b>instanceName</b></p></td><td><p><b>String</b>. The name of the instance of the target performance counter. Can include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.</p></td></tr><tr><td><p><b>counterInstanceName</b></p></td><td><p><b>String</b>. The name of the instance of the target performance counter. Can include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.</p></td></tr><tr><td><p><b>useTotalCounter</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Total" counter each time. </p></td></tr><tr><td><p><b>incrementNumberOfCalls</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Total number of calls" counter each time. </p></td></tr><tr><td><p><b>incrementCallsPerSecond</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Number of calls per second" counter each time. </p></td></tr><tr><td><p><b>incrementAverageCallDuration</b></p></td><td><p><b>Boolean</b>. Whether to increment an "Average duration of each call" counter each time. </p></td></tr><tr><td><p><b>incrementTotalExceptions</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Total number of exceptions" counter each time.</p></td></tr><tr><td><p><b>incrementExceptionsPerSecond</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Number of exceptions per second" counter each time.</p></td></tr><tr><td><p><b>handlerOrder</b></p></td><td><p><b>Integer</b>. The position of the handler within the policy handler chain, starting from <b>1</b>. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.</p></td></tr></table>
 The performance counter handler also exposes these values as the **Category**, **InstanceName**, **IncrementAverageCallDuration**, **IncrementCallsPerSecond**, **IncrementExceptionsPerSecond**, **IncrementNumberOfCalls**, **IncrementTotalExceptions**, **UseTotalCounter**, and **Order** properties.  
 The following code extract shows how you can add a Performance Counter Handler to a policy using the Unity interception mechanism.   
 
 ```csharp
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-               .AddMatchingRule<TypeMatchingRule>(new InjectionConstructor("My.Order.Object", true))
-               .AddCallHandler<PerformanceCounterCallHandler>
+               .AddMatchingRule&lt;TypeMatchingRule>(new InjectionConstructor("My.Order.Object", true))
+               .AddCallHandler&lt;PerformanceCounterCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
  
@@ -175,14 +175,14 @@ public void Deposit(decimal depositAmount)
 
 
 ```vb
-<PerformanceCounterCallHandler("category-name", "instance-name")> _
+&lt;PerformanceCounterCallHandler("category-name", "instance-name")> _
 Public Sub Deposit(depositAmount As Decimal)
   balance += depositAmount
 End Sub
 ```
 
 The following table describes the properties of the **PerformanceCounterCallHandlerAttribute **class.   
-PropertyDescriptionCategoryNameString. The name of the category of the target performance counter.InstanceNameString. The name of the instance of the target performance counter. Can include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.IncrementAverageCallDurationBoolean. Whether to increment an "Average duration of each call" counter each time. IncrementCallsPerSecondBoolean. Whether to increment a "Number of calls per second" counter each time. IncrementExceptionsPerSecondBoolean. Whether to increment a "Number of exceptions per second" counter each time.IncrementNumberOfCallsBoolean. Whether to increment a "Total number of calls" counter each time. IncrementTotalExceptionsBoolean. Whether to increment a "Total number of exceptions" counter each time.UseTotalCounterBoolean. Whether to increment a "Total" counter each time. 
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Property</p></th><th><p>Description</p></th></tr><tr><td><p><b>CategoryName</b></p></td><td><p><b>String</b>. The name of the category of the target performance counter.</p></td></tr><tr><td><p><b>InstanceName</b></p></td><td><p><b>String</b>. The name of the instance of the target performance counter. Can include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.</p></td></tr><tr><td><p><b>IncrementAverageCallDuration</b></p></td><td><p><b>Boolean</b>. Whether to increment an "Average duration of each call" counter each time. </p></td></tr><tr><td><p><b>IncrementCallsPerSecond</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Number of calls per second" counter each time. </p></td></tr><tr><td><p><b>IncrementExceptionsPerSecond</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Number of exceptions per second" counter each time.</p></td></tr><tr><td><p><b>IncrementNumberOfCalls</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Total number of calls" counter each time. </p></td></tr><tr><td><p><b>IncrementTotalExceptions</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Total number of exceptions" counter each time.</p></td></tr><tr><td><p><b>UseTotalCounter</b></p></td><td><p><b>Boolean</b>. Whether to increment a "Total" counter each time. </p></td></tr></table>
 To set these properties using an attribute, add them as parameters to the attribute declaration, as shown in the following code.  
 
 ```csharp
@@ -192,7 +192,7 @@ To set these properties using an attribute, add them as parameters to the attrib
 
 
 ```vb
-<PerformanceCounterCallHandler(CategoryName:="My Category", _
+&lt;PerformanceCounterCallHandler(CategoryName:="My Category", _
                                InstanceName:="MyInstance", UseTotalCounter:=False)>
 ```
 

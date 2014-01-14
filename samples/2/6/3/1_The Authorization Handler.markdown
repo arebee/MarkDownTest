@@ -48,19 +48,19 @@ AuthorizationCallHandler(provider As IAuthorizationProvider, _
 ```
 
 The following table describes the values for the parameters shown above.  
-PropertyDescriptionproviderIAuthorizationProvider. A reference to the authorization provider instance to use. You can resolve this through the Unity container by specifying the IAuthorizationProvider interface and the name of the required provider.operationNameString. The name of the authorization operation, which may include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.orderInteger. The position of the handler within the policy handler chain, starting from 1. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Property</p></th><th><p>Description</p></th></tr><tr><td><p><b>provider</b></p></td><td><p><b>IAuthorizationProvider</b>. A reference to the authorization provider instance to use. You can resolve this through the Unity container by specifying the <b>IAuthorizationProvider</b> interface and the name of the required provider.</p></td></tr><tr><td><p><b>operationName</b></p></td><td><p><b>String</b>. The name of the authorization operation, which may include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.</p></td></tr><tr><td><p><b>order</b></p></td><td><p><b>Integer</b>. The position of the handler within the policy handler chain, starting from <b>1</b>. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.</p></td></tr></table><a name="handlerconfigcache" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 The authorization handler also exposes these values as the **AuthorizationProvider**, **OperationName**, and **Order** properties.   
 The following code extract shows how you can add an authorization handler to a policy using the Unity type resolution and interception mechanisms.   
 
 ```csharp
 IAuthorizationProvider myProvider 
-    = myContainer.Resolve<IAuthorizationProvider>("MyAuthProvider");
+    = myContainer.Resolve&lt;IAuthorizationProvider>("MyAuthProvider");
 
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-               .AddMatchingRule<TypeMatchingRule>(new InjectionConstructor("My.Order.Object",
+               .AddMatchingRule&lt;TypeMatchingRule>(new InjectionConstructor("My.Order.Object",
                         true))
-           .AddCallHandler<AuthorizationCallHandler>
+           .AddCallHandler&lt;AuthorizationCallHandler>
                 ("MyAuthProvider", new ContainerControlledLifetimeManager());
 ```
 
@@ -79,7 +79,7 @@ myContainer.Configure(Of Interception)() _
 
 # Using the Authorization Handler Attribute #
 Instead of configuring a call handler as part of a call handler pipeline, you force it to be applied by adding the appropriate attribute to your classes. The call handler attribute for the authorization handler requires the provider name as the only mandatory parameter. You can set other properties of the handler attribute in order to configure the call handler that it creates. The following table lists the properties of the authorization handler attribute.   
-PropertyDescriptionAuthorizationProviderIAuthorizationProvider. The authorization provider instance to use, as configured in the Security Application Block.OperationNameString. The name of the authorization operation, which may include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.OrderInteger. The position of the handler within the policy handler chain, starting from 1. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Property</p></th><th><p>Description</p></th></tr><tr><td><p><b>AuthorizationProvider</b></p></td><td><p><b>IAuthorizationProvider</b>. The authorization provider instance to use, as configured in the Security Application Block.</p></td></tr><tr><td><p><b>OperationName</b></p></td><td><p><b>String</b>. The name of the authorization operation, which may include the tokens {method}, {type}, {namespace}, {assembly}, and {appdomain}.</p></td></tr><tr><td><p><b>Order</b></p></td><td><p><b>Integer</b>. The position of the handler within the policy handler chain, starting from <b>1</b>. The default value is zero, which means that there is no explicit order specified for the handler in relation to other handlers in the same handler chain.</p></td></tr></table>
 The following code shows the use of the **AuthorizationCallHandler** attribute on a simple method. This attribute can also be applied to the class declaration, in which case it applies to all members of that class. The operation name is a mandatory parameter.   
 
 ```csharp
@@ -92,7 +92,7 @@ public void Deposit(decimal depositAmount)
 
 
 ```vb
-<AuthorizationCallHandler("operation-name")> _
+&lt;AuthorizationCallHandler("operation-name")> _
 Public Sub Deposit(depositAmount As Decimal)
   balance += depositAmount
 End Sub
@@ -106,7 +106,7 @@ You can also use a call handler attribute to specify the authorization provider 
 
 
 ```vb
-<AuthorizationCallHandler(OperationName:="operation-name", _
+&lt;AuthorizationCallHandler(OperationName:="operation-name", _
     ProviderName:="provider-name")>
 ```
 

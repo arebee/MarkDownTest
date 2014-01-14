@@ -30,14 +30,14 @@ The matching rules for a policy can be defined in configuration or created and a
 The following constructor overloads can be used when creating an instance of the **MethodSignatureMatchingRule** class.  
 
 ```csharp
-MethodSignatureMatchingRule(IEnumerable<string> parameterTypeNames)
+MethodSignatureMatchingRule(IEnumerable&lt;string> parameterTypeNames)
  
-MethodSignatureMatchingRule(IEnumerable<string> parameterTypeNames, bool ignoreCase)
+MethodSignatureMatchingRule(IEnumerable&lt;string> parameterTypeNames, bool ignoreCase)
  
-MethodSignatureMatchingRule(string methodName, IEnumerable<string> parameterTypeNames)
+MethodSignatureMatchingRule(string methodName, IEnumerable&lt;string> parameterTypeNames)
 
 MethodSignatureMatchingRule(string methodName,
-                            IEnumerable<string> parameterTypeNames, bool ignoreCase)
+                            IEnumerable&lt;string> parameterTypeNames, bool ignoreCase)
 ```
 
 
@@ -53,16 +53,16 @@ MethodSignatureMatchingRule(string methodName, _
 ```
 
 The following table describes the parameters shown above.  
-ParameterDescriptionmethodNameString. This is the name of the target member method. It can consist of or include the * or ? wildcard characters for selecting multiple methods. You can also use square brackets [ ] to specify a range of characters. If omitted, the rule will match all methods.parameterTypeNamesString collection. This is a collection of the type names of the parameter types to match.ignoreCaseBoolean. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>methodName</b></p></td><td><p><b>String</b>. This is the name of the target member method. It can consist of or include the * or ? wildcard characters for selecting multiple methods. You can also use square brackets [ ] to specify a range of characters. If omitted, the rule will match all methods.</p></td></tr><tr><td><p><b>parameterTypeNames</b></p></td><td><p><b>String</b> collection. This is a collection of the type names of the parameter types to match.</p></td></tr><tr><td><p><b>ignoreCase</b></p></td><td><p><b>Boolean</b>. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr></table>
 The following code extract shows how you can add a method signature matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-IEnumerable<string> paramTypes = new List<string> {"System.String", "System.Int32"};
-myContainer.Configure<Interception>()
+IEnumerable&lt;string> paramTypes = new List&lt;string> {"System.String", "System.Int32"};
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule<MethodSignatureMatchingRule>
+           .AddMatchingRule&lt;MethodSignatureMatchingRule>
                 (new InjectionConstructor("MyMethodName", paramTypes, true))
-           .AddCallHandler<MyCallHandler>
+           .AddCallHandler&lt;MyCallHandler>
                 ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 

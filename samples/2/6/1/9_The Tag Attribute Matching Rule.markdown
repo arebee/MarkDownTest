@@ -39,12 +39,12 @@ public class AnnotatedWithTags
 ```vb
 Public Class AnnotatedWithTags
 
-  <Tag("MyTagName")> _
+  &lt;Tag("MyTagName")> _
   Public Sub TaggedMethod(parameter1 As String)
     ... method implementation here ...
   End Sub
 
-  <Tag("AnotherTagName")> _
+  &lt;Tag("AnotherTagName")> _
   Public Property TaggedProperty As String
      ... property implementation here ... 
   End Property
@@ -64,7 +64,7 @@ public class AnnotatedWithTagOnClass
 
 
 ```vb
-<Tag("MyClassTagName")> _
+&lt;Tag("MyClassTagName")> _
 Public Class AnnotatedWithTagOnClass
   ... class implementation here ...
 End Class
@@ -96,15 +96,15 @@ TagAttributeMatchingRule(tagToMatch As String, ignoreCase As Boolean)
 ```
 
 The following table describes the parameters shown above.  
-ParameterDescriptiontagToMatchString. This is the name of the Tag attribute that is attached to the target object, such as MyTagName. It cannot include wildcard characters.ignoreCaseBoolean. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.
+<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><p>Parameter</p></th><th><p>Description</p></th></tr><tr><td><p><b>tagToMatch</b></p></td><td><p><b>String</b>. This is the name of the Tag attribute that is attached to the target object, such as MyTagName. It cannot include wildcard characters.</p></td></tr><tr><td><p><b>ignoreCase</b></p></td><td><p><b>Boolean</b>. This specifies whether the match should be carried out on a case-sensitive basis. The default is false.</p></td></tr></table>
 The following code extract shows how you can add a tag attribute matching rule to a policy using the Unity interception mechanism.  
 
 ```csharp
-myContainer.Configure<Interception>()
+myContainer.Configure&lt;Interception>()
            .AddPolicy("MyPolicy")
-           .AddMatchingRule<TagAttributeMatchingRule>
+           .AddMatchingRule&lt;TagAttributeMatchingRule>
                (new InjectionConstructor("MyTagName", true))
-           .AddCallHandler<MyCallHandler>
+           .AddCallHandler&lt;MyCallHandler>
            ("MyValidator", 
                 new ContainerControlledLifetimeManager());
 ```
