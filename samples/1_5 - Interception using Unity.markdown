@@ -15,7 +15,7 @@ Output Filename: 1_5 - Interception using Unity.markdown
 > 
 This chapter introduces the concepts around interception with Unity, explains its benefits and drawbacks, discusses some alternatives, and when you should use it.
 
-Test link [test link to 2 / 6 / 2_Attribute-Driven Policies.markdown](./2/6/2_Attribute-Driven Policies.markdown)
+
 
 # Introduction #
 Chapter 4 describes interception as a technique that you can use to dynamically insert code that provides support for crosscutting concerns into your application without explicitly using the decorator pattern in your code. In this chapter, you'll learn how you can use Unity to implement interception, and the various types of interception that Unity supports. The chapter starts by describing a common scenario for using interception and illustrates how you can implement it using Unity interception. The chapter then explores a number of alternative approaches that you could adopt, including the use of policy injection and attributes.  
@@ -23,12 +23,12 @@ Chapter 4 describes interception as a technique that you can use to dynamically 
 
 
 > ![](images/note.gif)Note:
-> You cannot use Unity Interception in Windows Store Applications. For more information, see [Appendix A â€“ Unity and Windows Store apps](test-markdown_9e9684e7-1116-4a72-9a61-963d9803440c.html).
+> You cannot use Unity Interception in Windows Store Applications. For more information, see [Appendix A – Unity and Windows Store apps](http://msdn.microsoft.com/library/9e9684e7-1116-4a72-9a61-963d9803440c).
 
 
 
 # Crosscutting Concerns and Enterprise Library  #
-This chapter begins by describing how you can use Unity interception to implement your own custom code to add support for crosscutting concerns into your application. However, the blocks in Enterprise Library provide rich support for crosscutting concerns, and therefore itâ€™s not surprising that instead of your own custom code you can use the Enterprise Library blocks with Unity interception; the chapter also describes this approach.  
+This chapter begins by describing how you can use Unity interception to implement your own custom code to add support for crosscutting concerns into your application. However, the blocks in Enterprise Library provide rich support for crosscutting concerns, and therefore it’s not surprising that instead of your own custom code you can use the Enterprise Library blocks with Unity interception; the chapter also describes this approach.  
 
 > ![](images/note.gif)#!SPOKENBY(Jana)!#:
 > 
@@ -37,10 +37,10 @@ You can use policy injection and call handlers to integrate the functionality pr
 
 
 # Interceptors in Unity #
-This section describes the basic steps that youâ€™ll need to complete in order to use interception in your application. To illustrate some of the advantages of the interception approach, this chapter uses the same example crosscutting concerns, logging and caching, that the discussion of the decorator pattern in Chapter 4 uses. You may find it useful to refer back to Chapter 4, "[Interception](test-markdown_19429ab2-0050-486e-81ed-2db92281aca8.html)," for some of the details that relate to the logging and caching functionality.   
+This section describes the basic steps that you’ll need to complete in order to use interception in your application. To illustrate some of the advantages of the interception approach, this chapter uses the same example crosscutting concerns, logging and caching, that the discussion of the decorator pattern in Chapter 4 uses. You may find it useful to refer back to Chapter 4, "[Interception](http://msdn.microsoft.com/library/19429ab2-0050-486e-81ed-2db92281aca8)," for some of the details that relate to the logging and caching functionality.   
 
 > ![](images/note.gif)Note:
-> This section uses logging as an example of a crosscutting concern and shows how you can implement it using interception. Later in this chapter, youâ€™ll see how you can use the Enterprise Library logging block in place of your own implementation.
+> This section uses logging as an example of a crosscutting concern and shows how you can implement it using interception. Later in this chapter, you’ll see how you can use the Enterprise Library logging block in place of your own implementation.
 
 
 
@@ -59,7 +59,7 @@ container.AddNewExtension<Interception>();
 
 > ![](images/note.gif)#!SPOKENBY(Jana)!#:
 > 
-If you donâ€™t need to use Unity interception, you donâ€™t need to install the libraries through NuGet: interception is an extension to the core Unity installation.
+If you don’t need to use Unity interception, you don’t need to install the libraries through NuGet: interception is an extension to the core Unity installation.
 
 For more information about how to add the interception extension to a Unity container instance and about how you can use a configuration file instead of code, see the topic [Configuring a Container for Interception](http://go.microsoft.com/fwlink/p/?LinkID=304182).  
 
@@ -187,7 +187,7 @@ Behaviors do not always have to pass on a call to the next behavior in the pipel
 The behavior also filters for a method called **SaveTenant** after it has invoked the method on the next behavior in the pipeline (or the target object) and adds to the cache a copy of the tenant object saved by the target object.  
 
 > ![](images/note.gif)Note:
-> This example embeds a filter that determines when the interception behavior should be applied. Later in this chapter, youâ€™ll see how you replace this with a policy that you can define in a configuration file or with attributes in your code.
+> This example embeds a filter that determines when the interception behavior should be applied. Later in this chapter, you’ll see how you replace this with a policy that you can define in a configuration file or with attributes in your code.
 
 
 
@@ -211,7 +211,7 @@ The first parameter to the **RegisterType** method, an **Interceptor<InterfaceIn
 > ![](images/note.gif)Note:
 > The **InterfaceInterceptor** type defines interception based on a proxy object. You can also use the **TransparentProxyInterceptor** and **VirtualMethodInterceptor** types that are described later in this chapter.
 
-The order of the interception behavior parameters determines the order of these behaviors in the pipeline. In this example, the order is important because the caching interception behavior does not pass on the request from the client to the next behavior if it finds the item in the cache. If you reversed the order of these two interception behaviors, you wouldnâ€™t get any log messages if the requested item was found in the cache.  
+The order of the interception behavior parameters determines the order of these behaviors in the pipeline. In this example, the order is important because the caching interception behavior does not pass on the request from the client to the next behavior if it finds the item in the cache. If you reversed the order of these two interception behaviors, you wouldn’t get any log messages if the requested item was found in the cache.  
 
 > ![](images/note.gif)#!SPOKENBY(Jana)!#:
 > 
@@ -228,7 +228,7 @@ tenantStore.SaveTenant(tenant);
 ```
 
 The type of the **tenantStore** variable is not **TenantStore**, it is a new dynamically created proxy type that implements the **ITenantStore** interface. This proxy type includes the methods, properties, and events defined in the **ITenantStore** interface.  
-Figure 1 illustrates the scenario implemented by the two behaviors and type registration youâ€™ve seen in the previous code samples.  
+Figure 1 illustrates the scenario implemented by the two behaviors and type registration you’ve seen in the previous code samples.  
 ![](images/7708FE4F651AB54391D028161B98FD03.png)  
 <p class="label" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><div class="caption">Figure 1 - The behavior pipeline</div></p>The numbers in the following list correspond to the numbers in Figure 1.  
 1. The client object calls the **Resolve** method on the Unity container to obtain an object that implements the **ITenantStore** interface. The container uses the **ITenantStore** registration information to instantiate a **TenantStore** object, create a pipeline with the interception behaviors, and dynamically generate a proxy **TenantStore** object. 
@@ -286,7 +286,7 @@ tenantStore.SaveTenant(tenant);
 ((ITenantLogoStore)tenantStore).SaveLogo("adatum", logo);
 ```
 
-The drawback to using the **TransparentProxyInterceptor** type in place of the **InterfaceInterceptor** type is that it is significantly slower at run time. You can also use this approach if the **TenantStore** class doesnâ€™t implement any interfaces but does extend the **MarshalByRef** abstract base class.  
+The drawback to using the **TransparentProxyInterceptor** type in place of the **InterfaceInterceptor** type is that it is significantly slower at run time. You can also use this approach if the **TenantStore** class doesn’t implement any interfaces but does extend the **MarshalByRef** abstract base class.  
 
 > ![](images/note.gif)#!SPOKENBY(Carlos)!#:
 > 
@@ -397,7 +397,7 @@ Note how in this example the behavior intercepts the call to the **WriteLogMessa
 
 
 ## Interception Without the Unity Container ##
-The examples youâ€™ve seen so far show how to setup interception as part of the type registration in the Unity container. If you are not using a Unity container for DI or want to use interception without using a container, you can use the **Intercept** class. The following two examples show how you can setup interception using the Unity container, and using the **Intercept** class. Both examples attach the same interception pipeline to a **TenantStore** object.  
+The examples you’ve seen so far show how to setup interception as part of the type registration in the Unity container. If you are not using a Unity container for DI or want to use interception without using a container, you can use the **Intercept** class. The following two examples show how you can setup interception using the Unity container, and using the **Intercept** class. Both examples attach the same interception pipeline to a **TenantStore** object.  
 
 ```csharp
 // Example 1. Using a container.
@@ -447,14 +447,14 @@ You can use the **ThroughProxy** methods of the **Intercept** class to set up in
 
 > ![](images/note.gif)#!SPOKENBY(Carlos)!#:
 > 
-You donâ€™t need to use a Unity container if you want to use interception in your application.
+You don’t need to use a Unity container if you want to use interception in your application.
 
 For more information, see [Stand-alone Unity Interception](http://go.microsoft.com/fwlink/p/?LinkID=304185).  
 <a name="_Design_Time_Configuration" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>
 
 ## Design Time Configuration ##
 All of the examples so far in this chapter have configured interception programmatically, either in a Unity container or by using the **Intercept** class. However, in the same way that you can define your type registrations for the container in a configuration file, you can also define your interception behavior pipeline.  
-Youâ€™ve seen the following registration code for the **TenantStore** class several times already in this chapter.  
+You’ve seen the following registration code for the **TenantStore** class several times already in this chapter.  
 
 ```csharp
 // Configure the container for interception.
@@ -705,12 +705,12 @@ The **Order** property, which is set when you configure the policy, controls the
 
 > ![](images/note.gif)#!SPOKENBY(Carlos)!#:
 > 
-You may need to consider the order of the call handlers carefully, especially if some of them donâ€™t always pass the call on to the next handler. 
+You may need to consider the order of the call handlers carefully, especially if some of them don’t always pass the call on to the next handler. 
 
 
 
 ## Policy Injection and Attributes ##
-Using policies with matching rules such as those shown in the previous example means that you can apply and manage the policies when you configure your container. You can define the policies either in code, as shown in the example, or in a configuration file in a similar way to that described in the section â€œ<a href="#_Design_Time_Configuration" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Design Time Configuration</a>â€ earlier in this chapter.  
+Using policies with matching rules such as those shown in the previous example means that you can apply and manage the policies when you configure your container. You can define the policies either in code, as shown in the example, or in a configuration file in a similar way to that described in the section “<a href="#_Design_Time_Configuration" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Design Time Configuration</a>” earlier in this chapter.  
 However, an alternative approach is to use attributes in your business classes to indicate whether the container should invoke a particular call handler. In this case, the person writing the business class is responsible for making sure that all the crosscutting concerns are addressed.  
 
 > ![](images/note.gif)#!SPOKENBY(Jana)!#:
@@ -841,7 +841,7 @@ The **LogCallHandler** class from the Logging Application Block is a call handle
 
 > ![](images/note.gif)#!SPOKENBY(Jana)!#:
 > 
-Itâ€™s important that you configure the Logging Application Block before you configure the policy injection. The sample code in the PIABSamples solution that accompanies this guide includes a method **ConfigureLogger** to do this.
+It’s important that you configure the Logging Application Block before you configure the policy injection. The sample code in the PIABSamples solution that accompanies this guide includes a method **ConfigureLogger** to do this.
 
 The **LogCallHandler** constructor parameters enable you to configure the logging behavior and specify the order of the handler in relation to other call handlers. In this example, the container will invoke the **LogCallHandler** call handler before the user defined **CachingCallHandler** call handler.  
 If you want to control the behavior of the call handlers by using attributes in your business classes instead of through policies, you can enable this approach as shown in the following code sample.  
@@ -875,7 +875,7 @@ public Tenant GetTenant(string tenant)
 ```
 
 You can customize the information contained in the log message using attribute parameters, and control the order of the handlers in the pipeline using the **Order** parameter.  
-An alternative approach to configuring the Enterprise Library call handlers is through the **PolicyInjection** static faÃ§ade. The sample code in the PIABSamples solution that accompanies this guide includes an example of this approach.  
+An alternative approach to configuring the Enterprise Library call handlers is through the **PolicyInjection** static façade. The sample code in the PIABSamples solution that accompanies this guide includes an example of this approach.  
 
 
 ## A Real World Example ##

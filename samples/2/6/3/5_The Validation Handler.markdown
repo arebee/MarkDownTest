@@ -26,7 +26,7 @@ The validation handler applies the validation befor**e **invoking the method or 
 # Behavior of the Validation Handler #
 The validation handler does the following:  
 + It uses a custom rule set if provided, and the specification source (the rule location). 
-+ It looks for validation attributes explicitly specifiedÂ on parameters, such as in the following example. 
++ It looks for validation attributes explicitly specified on parameters, such as in the following example. 
 ```csharp
 public void Deposit([RangeValidator(typeof(Decimal), "0.0",
                      RangeBoundaryType.Exclusive, "0.0", 
@@ -170,7 +170,7 @@ Public Sub SomeMethod( _
 End Sub
 ```
 
-For more information about using call handler attributes and attribute-driven policies, see [Attribute-Driven Policies](test-markdown_456aac54-4ba3-4904-adae-36fb5227fabc.html).  
+For more information about using call handler attributes and attribute-driven policies, see [Attribute-Driven Policies](../2_Attribute-Driven Policies.markdown).  
 
 
 

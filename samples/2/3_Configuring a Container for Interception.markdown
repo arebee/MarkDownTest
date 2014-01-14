@@ -20,7 +20,7 @@ In Unity, interception is just another extension point instead of a self-contain
 There are two approaches for setting up Unity interception:  
 + The approach introduced in Unity 2.0 in which interception is configured as just another extension point element in the entry for a container type. Configure an extension point by using the **<sectionExtension>** and **<extension>** tags in the configuration file or by using the **RegisterType** method at run time. 
 + The pre-Unity 2.0 approach used in earlier versions of Unity in which interception is a self-contained part of the container configured by using the interception extension elements, <**extensionConfig**> and <**interceptors**> in the configuration file or by using the **SetInterceptorFor **or **SetDefaultInterceptorFor** methods on the interception container extension. This earlier style is still available primarily for backward compatibility.
-You can use a configuration file to specify a container-created behavior with any logical configuration. For detailed interception schema information, see [Configuration Files for Interception](test-markdown_af2f3726-4a3e-4e31-8f97-ebca0db3d907.html).  
+You can use a configuration file to specify a container-created behavior with any logical configuration. For detailed interception schema information, see [Configuration Files for Interception](http://msdn.microsoft.com/library/af2f3726-4a3e-4e31-8f97-ebca0db3d907).  
 This topic contains the following sections to describe how to configure a container for interception:  
 + <a href="#interception_config_ext" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Adding the Interception Extension to the Container</a>
 + <a href="#interception_config_type" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Configuring Interception of a Type</a>
@@ -80,7 +80,7 @@ When you add the **sectionExtension** element for the interception configuration
       </register>    
 ```
 
-For information on configuring interception at design time see [Configuration Files for Interception](test-markdown_af2f3726-4a3e-4e31-8f97-ebca0db3d907.html) and for run-time information see [Registering Interception](test-markdown_53570dcb-4520-4e42-b64d-84c9222841c0.html).  
+For information on configuring interception at design time see [Configuration Files for Interception](http://msdn.microsoft.com/library/af2f3726-4a3e-4e31-8f97-ebca0db3d907) and for run-time information see [Registering Interception](http://msdn.microsoft.com/library/53570dcb-4520-4e42-b64d-84c9222841c0).  
 
 
 # Unity 2.0 Approach #
@@ -132,7 +132,7 @@ The following example configures the container **Interception** extension by add
 
 
 # Legacy Approach #
-The pre-Unity 2.0 approach to configuring the container at run time called the **Configure** and the **SetInterceptorFor** (or **SetDefaultInterceptorFor**) methods on the interception extension. For details on legacy API see "Registering Interceptors Using SetInterceptorFor" in the [Registering Interception](test-markdown_53570dcb-4520-4e42-b64d-84c9222841c0.html) topic.  
+The pre-Unity 2.0 approach to configuring the container at run time called the **Configure** and the **SetInterceptorFor** (or **SetDefaultInterceptorFor**) methods on the interception extension. For details on legacy API see "Registering Interceptors Using SetInterceptorFor" in the [Registering Interception](http://msdn.microsoft.com/library/53570dcb-4520-4e42-b64d-84c9222841c0) topic.  
 
 > ![](../images/note.gif)Note:
 > The pre-Unity 2.0 approach automatically adds the policy injection. The behavior is implicitly set up in the underlying code. 
@@ -140,7 +140,7 @@ The pre-Unity 2.0 approach to configuring the container at run time called the *
 
 # More Information #
 <a name="interception_config_moreinfo" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>For information on configuring the Unity DI container, see the following Unity topics:  
-+ [Configuration Files for Interception](test-markdown_af2f3726-4a3e-4e31-8f97-ebca0db3d907.html)
-+ [Registering Interception](test-markdown_53570dcb-4520-4e42-b64d-84c9222841c0.html)
++ [Configuration Files for Interception](http://msdn.microsoft.com/library/af2f3726-4a3e-4e31-8f97-ebca0db3d907)
++ [Registering Interception](http://msdn.microsoft.com/library/53570dcb-4520-4e42-b64d-84c9222841c0)
 
 

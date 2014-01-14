@@ -110,6 +110,6 @@ You can also use a call handler attribute to specify the authorization provider 
     ProviderName:="provider-name")>
 ```
 
-For more information about using call handler attributes and attribute-driven policies, see [Attribute-Driven Policies](test-markdown_456aac54-4ba3-4904-adae-36fb5227fabc.html).  
+For more information about using call handler attributes and attribute-driven policies, see [Attribute-Driven Policies](../2_Attribute-Driven Policies.markdown).  
 
 

@@ -103,6 +103,6 @@ Public Sub Deposit(depositAmount As Decimal)
 End Sub
 ```
 
-For more information about using call handler attributes and attribute-driven policies, see [Attribute-Driven Policies](test-markdown_456aac54-4ba3-4904-adae-36fb5227fabc.html).  
+For more information about using call handler attributes and attribute-driven policies, see [Attribute-Driven Policies](../2_Attribute-Driven Policies.markdown).  
 
 

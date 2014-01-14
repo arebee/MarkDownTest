@@ -196,6 +196,6 @@ To set these properties using an attribute, add them as parameters to the attrib
                                InstanceName:="MyInstance", UseTotalCounter:=False)>
 ```
 
-For more information about using call handler attributes and attribute-driven policies, see [Attribute-Driven Policies](test-markdown_456aac54-4ba3-4904-adae-36fb5227fabc.html).  
+For more information about using call handler attributes and attribute-driven policies, see [Attribute-Driven Policies](../2_Attribute-Driven Policies.markdown).  
 
 

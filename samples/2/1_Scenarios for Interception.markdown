@@ -41,7 +41,7 @@ The following are factors to keep in mind when evaluating the use of Unity inter
 + Interception provides more flexibility than other alternatives, such as static inheritance. 
 
 # Limitations of Unity Interception #
-<a name="intro_whentouse" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>All interception technologies impose some extra processing requirements on applicationsâ€”although the design of the Unity mechanism minimizes these as much as possible. The features it provides, and the opportunities it offers to simplify coding solutions that minimize crosscutting concerns and promote manageability, usually outweigh the small extra processing requirement.   
+<a name="intro_whentouse" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>All interception technologies impose some extra processing requirements on applications—although the design of the Unity mechanism minimizes these as much as possible. The features it provides, and the opportunities it offers to simplify coding solutions that minimize crosscutting concerns and promote manageability, usually outweigh the small extra processing requirement.   
 There are some functional limitations when using Unity interception to intercept calls and route them through the behaviors pipeline instead of directly executing custom application code:  
 + Only virtual method interception allows for intercepting and adding functionality to non-public methods and they must be non-final, virtual instance methods.
 + There are some limitations on the type of objects that can be intercepted, depending on the interception mechanism you use. In general, objects must implement a known interface containing the methods and properties for which behaviors are required, inherit from the abstract base class **MarshalByRefObject**, or expose virtual methods that can be overridden in a derived class.
@@ -51,13 +51,13 @@ There are some functional limitations when using Unity interception to intercept
 # Alternatives to Using Unity Interception #
 <a name="intro_alternatives" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>Alternatives to using Unity to intercept objects may include the following:  
 + One of the aspect-oriented programming (AOP) frameworks available from third-party suppliers, such as the Spring Framework ([http://www.springframework.net/](http://www.springframework.net/))
-+ Traditional techniques for adding features such as logging, caching, authorization and validation to the members of a classâ€”for example, using custom code or the ASP.NET server controls
++ Traditional techniques for adding features such as logging, caching, authorization and validation to the members of a class—for example, using custom code or the ASP.NET server controls
 
 # More Information #
 For more information about Unity interception and policy injection, see the following topics:  
-+ [Using Interception and Policy Injection](test-markdown_7a2c7fa6-28c2-479e-8df9-b4651824eb94.html)
-+ [Unity Interception Techniques](test-markdown_9765b670-328a-488c-a219-d114381b7c75.html)
-+ [Policy Injection Matching Rules](test-markdown_412f3261-e0f5-4998-8373-5dc2ebda16af.html)
-+ [Attribute-Driven Policies](test-markdown_456aac54-4ba3-4904-adae-36fb5227fabc.html)
++ [Using Interception and Policy Injection](./6_Using Interception and Policy Injection.markdown)
++ [Unity Interception Techniques](./4_Unity Interception Techniques.markdown)
++ [Policy Injection Matching Rules](./6/1_Policy Injection Matching Rules.markdown)
++ [Attribute-Driven Policies](./6/2_Attribute-Driven Policies.markdown)
 
 

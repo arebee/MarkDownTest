@@ -18,15 +18,15 @@ Unity provides instance and type interception, enables interception with either 
 Unity interception enables you to effectively capture calls to objects and add additional functionality to the target object. Interception is useful when you want to modify the behavior for individual objects but not the entire class, very much as you would do when using the [Decorator pattern](http://en.wikipedia.org/wiki/Decorator_pattern). It provides a flexible approach for adding new behaviors to an object at run time.   
 This section contains the following topics that will help you to understand interception:  
 + <a href="#interception_about_unity" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">About Unity Interception</a>. This section of this topic describes the basic principles of interception in Unity.
-+ [Scenarios for Interception](test-markdown_ed7289ac-2407-409a-8a4d-04bc2a0c763a.html). This topic describes common scenarios addressed by Unity interception.
-+ [Behaviors for Interception](test-markdown_73690eea-cce2-48aa-a143-d6fcd80e1654.html). This topic describes behaviors you might implement with the **IInterceptionBehavior** interface to configure a container through the **RegisterType** method.
-+ [Configuring a Container for Interception](test-markdown_6a974ef0-4f5e-407f-b196-b126a08f9205.html). This topic describes how to configure the Unity container for interception.
-+ [Unity Interception Techniques](test-markdown_9765b670-328a-488c-a219-d114381b7c75.html). This topic describes in detail the design of Unity interception.
-+ [Using Interception in Applications](test-markdown_67c6df4d-4c1b-4020-82c8-f2cf87defbc2.html). This topic describes how you use Unity interception in your applications.
-+ [Using Interception and Policy Injection](test-markdown_7a2c7fa6-28c2-479e-8df9-b4651824eb94.html). This topic explains how policy injection through interception works in Unity, how you can use matching rules to select target classes and class members for policy injection, and how you can use the Enterprise Library call handlers with Unity.
++ [Scenarios for Interception](./2/1_Scenarios for Interception.markdown). This topic describes common scenarios addressed by Unity interception.
++ [Behaviors for Interception](./2/2_Behaviors for Interception.markdown). This topic describes behaviors you might implement with the **IInterceptionBehavior** interface to configure a container through the **RegisterType** method.
++ [Configuring a Container for Interception](./2/3_Configuring a Container for Interception.markdown). This topic describes how to configure the Unity container for interception.
++ [Unity Interception Techniques](./2/4_Unity Interception Techniques.markdown). This topic describes in detail the design of Unity interception.
++ [Using Interception in Applications](./2/5_Using Interception in Applications.markdown). This topic describes how you use Unity interception in your applications.
++ [Using Interception and Policy Injection](./2/6_Using Interception and Policy Injection.markdown). This topic explains how policy injection through interception works in Unity, how you can use matching rules to select target classes and class members for policy injection, and how you can use the Enterprise Library call handlers with Unity.
 
 > ![](images/note.gif)Note:
-> You cannot use Unity Interception in Windows Store apps. For more information, see [Target Audience and System Requirements](test-markdown_c678b828-6309-41e9-bc24-04c290d448bb.html).
+> You cannot use Unity Interception in Windows Store apps. For more information, see [Target Audience and System Requirements](http://msdn.microsoft.com/library/c678b828-6309-41e9-bc24-04c290d448bb).
 
 
 # About Unity Interception #
@@ -34,7 +34,7 @@ This section contains the following topics that will help you to understand inte
 
 
 > ![](images/note.gif)Note:
-> Unity interception can be used without a Unity dependency injection (DI) container by using the stand-alone API through the static **Intercept** class. For more information see [Using Interception in Applications](test-markdown_67c6df4d-4c1b-4020-82c8-f2cf87defbc2.html).
+> Unity interception can be used without a Unity dependency injection (DI) container by using the stand-alone API through the static **Intercept** class. For more information see [Using Interception in Applications](./2/5_Using Interception in Applications.markdown).
 
 
 The interception mechanism captures the call to an object at invocation time and provides the full implementation of the object. Unity uses the **Interceptor** class to specify the interception mechanism to be used, how interception happens, and the **InterceptionBehavior** class to describe what to do when an object is intercepted. Unity interception is designed to have its behaviors performed on the entire object and all of its methods. Interceptors play a role only at proxy (or derived type) creation time. Once the proxy, or derived type, is created, the interceptor has provided any required components for the intercepted object and incorporated them into the proxy's processing. The proxy can then complete its processing with no further input from the interceptor.  

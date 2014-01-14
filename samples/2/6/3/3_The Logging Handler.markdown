@@ -41,7 +41,7 @@ The logging handler does the following:
 + **CallTime **
 
 > ![](../../../images/note.gif)Note:
-> The values of parameters passed to the target member are available through the **ExtendedProperties** property of the **LogEntry** base class, which returns a populated **Dictionary** instance. You can optimize performance by configuring the properties the handler will collect information for and populate. Be aware that, because the properties in the preceding list are not available in the standard **LogEntry** class in the Logging Application Block, the default formatter templates will not display their values. You can use the **{property}** formatter token in the Log Formatter template to display these valuesâ€”for example, **{property(TypeName)}**. 
+> The values of parameters passed to the target member are available through the **ExtendedProperties** property of the **LogEntry** base class, which returns a populated **Dictionary** instance. You can optimize performance by configuring the properties the handler will collect information for and populate. Be aware that, because the properties in the preceding list are not available in the standard **LogEntry** class in the Logging Application Block, the default formatter templates will not display their values. You can use the **{property}** formatter token in the Log Formatter template to display these values—for example, **{property(TypeName)}**. 
 
 
 + It sends the **TraceLogEntry** to the Logging Application Block before, after, or both before and after the method call, depending on the configuration settings. 
@@ -157,6 +157,6 @@ To set these properties using an attribute, add them as parameters to the attrib
          BeforeMessage:="This occurs before the call to the target object")>
 ```
 
-For more information about using call handler attributes and attribute driven policies, see [Attribute-Driven Policies](test-markdown_456aac54-4ba3-4904-adae-36fb5227fabc.html).  
+For more information about using call handler attributes and attribute driven policies, see [Attribute-Driven Policies](../2_Attribute-Driven Policies.markdown).  
 
 

@@ -15,10 +15,10 @@ Output Filename: 2\6\2_Attribute-Driven Policies.markdown
 > 
 Developers specify handlers for classes and their members (methods and properties) using call handler attributes.
 
-A common scenario when using any policy injection framework is the requirement to specify policies for classes and their members using attributes directly applied to the appropriate classes and members. Unity interception supports this techniqueâ€”it actively discovers classes and members with attributes that define call handlers and applies the appropriate policies.  
+A common scenario when using any policy injection framework is the requirement to specify policies for classes and their members using attributes directly applied to the appropriate classes and members. Unity interception supports this technique—it actively discovers classes and members with attributes that define call handlers and applies the appropriate policies.  
 Developers specify handlers for classes and their members (methods and properties) using call handler attributes. Each attribute automatically instantiates the appropriate call handler, and applies the values of the attribute parameters to the properties of the call handler. Using directly applied attributes has the following advantages:  
 + Developers can ensure that Unity adds handlers that are specifically required in all circumstances and which should never be removed from the handler pipeline.
-+ Developers can fix the settings or values of specific parameters on classes and class membersâ€”for example, by defining that specific parameter values must always be greater than zero or that logging will always occur for specific methods.
++ Developers can fix the settings or values of specific parameters on classes and class members—for example, by defining that specific parameter values must always be greater than zero or that logging will always occur for specific methods.
 + Developers can prevent the application of a handler pipeline to specific methods and properties, or to whole classes, using the **ApplyNoPoliciesAttribute **attribute.
 However, applying policies through attributes applied directly to members of the target classes means that developers, administrators, and operators can no longer control the behavior of interception without changing the source code and recompiling the solution. In addition, using the **ApplyNoPoliciesAttribute **attribute may cause unexpected behavior for developers, administrators, and operators, who may attempt to add policies to an application without being aware of the applied attributes.  
 
@@ -53,6 +53,6 @@ Public Sub Deposit(<RangeValidator(GetType(Decimal), "0.0", _
 End Sub
 ```
 
-For information about creating call handlers and call handler attributes, see [Creating Interception Policy Injection Call Handlers](test-markdown_587afe3d-d6c7-447f-bb9b-8fd750174bcc.html) and [Creating Interception Handler Attributes](test-markdown_f9822e7e-003d-482d-9d72-5f795704367a.html). For information about Enterprise Library call handlers, see [Enterprise Library Call Handlers](test-markdown_969b6f02-4da3-41d1-8527-c9e0009d1632.html).  
+For information about creating call handlers and call handler attributes, see [Creating Interception Policy Injection Call Handlers](http://msdn.microsoft.com/library/587afe3d-d6c7-447f-bb9b-8fd750174bcc.html) and [Creating Interception Handler Attributes](test-markdown_f9822e7e-003d-482d-9d72-5f795704367a.html). For information about Enterprise Library call handlers, see [Enterprise Library Call Handlers](test-markdown_969b6f02-4da3-41d1-8527-c9e0009d1632).  
 
 

@@ -23,7 +23,7 @@ The return type matching rule does the following:
 + It compares the return type value to the type returned by members of the target object.
 + It performs the comparison on a non-case-sensitive basis if the **ignoreCase** parameter is **True** or on a case-sensitive basis if the **ignoreCase** parameter is **False**. 
 + It returns **True** if the type or type name matches the value of the match string; if the type name does not match the value of the match string, it returns **False**. 
-The matching rules for a policy can be defined in configuration or created and applied to policies at run time. For more information about configuring matching rules at design time, see [Configuration Files for Interception](test-markdown_af2f3726-4a3e-4e31-8f97-ebca0db3d907.html) in the section [Design-Time Configuration](test-markdown_d084d31d-6894-4cd3-ab6b-40f7a69899b2.html).  
+The matching rules for a policy can be defined in configuration or created and applied to policies at run time. For more information about configuring matching rules at design time, see [Configuration Files for Interception](http://msdn.microsoft.com/library/af2f3726-4a3e-4e31-8f97-ebca0db3d907.html) in the section [Design-Time Configuration](test-markdown_d084d31d-6894-4cd3-ab6b-40f7a69899b2).  
 
 # Creating a Return Type Matching Rule at Run Time #
 The following constructor overloads can be used when creating an instance of the **ReturnTypeMatchingRule** class.  
@@ -69,6 +69,6 @@ myContainer.Configure(Of Interception)() _
                 ("MyValidator", New ContainerControlledLifetimeManager())
 ```
 
-The code does not show how to create the container, add the Unity interception container extension, specify an interceptor, or resolve the intercepted target object. For more information about using matching rules with interception at run time, see [Registering Policy Injection Components](test-markdown_2090aa6d-38c7-4527-a211-aa4fa966e855.html).  
+The code does not show how to create the container, add the Unity interception container extension, specify an interceptor, or resolve the intercepted target object. For more information about using matching rules with interception at run time, see [Registering Policy Injection Components](http://msdn.microsoft.com/library/2090aa6d-38c7-4527-a211-aa4fa966e855).  
 
 
